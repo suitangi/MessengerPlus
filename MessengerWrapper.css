@@ -23,6 +23,10 @@ h6 {
 label {
     color: #aaa;
 }
+
+._4gd0 {
+    background-color: #282828
+}
 /* convo search box, to field (new message, add people), other inputs? */
 ._2y8y,
 ._2y8_,
@@ -69,8 +73,7 @@ input::-webkit-input-placeholder {
 }
 /* message */
 ._29_7 ._hh7,
-._29_7._-5k ._hh7,
-.clearfix _17pz {
+._29_7._-5k ._hh7 {
     background-color: #333333;
 }
 .__6j._43kk {
