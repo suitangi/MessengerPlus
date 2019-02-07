@@ -500,18 +500,19 @@ div._5a8u,
     background-color: #282828;
     border: 0px
 }
-._3nta :hover {
-    background-color: #282828;
+
+._3nta:hover {
+    background-color: #292929;
     border: 0px;
     cursor: pointer;
 }
 ._2n3v {
-    background-color: #282828;
-    border:0px;
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px;
     padding: 0px;
 }
-._2n3v :hover {
-    background-color: #282828;
+._2n3v:hover {
+    background-color: rgba(255, 255, 255, 0);
     border: 0px;
     padding: 0px;
 }
