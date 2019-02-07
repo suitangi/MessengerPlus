@@ -468,7 +468,10 @@ div._5a8u,
 ._17cj ._4j_k {
     color: #eee !important;
 }
-
+._2615 {
+    background-color: #343434;
+    color: #999999;
+}
 /* games menu edit */
 ._4lh7 {
     margin: 0px;
@@ -499,12 +502,25 @@ div._5a8u,
 }
 ._3nta :hover {
     background-color: #282828;
+    border: 0px;
     cursor: pointer;
 }
+._2n3v {
+    background-color: #282828;
+    border:0px;
+    padding: 0px;
+}
+._2n3v :hover {
+    background-color: #282828;
+    border: 0px;
+    padding: 0px;
+}
+
 ._2mes._3smo ._3smp,
-._5pw9 {
-    color: rgba(255, 255, 255, .6) !important;
-    background-color: #282828
+._5pw9,
+._36ic {
+    color: rgba(255, 255, 255, 0) !important;
+    background-color: rgba(255, 255, 255, 0) !important
 }
 ._5pwa,
 ._5pw6,
