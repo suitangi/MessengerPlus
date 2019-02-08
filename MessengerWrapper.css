@@ -6,7 +6,7 @@ html * {
 }
 
 ::-webkit-scrollbar {
-    display: none;
+    display: none!important;
 }
 
 h2,
@@ -14,14 +14,14 @@ h3,
 h4,
 h5,
 h6 {
-    color: #eee;
+    color: #eee!important;
 }
 ._5743,
 ._4rph ._4rpj {
     color: white !important;
 }
 label {
-    color: #aaa;
+    color: #aaa!important;
 }
 
 ._4gd0 {
@@ -45,11 +45,37 @@ input::-moz-placeholder {
 input::-webkit-input-placeholder {
     color: #888 !important;
 }
-
+/* pay */
+._49no,
+._2abm,
+._2z8r,
+._5exl{
+    background-color: #333333 !important;
+    border-color: #333333 !important;
+}
+._4uvi{
+    border-color: #282828 !important;
+}
+._50c_ {
+    background-color: #999999 !important;
+}
+._50cx{
+    color: #999999 !important;
+}
+._50cy {
+    color: #eee  !important;
+}
+._1-sv,
+._1-sz::before{
+    color: #aaa  !important;
+}
+._5fbv{
+    color: #eee !important;
+}
 /* main wrapper */
 ._4sp8 {
     background-color: #282828 !important;
-    color: #eee;
+    color: #eee!important;
 }
 /* detail wrapper */
 ._1q5- {
@@ -74,20 +100,20 @@ input::-webkit-input-placeholder {
 /* message */
 ._29_7 ._hh7,
 ._29_7._-5k ._hh7 {
-    background-color: #333333;
+    background-color: #333333!important;
 }
 .__6j._43kk {
-    border-bottom: 6px solid #333333;
-    border-left: 10px solid #3333;
-    border-right: 10px solid #333;
-    border-top: 6px solid #333333;
+    border-bottom: 6px solid #333333!important;
+    border-left: 10px solid #3333!important;
+    border-right: 10px solid #333!important;
+    border-top: 6px solid #333333!important;
 }
 
 ._4_j4 {
-    background-color: #282828;
+    background-color: #282828!important;
 }
 ._29_7 ._hh7 {
-    color: #a5a5a5;
+    color: #a5a5a5!important;
 }
 ._hh7 a {
     color: inherit !important;
@@ -98,16 +124,16 @@ input::-webkit-input-placeholder {
 ._29_7 ._hh7:active,
 ._-5k ._hh7,
 ._29_7 ._hh7 > span > a:hover {
-    background-color: #333;
+    background-color: #333!important;
 }
 /* own message */
 ._o46._nd_ ._hh7 {
-    background-color: #474747;
-    color: #f4f4f4;
+    background-color: #474747!important;
+    color: #f4f4f4!important;
 }
 ._o46._nd_ ._hh7:active,
 ._o46._nd_._-5k ._hh7 {
-    background-color: #3d3d3d;
+    background-color: #3d3d3d!important;
 }
 /* emoji-only messages */
 ._hh7._2f5r,
@@ -186,23 +212,23 @@ input::-webkit-input-placeholder {
     border-top-color: rgba(255, 255, 255, .1) !important;
 }
 ._5rpb {
-    color: #a5a5a5;
+    color: #a5a5a5!important;
 }
 /* make static stickers slightly more readable */
 /*
 ._2poz[style*="sticker"] {
-	background-color: #333;
-	border-radius: 5px;
+	background-color: #333!important;
+	border-radius: 5px!important;
 }
 */
 /* messenger thumb up stickers */
 ._576q {
-    -webkit-filter: brightness(75%);
-    filter: brightness(75%);
+    -webkit-filter: brightness(75%)!important;
+    filter: brightness(75%)!important;
 }
 /* facebook-removed messages et al */
 ._4sp8 .uiBoxYellow {
-    background-color: #662;
+    background-color: #662!important;
 }
 /* code bubbles */
 ._wu0 {
@@ -232,7 +258,7 @@ input::-webkit-input-placeholder {
 /* convo list */
 ._li ._1enh {
     /* fix convo list hiders */
-    background-color: #282828;
+    background-color: #282828!important;
 }
 /* inactive convo */
 ._1ht1 {
@@ -241,7 +267,7 @@ input::-webkit-input-placeholder {
 /* unread convo */
 ._1ht1._1ht3 {
     background-color: #333333 !important;
-    transition: background-color .5s;
+    transition: background-color .5s!important;
 }
 /* active convo */
 ._1ht1._1ht2 {
@@ -263,7 +289,7 @@ input::-webkit-input-placeholder {
 }
 /* timestamp */
 ._1ht7.timestamp {
-    color: #999;
+    color: #999!important;
 }
 ._1ht3 ._1ht7 {
     color: #efefef !important;
@@ -319,38 +345,38 @@ input::-webkit-input-placeholder {
 ._5r86,
 ._37wu,
 ._37wv {
-    border-color: #222;
+    border-color: #222!important;
 }
 ._eb3::before {
-    background-color: #222;
+    background-color: #222!important;
 }
 ._3mts .uiScrollableArea.contentAfter::after,
 ._5r8l .uiScrollableArea.contentAfter::after {
-    background-image: linear-gradient(transparent, #333);
+    background-image: linear-gradient(transparent, #333)!important;
 }
 /* sticker and games buttons */
 ._4rv6,
 ._4ce_,
 ._2t5t {
-    -webkit-filter: invert(1);
-    filter: invert(1);
+    -webkit-filter: invert(1)!important;
+    filter: invert(1)!important;
 
     opacity: .6 !important;
 }
 /* top left buttons */
 ._4kzu,
 ._30yy._2oc8 {
-    filter: saturate(0%) brightness(150%);
+    filter: saturate(0%) brightness(150%)!important;
 }
 ._cks ._2t5q ._2t5r {
-    filter: saturate(0%) brightness(150%);
+    filter: saturate(0%) brightness(150%)!important;
 }
 
 /* menu dropdown triangles */
 ._53ik ._53io,
 ._53il ._53io {
-    -webkit-filter: brightness(20%);
-    filter: brightness(20%);
+    -webkit-filter: brightness(20%)!important;
+    filter: brightness(20%)!important;
 }
 /* delivery indicators */
 ._3i_m ._9ah ._57e_ {
@@ -361,8 +387,8 @@ input::-webkit-input-placeholder {
 ._4-0h,
 ._57gs,
 label > input + span::before {
-    -webkit-filter: brightness(80%);
-    filter: brightness(80%);
+    -webkit-filter: brightness(80%)!important;
+    filter: brightness(80%)!important;
 }
 ._5iwm ._58ak::before,
 ._23ct,
@@ -370,8 +396,8 @@ label > input + span::before {
 :not(._3no3) > ._uwa,
 ._5jdr ._5jds,
 ._5nxe .img {
-    -webkit-filter: invert(1);
-    filter: invert(1);
+    -webkit-filter: invert(1)!important;
+    filter: invert(1)!important;
 }
 
 /* messenger dialogs, very important */
@@ -397,7 +423,7 @@ label > input + span::before {
 /* dialog head */
 ._4-i0 {
     background-color: #333 !important;
-    border-bottom-color: #2e2e2e;
+    border-bottom-color: #2e2e2e!important;
 }
 /* dialog heading, checkbox label */
 ._4-i0 ._52c9,
@@ -410,12 +436,12 @@ div._4-i2,
 div._5a8u,
 ._4t2a {
     background-color: #222 !important;
-    color: #eee;
+    color: #eee!important;
 }
 /* what about normal facebook dialogs? */
 ._t {
     background-color: #222 !important;
-    color: #eee;
+    color: #eee!important;
 }
 .fcb {
     color: white !important;
@@ -425,7 +451,7 @@ div._5a8u,
 }
 .uiBoxGray {
     background-color: #333 !important;
-    border-color: #2e2e2e;
+    border-color: #2e2e2e!important;
 }
 #captcha .captcha_refresh {
     color: lightgrey !important;
@@ -469,52 +495,52 @@ div._5a8u,
     color: #eee !important;
 }
 ._2615 {
-    background-color: #343434;
-    color: #999999;
+    background-color: #343434!important;
+    color: #999999!important;
 }
 /* games menu edit */
 ._4lh7 {
-    margin: 0px;
-    padding: 13px 10px 10px 10px;
-    background-color: #282828;
-    color: rgba(255, 255, 255, .6);
+    margin: 0px!important;
+    padding: 13px 10px 10px 10px!important;
+    background-color: #282828!important;
+    color: rgba(255, 255, 255, .6)!important;
 }
 ._4lh2 {
-    background-color: #282828;
-    border-bottom: 0px;
+    background-color: #282828!important;
+    border-bottom: 0px!important;
 }
 ._4lha ._4lhb {
-    color: rgba(255, 255, 255, .6);
+    color: rgba(255, 255, 255, .6)!important;
 }
 ._3rh0 {
-    background-color: #282828;
+    background-color: #282828!important;
 }
 
 /* plan */
 ._3wb1,
 ._3war,
 ._3wax {
-    border-color: #333333;
+    border-color: #333333!important;
 }
 ._3nta {
-    background-color: #282828;
+    background-color: #282828!important;
     border: 0px
 }
 
 ._3nta:hover {
-    background-color: #292929;
-    border: 0px;
-    cursor: pointer;
+    background-color: #292929!important;
+    border: 0px!important;
+    cursor: pointer!important;
 }
 ._2n3v {
-    background-color: rgba(255, 255, 255, 0);
-    border: 0px;
-    padding: 0px;
+    background-color: rgba(255, 255, 255, 0)!important;
+    border: 0px!important;
+    padding: 0px!important;
 }
 ._2n3v:hover {
-    background-color: rgba(255, 255, 255, 0);
-    border: 0px;
-    padding: 0px;
+    background-color: rgba(255, 255, 255, 0)!important;
+    border: 0px!important;
+    padding: 0px!important;
 }
 
 ._2mes._3smo ._3smp,
@@ -530,23 +556,23 @@ div._5a8u,
 }
 
 ._4t2a {
-    border-radius: 0px;
+    border-radius: 0px!important;
 }
 /*get rid of some borders */
 ._1li-,
 ._4rv3 {
-    border-top: 0px;
+    border-top: 0px!important;
 }
 ._36ic,
 ._673w {
-    border-bottom: 0px;
+    border-bottom: 0px!important;
 }
 ._1t2u,
 ._37wv {
-    border-left: 0px;
+    border-left: 0px!important;
 }
 ._37wu {
-    border-right: 0px;
+    border-right: 0px!important;
 }
 ._2pgc,
 ._54ng {
@@ -554,11 +580,11 @@ div._5a8u,
 }
 ._5r8a._5qcj,
 ._5r8a._5qck {
-    width: 40px;
+    width: 40px!important;
 }
 ._3-s_ {
-    margin-left: 3px;
-    margin-top: 5px;
+    margin-left: 3px!important;
+    margin-top: 5px!important;
 }
 /* stuff that should be grey */
 ._ih3,
@@ -596,6 +622,7 @@ div._5a8u,
 ._4x7m,
 ._4goh,
 ._4x7b,
-._2mjl {
+._2mjl,
+._39r5 {
     color: rgba(255, 255, 255, .6) !important;
 }
