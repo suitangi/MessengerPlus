@@ -9,6 +9,10 @@ html * {
     display: none!important;
 }
 
+.uiScrollableArea.fade .uiScrollableAreaWrap {
+    margin-right: -25px !important;
+}
+
 h2,
 h3,
 h4,
@@ -260,18 +264,19 @@ input::-webkit-input-placeholder {
 }
 /* unread convo */
 ._1ht1._1ht3 {
-    background-color: #333333 !important;
+    background-color: #383838!important;
     transition: background-color .5s!important;
 }
 /* active convo */
 ._1ht1._1ht2 {
-    background-color: #2d2d30 !important;
+    background-color: #303030 !important;
 }
 /* convo name */
 ._1ht6,
 ._3q34 {
     color: #eee !important;
 }
+
 /* group chat icon dps */
 ._57pl,
 ._57pm {

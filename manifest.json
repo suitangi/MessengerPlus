@@ -3,7 +3,7 @@
   "version": "1.0",
   "description": "A Dark Mode/Theme for the Facebook Messenger website https://www.messenger.com.",
   "manifest_version": 2,
-  "permissions": ["*://www.messenger.com/*"],
+  "permissions": ["*://www.messenger.com/*", "storage"],
   "icons": { "16": "icons/icon16.png",
            "48": "icons/icon48.png",
           "128": "icons/icon128.png" },
@@ -14,8 +14,10 @@
     {
         "matches": [ "*://www.messenger.com/*"],
         "css": ["MessengerWrapper.css"],
+        "run_at": "document_end",
+        "js": ["PinConvos.js"],
         "all_frames": true
     }
   ],
-  "web_accessible_resources": [ "MessengerWrapper.css"]
+  "web_accessible_resources": [ "MessengerWrapper.css", "PinConvos.js"]
 }
