@@ -24,14 +24,14 @@ label {
     color: #aaa!important;
 }
 
+
 ._4gd0 {
-    background-color: #282828 !important;
+    background-color: #282828
 }
 /* convo search box, to field (new message, add people), other inputs? */
 ._2y8y,
 ._2y8_,
 ._4jgt,
-input._58al,
 ._55r1,
 ._2pgc,
 ._3rh0 ._26ly {
@@ -45,33 +45,7 @@ input::-moz-placeholder {
 input::-webkit-input-placeholder {
     color: #888 !important;
 }
-/* pay */
-._49no,
-._2abm,
-._2z8r,
-._5exl{
-    background-color: #333333 !important;
-    border-color: #333333 !important;
-}
-._4uvi{
-    border-color: #282828 !important;
-}
-._50c_ {
-    background-color: #999999 !important;
-}
-._50cx{
-    color: #999999 !important;
-}
-._50cy {
-    color: #eee  !important;
-}
-._1-sv,
-._1-sz::before{
-    color: #aaa  !important;
-}
-._5fbv{
-    color: #eee !important;
-}
+
 /* main wrapper */
 ._4sp8 {
     background-color: #282828 !important;
@@ -128,7 +102,7 @@ input::-webkit-input-placeholder {
 }
 /* own message */
 ._o46._nd_ ._hh7 {
-    background-color: #474747!important;
+    background-color: #474747;
     color: #f4f4f4!important;
 }
 ._o46._nd_ ._hh7:active,
@@ -168,6 +142,16 @@ input::-webkit-input-placeholder {
 }
 ._3b4h {
     background-color: #2d2d30 !important;
+}
+._58al {
+    background-color: rgba(0, 0, 0, 0) !important;
+    color: #ccc !important;
+}
+._5jn1 {
+    color: #eee !important;
+}
+._9fw {
+    background-color: rgba(0, 0, 0, .09) !important;
 }
 /* polling message dialog */
 ._1mr_,
@@ -244,6 +228,7 @@ input::-webkit-input-placeholder {
 ._4_j5 {
     border-left: none !important;
 }
+
 /* convo name, mute label, user in user list, section headings */
 ._2jnv,
 ._2jnx,
@@ -255,10 +240,19 @@ input::-webkit-input-placeholder {
     color: #ddd !important;
 }
 
+/* person name */
+._3oh- a {
+    color: #ddd;
+}
+
+
 /* convo list */
 ._li ._1enh {
     /* fix convo list hiders */
     background-color: #282828!important;
+}
+._1ht1:hover {
+    background-color: #262626 !important;
 }
 /* inactive convo */
 ._1ht1 {
@@ -338,7 +332,7 @@ input::-webkit-input-placeholder {
 ._2i-c ._54ne ._54nh,
 ._2i-c ._54ne ._54nc,
 ._2i-c ._54ne {
-    background-color: #0066aa !important;
+    background-color: #505050 !important;
 }
 /* more stickers */
 ._5r8e,
@@ -399,7 +393,44 @@ label > input + span::before {
     -webkit-filter: invert(1)!important;
     filter: invert(1)!important;
 }
+/* camera */
+._3quh {
+    color: #eee !important;
+}
 
+
+
+/* pay */
+._49no,
+._2abm,
+._2z8r,
+._5exl {
+    background-color: #333333 !important;
+    border-color: #333333 !important;
+}
+._4uvi {
+    border-color: #282828 !important;
+}
+._50c_ {
+    background-color: #999999 !important;
+}
+._50cx {
+    color: #999999 !important;
+}
+._50cy {
+    color: #eee !important;
+}
+._1-sv,
+._1-sz::before {
+    color: #aaa !important;
+}
+._5fbv {
+    color: #eee !important;
+}
+._39r6,
+._39r7 {
+    color: #aaa !important;
+}
 /* messenger dialogs, very important */
 ._4-hz,
 ._4eby,
@@ -526,19 +557,18 @@ div._5a8u,
     background-color: #282828!important;
     border: 0px
 }
-
-._3nta:hover {
-    background-color: #292929!important;
+._3nta :hover {
+    background-color: #282828!important;
     border: 0px!important;
     cursor: pointer!important;
 }
 ._2n3v {
-    background-color: rgba(255, 255, 255, 0)!important;
+    background-color: #282828!important;
     border: 0px!important;
     padding: 0px!important;
 }
-._2n3v:hover {
-    background-color: rgba(255, 255, 255, 0)!important;
+._2n3v :hover {
+    background-color: #282828!important;
     border: 0px!important;
     padding: 0px!important;
 }
@@ -547,7 +577,7 @@ div._5a8u,
 ._5pw9,
 ._36ic {
     color: rgba(255, 255, 255, 0) !important;
-    background-color: rgba(255, 255, 255, 0) !important
+    background-color: rgba(255, 255, 255, 0) !important;
 }
 ._5pwa,
 ._5pw6,
@@ -622,7 +652,6 @@ div._5a8u,
 ._4x7m,
 ._4goh,
 ._4x7b,
-._2mjl,
-._39r5 {
+._2mjl {
     color: rgba(255, 255, 255, .6) !important;
 }
