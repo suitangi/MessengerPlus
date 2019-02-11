@@ -5,13 +5,19 @@ html * {
     font-weight: 300 !important;
 }
 
+/*
 ::-webkit-scrollbar {
     display: none!important;
 }
 
-.uiScrollableArea.fade .uiScrollableAreaWrap {
-    margin-right: -25px !important;
+.uiScrollableAreaBody{
+  margin-right: 0px !important;
 }
+
+.uiScrollableArea.fade .uiScrollableAreaWrap {
+    margin-right: -30px !important;
+}
+*/
 
 h2,
 h3,
@@ -28,9 +34,22 @@ label {
     color: #aaa!important;
 }
 
+/*MessengerPlus Functions*/
+.lightswitch{
+  font-size: 18px !important;
+  position: absolute !important;
+  top: 12px !important;
+  left: 40px !important;
+  filter: hue-rotate(180deg) !important;
+  filter: saturate(0.1) !important;
+  opacity: 1 !important;
+  color: rgba(255, 255, 255, 1) !important;
+}
 
+
+/*typing animation box*/
 ._4gd0 {
-    background-color: #282828
+    background-color: #282828 !important;
 }
 /* convo search box, to field (new message, add people), other inputs? */
 ._2y8y,
@@ -48,6 +67,10 @@ input::-moz-placeholder {
 }
 input::-webkit-input-placeholder {
     color: #888 !important;
+}
+/*images border */
+._3m31 {
+  border-color: #1d2129 !important;
 }
 
 /* main wrapper */
@@ -105,7 +128,7 @@ input::-webkit-input-placeholder {
     background-color: #333!important;
 }
 /* own message */
-._o46._nd_ ._hh7 {
+._o46._nd_ ._hh7{
     background-color: #474747;
     color: #f4f4f4!important;
 }
@@ -230,7 +253,7 @@ input::-webkit-input-placeholder {
     background-color: #282828 !important;
 }
 ._4_j5 {
-    border-left: none !important;
+    border-color: #282828 !important;
 }
 
 /* convo name, mute label, user in user list, section headings */

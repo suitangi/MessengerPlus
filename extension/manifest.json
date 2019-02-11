@@ -1,7 +1,7 @@
 {
-  "name": "DarkMessenger",
-  "version": "1.0",
-  "description": "A Dark Mode/Theme for the Facebook Messenger website https://www.messenger.com.",
+  "name": "MesssengerPlus",
+  "version": "1.2.2",
+  "description": "An extension that provides a Pin-Conversations functionality and Dark Theme for https://www.messenger.com.",
   "manifest_version": 2,
   "permissions": ["*://www.messenger.com/*", "storage"],
   "icons": { "16": "icons/icon16.png",
@@ -13,11 +13,10 @@
     "content_scripts": [
     {
         "matches": [ "*://www.messenger.com/*"],
-        "css": ["MessengerWrapper.css"],
         "run_at": "document_end",
         "js": ["PinConvos.js"],
         "all_frames": true
     }
   ],
-  "web_accessible_resources": [ "MessengerWrapper.css", "PinConvos.js"]
+  "web_accessible_resources": [ "DarkSkin.css", "PinConvos.js", "Default.css"]
 }
