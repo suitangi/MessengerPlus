@@ -2,9 +2,12 @@
 /* #141823 is Messenger's normal text colour, white is normal background colour */
 /* #1E1E1E and #2D2D30 are Visual Studio, don't ask */
 html * {
-    font-weight: 300 !important;
+    font-weight: 300;
 }
 
+b, strong {
+    font-weight: 600 !important;
+}
 /*
 ::-webkit-scrollbar {
     display: none!important;
@@ -618,20 +621,17 @@ div._5a8u,
 }
 /*get rid of some borders */
 ._1li-,
-._4rv3 {
-    border-top: 0px!important;
-}
-._36ic,
-._673w {
-    border-bottom: 0px!important;
-}
+._4rv3,
+._37wu,
 ._1t2u,
-._37wv {
-    border-left: 0px!important;
+._37wv,
+._36ic,
+._673w
+{
+    border-color: #282828!important;
 }
-._37wu {
-    border-right: 0px!important;
-}
+
+/*
 ._2pgc,
 ._54ng {
     border: 0px
@@ -644,6 +644,7 @@ div._5a8u,
     margin-left: 3px!important;
     margin-top: 5px!important;
 }
+*/
 /* stuff that should be grey */
 ._ih3,
 ._3tl0,
