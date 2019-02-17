@@ -1,3 +1,4 @@
+//creates an HTML element given the string to build said element
 function create(htmlStr) {
     var frag = document.createDocumentFragment(),
         temp = document.createElement('div');
@@ -8,6 +9,7 @@ function create(htmlStr) {
     return frag;
 }
 
+//loads css file
 function loadCSS(file) {
   var link = document.createElement("link");
   link.href = chrome.extension.getURL(file + '.css');
@@ -17,12 +19,14 @@ function loadCSS(file) {
   document.getElementsByTagName("head")[0].appendChild(link);
 }
 
+
+//unloads css file
 function unloadCSS(file) {
   var cssNode = document.getElementById(file);
   cssNode && cssNode.parentNode.removeChild(cssNode);
 }
 
-
+//pins all the convo in the list passed (used for beginning of run)
 function pinAll(list) {
   var cList = document.getElementsByClassName("_5l-3 _1ht1");
   var i = 0, j = 0;
@@ -41,17 +45,19 @@ function pinAll(list) {
   }
 }
 
+//pins the conversation passed in (convo passed is an HTML li element)
 function pin(convo) {
+
+    convo.className += " pinned";
     var lights = document.getElementsByClassName("lightswitch")[0];
     if(lights.getAttribute('data-light') == 'on'){
       convo.style.cssText = "background-color: #ddd !important; order: -1 !important;";
-      var pinSym = create("<div class = \"pinsym\" style=\"position: absolute; top:27px;right: 30px; font-size: 20px; opacity: 0.2; filter:saturate(0); filter:brightness(0)\">📌</div>");
     }
     else{
       convo.style.cssText = "background-color: #181818 !important; order: -1 !important;";
-      var pinSym = create("<div class = \"pinsym\" style=\"position: absolute; top:27px;right: 30px; font-size: 20px; opacity: 0.2; filter:saturate(0); filter:brightness(40)\">📌</div>");
-    }
 
+    }
+    var pinSym = create("<div class = \"pinsym\">📌</div>");
     var convoEle = convo.getElementsByClassName("_1qt3 _5l-3")[0];
     convoEle.insertBefore(pinSym, convoEle.lastChild.nextSibling);
     chrome.storage.sync.get({pinlist: ''}, function(data) {
@@ -63,6 +69,7 @@ function pin(convo) {
     })
 }
 
+//unpins the conversation pased in (HTML li element)
 function unpin(convo) {
     convo.style.cssText = "";
     while(convo.getElementsByClassName("pinsym").length > 0){
@@ -79,11 +86,13 @@ function unpin(convo) {
     })
 }
 
-
+//adds the pin button to the menu clicked
 function addPin(){
   var menuL = document.getElementsByClassName("_54nf");
-//  var buttL = document.getElementsByClassName("_pinbutton");  && buttL.length < 1
+
+  //if menu item exists
   if(menuL.length > 0){
+    //find the convo that has the menu open
     var cList = document.getElementsByClassName("_5l-3 _1ht1");
     var i;
     var convo;
@@ -94,12 +103,16 @@ function addPin(){
     var style = window.getComputedStyle(convo);
     var ord = style.getPropertyValue('order');
     menu = menuL[0];
+
+    //add pin if order = 0, add unpin if order = -1
     if (ord == 0)
       var fragment = create("<li class=\"_54ni __MenuItem _pinbutton\" role=\"Presentation\"><a class=\"_54nc\" role=\"menuitem\"><span><span class=\"_54nh _pintext\">Pin Conversation</span></span></a></li>");
     else
       var fragment = create("<li class=\"_54ni __MenuItem _pinbutton\" role=\"Presentation\"><a class=\"_54nc\" role=\"menuitem\"><span><span class=\"_54nh _pintext\">Unpin Conversation</span></span></a></li>");
     menu.insertBefore(fragment, menu.firstElementChild);
     var pinbutt = document.getElementsByClassName("_pinbutton")[0];
+
+    //setting the pin/unpin button mouseover stylechange
     pinbutt.onmouseover  = function() {
       var lights = document.getElementsByClassName("lightswitch")[0];
       if(lights.getAttribute('data-light') == 'on'){
@@ -110,10 +123,12 @@ function addPin(){
         document.getElementsByClassName("_pinbutton")[0].style.cssText = "background-color: #505050 !important; color: #fff !important;";
       }
     };
-    pinbutt.onmouseleave  = function() {
-      document.getElementsByClassName("_pinbutton")[0].style.cssText =   "";
+    pinbutt.onmouseleave = function() {
+      document.getElementsByClassName("_pinbutton")[0].style.cssText = "";
       document.getElementsByClassName("_pintext")[0].style.cssText = "";
     };
+
+    //setting the click action for the pin/unpin button
     if (ord == 0)
       pinbutt.addEventListener("click", function(){pin(convo); convo.getElementsByClassName("_5blh _4-0h")[0].click();});
     else
@@ -121,6 +136,7 @@ function addPin(){
   }
 }
 
+//sets/resets the onclick actions for the settings button
 function oncReset(){
     var bList = document.getElementsByClassName("_5blh _4-0h");
     var i  = 0;
@@ -139,13 +155,15 @@ document.addEventListener("click", function(){
     oncReset();
 });
 
+
+//to load at the start of the DOM after it has been dynamically built
 var start = setInterval(function(){
     console.log("Loading...");
     loadCSS("Default");
     if(document.getElementsByClassName("_5l-3 _1ht1").length > 0){
 
 
-      var lightswitch = create("<div class = \"lightswitch\" title = \"Light and Dark mode switch\" style=\"font-size: 18px; position: absolute; top: 12px; left: 40px; filter: hue-rotate(180deg); cursor:pointer;\">  💡</div>");
+      var lightswitch = create("<div class = \"lightswitch\" title = \"Light and Dark mode switch\">  💡</div>");
       var title = document.getElementsByClassName("_1tqi")[0]
       title.parentElement.insertBefore(lightswitch, title);
       var lights = document.getElementsByClassName("lightswitch")[0];
@@ -163,6 +181,7 @@ var start = setInterval(function(){
       lights.addEventListener("click", function(){
         if(lights.getAttribute('data-light') == 'on'){
           loadCSS("DarkSkin");
+          unloadCSS("Default");
           lights.setAttribute('data-light', 'off');
           chrome.storage.sync.set({light_switch: 'off'}, function() {});
 
@@ -172,12 +191,9 @@ var start = setInterval(function(){
             if(style.getPropertyValue('order') == -1)
               cList[i].style.cssText = "background-color: #181818 !important; order: -1 !important;";
           }
-          var pList = document.getElementsByClassName("pinsym")
-          for (var i = 0; i < pList.length; i++)
-            pList[i].style.cssText = "position: absolute; top:27px;right: 30px; font-size: 20px; opacity: 0.2; filter:saturate(0); filter:brightness(40)";
-
         }
         else{
+          loadCSS("Default");
           unloadCSS("DarkSkin");
           lights.setAttribute('data-light', 'on');
           chrome.storage.sync.set({light_switch: 'on'}, function() {});
@@ -188,9 +204,6 @@ var start = setInterval(function(){
             if(style.getPropertyValue('order') == -1)
               cList[i].style.cssText = "background-color: #ddd !important; order: -1 !important;";
           }
-          var pList = document.getElementsByClassName("pinsym")
-          for (var i = 0; i < pList.length; i++)
-            pList[i].style.cssText = "position: absolute; top:27px;right: 30px; font-size: 20px; opacity: 0.2; filter:saturate(0); filter:brightness(0)";
         }
       });
 

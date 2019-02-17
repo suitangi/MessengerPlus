@@ -7,3 +7,24 @@
 ._4rv3{
   border-color: #fff !important;
 }
+
+
+/* light_switch */
+.lightswitch {
+  font-size: 18px;
+  position: absolute;
+  top: 12px;
+  left: 40px;
+  filter: hue-rotate(180deg);
+  cursor: pointer;
+
+}
+
+.pinsym{
+  position: absolute;
+  top:27px;
+  right: 30px;
+  font-size: 20px;
+  opacity: 0.2;
+  filter:saturate(0) brightness(0);
+}

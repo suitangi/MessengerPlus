@@ -49,6 +49,15 @@ label {
   color: rgba(255, 255, 255, 1) !important;
 }
 
+.pinsym{
+  position: absolute !important;
+  top:27px !important;
+  right: 30px !important;
+  font-size: 20px !important;
+  opacity: 0.2 !important;
+  filter:saturate(0) brightness(40) !important;
+}
+
 
 /*typing animation box*/
 ._4gd0 {
@@ -631,10 +640,10 @@ div._5a8u,
     border-color: #282828!important;
 }
 
-/*
+
 ._2pgc,
 ._54ng {
-    border: 0px
+    border: 0px !important;
 }
 ._5r8a._5qcj,
 ._5r8a._5qck {
@@ -644,7 +653,7 @@ div._5a8u,
     margin-left: 3px!important;
     margin-top: 5px!important;
 }
-*/
+
 /* stuff that should be grey */
 ._ih3,
 ._3tl0,
