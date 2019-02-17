@@ -35,13 +35,6 @@ function pinAll(list) {
       if(list[i] == cList[j].firstChild.firstChild.getAttribute("data-href"))
         pin(cList[j]);
     }
-    // for(var k = 0; k < 10; k++){
-    //   document.getElementsByClassName("uiScrollableAreaWrap scrollable")[0].scrollTo(0,document.getElementsByClassName("uiScrollableAreaWrap scrollable")[0].scrollHeight);}
-    //
-    //   cList = document.getElementsByClassName("_5l-3 _1ht1");
-    //
-    // i --;
-    // console.log(i, j);
   }
 }
 
@@ -162,22 +155,24 @@ var start = setInterval(function(){
     loadCSS("Default");
     if(document.getElementsByClassName("_5l-3 _1ht1").length > 0){
 
-
+      //create the light switch and its variable-holder attribute
       var lightswitch = create("<div class = \"lightswitch\" title = \"Light and Dark mode switch\">  💡</div>");
       var title = document.getElementsByClassName("_1tqi")[0]
       title.parentElement.insertBefore(lightswitch, title);
       var lights = document.getElementsByClassName("lightswitch")[0];
-
       var att = document.createAttribute("data-light");
       att.value = "";
       lights.setAttributeNode(att);
 
+      //get the dark/light theme saved from chrome data
       chrome.storage.sync.get({light_switch: 'on'}, function(data) {
         lights.setAttribute('data-light', data.light_switch);
         // console.log(data.light_switch);
         if(data.light_switch == 'off')
           loadCSS("DarkSkin");
       });
+
+      //adds click listeners for the light switch
       lights.addEventListener("click", function(){
         if(lights.getAttribute('data-light') == 'on'){
           loadCSS("DarkSkin");
@@ -207,18 +202,21 @@ var start = setInterval(function(){
         }
       });
 
+
       oncReset();
       console.log("Loaded");
+
+      //getting the list of pinned convos from chrome storage
       chrome.storage.sync.get({pinlist: ''}, function(data) {
         var pinnedList = data.pinlist.trim().split(" ");
-        console.log(pinnedList);
+        // console.log(pinnedList); //Debug Purposes
         pinAll(pinnedList);
       });
 
+      //setting some CSS and reset functions
       document.getElementsByClassName("_5l-3 _1ht1")[0].parentElement.style.cssText = "display: flex !important; flex-direction: column !important;";
       document.getElementsByClassName("uiScrollableAreaWrap scrollable")[0].onscroll = function(){oncReset();};
 
-
       clearInterval(start);
     }
-}, 1000);
+}, 1000); //before DOM is dynamically loaded, check every second
