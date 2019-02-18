@@ -1,3 +1,10 @@
+::-webkit-scrollbar {
+    display: none!important;
+}
+.uiScrollableAreaBody{
+  margin-right: 0px !important;
+}
+
 /* borders */
 ._36ic,
 ._1t2u,

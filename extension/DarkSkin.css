@@ -2,13 +2,13 @@
 /* #141823 is Messenger's normal text colour, white is normal background colour */
 /* #1E1E1E and #2D2D30 are Visual Studio, don't ask */
 html * {
-    font-weight: 300;
+    font-weight: 300 !important;
 }
 
 b, strong {
     font-weight: 600 !important;
 }
-/*
+
 ::-webkit-scrollbar {
     display: none!important;
 }
@@ -16,7 +16,7 @@ b, strong {
 .uiScrollableAreaBody{
   margin-right: 0px !important;
 }
-
+/*
 .uiScrollableArea.fade .uiScrollableAreaWrap {
     margin-right: -30px !important;
 }
@@ -125,7 +125,8 @@ input::-webkit-input-placeholder {
 ._4_j4 {
     background-color: #282828!important;
 }
-._29_7 ._hh7 {
+._29_7 ._hh7,
+._pyf{
     color: #a5a5a5!important;
 }
 ._hh7 a {

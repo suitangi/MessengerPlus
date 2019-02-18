@@ -149,6 +149,23 @@ document.addEventListener("click", function(){
 });
 
 
+//Classchanged function for the MutationObserver for active conversation
+function classChanged() {
+	if(link != window.location.href){
+		window.link = window.location.href;
+		pos = window.link.lastIndexOf("/");
+		console.log(window.link.slice(pos + 1));
+	}
+	var act = document.getElementsByClassName("_1ht2")[0];
+    window.ob.observe(act, {
+      attributes: true,
+      attributeFilter: ["class"]
+    });
+}
+
+
+
+
 //to load at the start of the DOM after it has been dynamically built
 var start = setInterval(function(){
     console.log("Loading...");
@@ -205,6 +222,19 @@ var start = setInterval(function(){
 
       oncReset();
       console.log("Loaded");
+
+      //stuff needs to be global
+      window.link = window.location.href;
+      window.ob = new MutationObserver(function() {
+         classChanged();
+      });
+
+      // The mutation observer
+      var act = document.getElementsByClassName("_1ht2")[0];
+      window.ob.observe(act, {
+        attributes: true,
+        attributeFilter: ["class"]
+      });
 
       //getting the list of pinned convos from chrome storage
       chrome.storage.sync.get({pinlist: ''}, function(data) {
