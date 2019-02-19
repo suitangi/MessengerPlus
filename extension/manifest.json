@@ -14,9 +14,9 @@
     {
         "matches": [ "*://www.messenger.com/*"],
         "run_at": "document_end",
-        "js": ["PinConvos.js"],
+        "js": ["index.js"],
         "all_frames": true
     }
   ],
-  "web_accessible_resources": [ "DarkSkin.css", "PinConvos.js", "Default.css"]
+  "web_accessible_resources": [ "DarkSkin.css", "index.js", "Default.css", "ChatColor.css"]
 }

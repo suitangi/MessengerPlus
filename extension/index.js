@@ -163,6 +163,10 @@ function classChanged() {
     });
 }
 
+//Set the chat color to the color passed into the parameter
+function changeChatColor(col){
+  document.documentElement.style.setProperty("--chat-color", col);
+}
 
 
 
@@ -222,6 +226,10 @@ var start = setInterval(function(){
 
       oncReset();
       console.log("Loaded");
+
+      //chatcolortest
+      // loadCSS("ChatColor");
+      // changeChatColor("#384712");
 
       //stuff needs to be global
       window.link = window.location.href;
