@@ -1,9 +1,9 @@
 {
   "name": "MesssengerPlus",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "description": "An extension that provides a Pin-Conversations functionality and Dark Theme for https://www.messenger.com.",
   "manifest_version": 2,
-  "permissions": ["*://www.messenger.com/*", "storage"],
+  "permissions": ["*://www.messenger.com/t/*", "storage"],
   "icons": { "16": "icons/icon16.png",
            "48": "icons/icon48.png",
           "128": "icons/icon128.png" },
@@ -12,7 +12,7 @@
   },
     "content_scripts": [
     {
-        "matches": [ "*://www.messenger.com/*"],
+        "matches": [ "*://www.messenger.com/t/*"],
         "run_at": "document_end",
         "js": ["index.js"],
         "all_frames": true

@@ -11,8 +11,7 @@ function create(htmlStr) {
 
 //Replace Youtube links with embedded video
 function embedVideos(){
-  window.vList = document.getElementsByClassName("_5i_d");
-  console.log(window.vList);
+  window.ob2.disconnect();
   for(i = 0; i < window.vList.length; i++){
   	var vLink = window.vList[i].firstChild.href;
   	if(vLink != null && vLink.includes("www.youtube.com/watch?v=")){
@@ -22,42 +21,46 @@ function embedVideos(){
   		var hei = wid / 16 * 9;
   		var video = create("<iframe width=\""+ wid +"\" height=\""+ hei + "\" src=\"https://www.youtube.com/embed/" + vId + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
   		var placer = vList[i].firstChild;
+      window.vList[i].style.cssText = "border: 0px !important";
   		window.vList[i].insertBefore(video, placer);
   		window.vList[i].removeChild(placer);
     }
     else if(vLink != null && vLink.includes("www.youtube.com%2Fwatch%3Fv%3D")){
-      var vPos = vLink.lastIndexOf("www.youtube.com/watch?v=") + 30;
+      var vPos = vLink.lastIndexOf("www.youtube.com%2Fwatch%3Fv%3D") + 30;
   		var vId = vLink.slice(vPos);
+      if (vId.indexOf("%26") != -1 && vId.indexOf("%26") < vId.indexOf("&"))
+        vId = vId.slice(0, vId.indexOf("%26"));
+      else
+        vId = vId.slice(0, vId.indexOf("&"));
   		var wid = window.vList[i].offsetWidth;
   		var hei = wid / 16 * 9;
   		var video = create("<iframe width=\""+ wid +"\" height=\""+ hei + "\" src=\"https://www.youtube.com/embed/" + vId + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
   		var placer = vList[i].firstChild;
+      window.vList[i].style.cssText = "border: 0px !important";
   		window.vList[i].insertBefore(video, placer);
   		window.vList[i].removeChild(placer);
     }
-
   }
-  window.vList = document.getElementsByClassName("_5i_d");
+  window.ob2.observe(document.getElementsByClassName("_2k8v")[0].nextSibling ,{
+    childList: true,
+    subtree: true});
 }
 
-//turn video embeds on
-function embedOn(){
-  window.vList = document.getElementsByClassName("_5i_d");
-  embedVideos();
-  window.embed = setInterval(function(){
-    if(document.getElementsByClassName("_5i_d").length != vList.length){
-      embedVideos();
-    }
-    else {
-      window.vList = document.getElementsByClassName("_5i_d");
-    }
-  }, 1000);
-}
-
-//turn off video embeds
-function embedOff(){
-  clearInterval(window.embed);
-}
+// //turn video embeds on
+// function embedOn(){
+//   window.embed = setInterval(function(){
+//     console.log(window.vList.length, document.getElementsByClassName("_5i_d").length)
+//     if(document.getElementsByClassName("_5i_d").length != window.vList.length){
+//       console.log("work");
+//       embedVideos();
+//     }
+//   }, 1000);
+// }
+//
+// //turn off video embeds
+// function embedOff(){
+//   clearInterval(window.embed);
+// }
 
 //loads css file
 function loadCSS(file) {
@@ -204,7 +207,7 @@ function classChanged() {
 	if(link != window.location.href){
 		window.link = window.location.href;
 		pos = window.link.lastIndexOf("/");
-		console.log(window.link.slice(pos + 1));
+		// console.log(window.link.slice(pos + 1)); //debug purposes
 	}
 	var act = document.getElementsByClassName("_1ht2")[0];
     window.ob.observe(act, {
@@ -223,7 +226,7 @@ function changeChatColor(col){
 //to load at the start of the DOM after it has been dynamically built
 var start = setInterval(function(){
     console.log("Loading...");
-    loadCSS("Default");
+    loadCSS('Default');
     if(document.getElementsByClassName("_5l-3 _1ht1").length > 0){
 
       //create the light switch and its variable-holder attribute
@@ -246,8 +249,8 @@ var start = setInterval(function(){
       //adds click listeners for the light switch
       lights.addEventListener("click", function(){
         if(lights.getAttribute('data-light') == 'on'){
-          loadCSS("DarkSkin");
-          unloadCSS("Default");
+          loadCSS('DarkSkin');
+          unloadCSS('Default');
           lights.setAttribute('data-light', 'off');
           chrome.storage.sync.set({light_switch: 'off'}, function() {});
 
@@ -259,8 +262,8 @@ var start = setInterval(function(){
           }
         }
         else{
-          loadCSS("Default");
-          unloadCSS("DarkSkin");
+          loadCSS('Default');
+          unloadCSS('DarkSkin');
           lights.setAttribute('data-light', 'on');
           chrome.storage.sync.set({light_switch: 'on'}, function() {});
 
@@ -281,13 +284,12 @@ var start = setInterval(function(){
       // loadCSS("ChatColor");
       // changeChatColor("#384712");
 
-      //stuff needs to be global
+      //the mutation observer for changing active convos
       window.link = window.location.href;
       window.ob = new MutationObserver(function() {
-         classChanged();
+        setTimeout(function(){embedVideos();}, 500);
+        classChanged();
       });
-
-      // The mutation observer
       var act = document.getElementsByClassName("_1ht2")[0];
       window.ob.observe(act, {
         attributes: true,
@@ -301,9 +303,23 @@ var start = setInterval(function(){
         pinAll(pinnedList);
       });
 
-      //start the youtube replacements
-      // embedOn();
-      embedVideos();
+      //the mutation observer for new messages
+      window.ob2 = new MutationObserver(function() {
+        setTimeout(function(){embedVideos();}, 1000);
+      });
+
+      var videm = setInterval(function(){
+          if(document.getElementsByClassName("_2k8v")[0] != null){
+            window.ob2.observe(document.getElementsByClassName("_2k8v")[0].nextSibling ,{
+              childList: true,
+              subtree: true});
+          }
+          clearInterval(videm);
+      }, 100);
+
+      // start the youtube replacements
+      window.vList = document.getElementsByClassName("_5i_d");
+      setTimeout(function(){embedVideos();}, 500);
 
       //setting some CSS and reset functions
       document.getElementsByClassName("_5l-3 _1ht1")[0].parentElement.style.cssText = "display: flex !important; flex-direction: column !important;";
