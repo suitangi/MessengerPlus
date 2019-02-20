@@ -9,6 +9,56 @@ function create(htmlStr) {
     return frag;
 }
 
+//Replace Youtube links with embedded video
+function embedVideos(){
+  window.vList = document.getElementsByClassName("_5i_d");
+  console.log(window.vList);
+  for(i = 0; i < window.vList.length; i++){
+  	var vLink = window.vList[i].firstChild.href;
+  	if(vLink != null && vLink.includes("www.youtube.com/watch?v=")){
+  		var vPos = vLink.lastIndexOf("www.youtube.com/watch?v=") + 24;
+  		var vId = vLink.slice(vPos);
+  		var wid = window.vList[i].offsetWidth;
+  		var hei = wid / 16 * 9;
+  		var video = create("<iframe width=\""+ wid +"\" height=\""+ hei + "\" src=\"https://www.youtube.com/embed/" + vId + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
+  		var placer = vList[i].firstChild;
+  		window.vList[i].insertBefore(video, placer);
+  		window.vList[i].removeChild(placer);
+    }
+    else if(vLink != null && vLink.includes("www.youtube.com%2Fwatch%3Fv%3D")){
+      var vPos = vLink.lastIndexOf("www.youtube.com/watch?v=") + 30;
+  		var vId = vLink.slice(vPos);
+  		var wid = window.vList[i].offsetWidth;
+  		var hei = wid / 16 * 9;
+  		var video = create("<iframe width=\""+ wid +"\" height=\""+ hei + "\" src=\"https://www.youtube.com/embed/" + vId + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
+  		var placer = vList[i].firstChild;
+  		window.vList[i].insertBefore(video, placer);
+  		window.vList[i].removeChild(placer);
+    }
+
+  }
+  window.vList = document.getElementsByClassName("_5i_d");
+}
+
+//turn video embeds on
+function embedOn(){
+  window.vList = document.getElementsByClassName("_5i_d");
+  embedVideos();
+  window.embed = setInterval(function(){
+    if(document.getElementsByClassName("_5i_d").length != vList.length){
+      embedVideos();
+    }
+    else {
+      window.vList = document.getElementsByClassName("_5i_d");
+    }
+  }, 1000);
+}
+
+//turn off video embeds
+function embedOff(){
+  clearInterval(window.embed);
+}
+
 //loads css file
 function loadCSS(file) {
   var link = document.createElement("link");
@@ -250,6 +300,10 @@ var start = setInterval(function(){
         // console.log(pinnedList); //Debug Purposes
         pinAll(pinnedList);
       });
+
+      //start the youtube replacements
+      // embedOn();
+      embedVideos();
 
       //setting some CSS and reset functions
       document.getElementsByClassName("_5l-3 _1ht1")[0].parentElement.style.cssText = "display: flex !important; flex-direction: column !important;";
