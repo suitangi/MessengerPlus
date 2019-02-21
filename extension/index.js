@@ -9,41 +9,59 @@ function create(htmlStr) {
     return frag;
 }
 
+//embeds a youtube video with the specific vId
+function embedVideo(vId){
+  var wid = window.vList[i].offsetWidth;
+  var hei = wid / 16 * 9;
+  var video = create("<iframe width=\""+ wid +"\" height=\""+ hei + "\" src=\"https://www.youtube.com/embed/" + vId + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
+  var placer = window.vList[i].firstChild;
+  window.vList[i].style.cssText = "border: 0px !important";
+  window.vList[i].insertBefore(video, placer);
+  window.vList[i].removeChild(placer);
+}
+
 //Replace Youtube links with embedded video
 function embedVideos(){
   window.ob2.disconnect();
   for(i = 0; i < window.vList.length; i++){
   	var vLink = window.vList[i].firstChild.href;
-  	if(vLink != null && vLink.includes("www.youtube.com/watch?v=")){
-  		var vPos = vLink.lastIndexOf("www.youtube.com/watch?v=") + 24;
-  		var vId = vLink.slice(vPos);
-  		var wid = window.vList[i].offsetWidth;
-  		var hei = wid / 16 * 9;
-  		var video = create("<iframe width=\""+ wid +"\" height=\""+ hei + "\" src=\"https://www.youtube.com/embed/" + vId + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
-  		var placer = vList[i].firstChild;
-      window.vList[i].style.cssText = "border: 0px !important";
-  		window.vList[i].insertBefore(video, placer);
-  		window.vList[i].removeChild(placer);
-    }
-    else if(vLink != null && vLink.includes("www.youtube.com%2Fwatch%3Fv%3D")){
-      var vPos = vLink.lastIndexOf("www.youtube.com%2Fwatch%3Fv%3D") + 30;
-  		var vId = vLink.slice(vPos);
-      if (vId.indexOf("%26") != -1 && vId.indexOf("%26") < vId.indexOf("&"))
-        vId = vId.slice(0, vId.indexOf("%26"));
-      else
-        vId = vId.slice(0, vId.indexOf("&"));
-  		var wid = window.vList[i].offsetWidth;
-  		var hei = wid / 16 * 9;
-  		var video = create("<iframe width=\""+ wid +"\" height=\""+ hei + "\" src=\"https://www.youtube.com/embed/" + vId + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
-  		var placer = vList[i].firstChild;
-      window.vList[i].style.cssText = "border: 0px !important";
-  		window.vList[i].insertBefore(video, placer);
-  		window.vList[i].removeChild(placer);
+    if(vLink != null){
+    	if(vLink.includes("www.youtube.com/watch?v=")){ //standard youtube link
+    		var vPos = vLink.lastIndexOf("www.youtube.com/watch?v=") + 24;
+    		var vId = vLink.slice(vPos);
+        embedVideo(vId);
+      }
+      else if(vLink.includes("www.youtube.com%2Fwatch%3Fv%3D")){ //messenger redirect
+        var vPos = vLink.lastIndexOf("www.youtube.com%2Fwatch%3Fv%3D") + 30;
+    		var vId = vLink.slice(vPos);
+        if (vId.indexOf("%26") != -1 && vId.indexOf("%26") < vId.indexOf("&"))
+          vId = vId.slice(0, vId.indexOf("%26"));
+        else
+          vId = vId.slice(0, vId.indexOf("&"));
+          embedVideo(vId);
+      }
+      else if(vLink.includes("youtu.be%2F")){ //linkedshortened messenger redirect
+        var vPos = vLink.lastIndexOf("youtu.be%2F") + 11;
+        var vId = vLink.slice(vPos);
+        if (vId.indexOf("%26") != -1 && vId.indexOf("%26") < vId.indexOf("&"))
+          vId = vId.slice(0, vId.indexOf("%26"));
+        else
+          vId = vId.slice(0, vId.indexOf("&"));
+          embedVideo(vId);
+      }
+      else if(vLink.includes("youtu.be/")){ //linkedshortened messenger redirect
+        var vPos = vLink.lastIndexOf("youtu.be/") + 9;
+        var vId = vLink.slice(vPos);
+          embedVideo(vId);
+      }
+
     }
   }
-  window.ob2.observe(document.getElementsByClassName("_2k8v")[0].nextSibling ,{
-    childList: true,
-    subtree: true});
+  if(document.getElementsByClassName("_2k8v")[0] != null){
+    window.ob2.observe(document.getElementsByClassName("_2k8v")[0].nextSibling ,{
+      childList: true,
+      subtree: true});
+  }
 }
 
 // //turn video embeds on
