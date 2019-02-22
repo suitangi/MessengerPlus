@@ -26,13 +26,13 @@ function embedVideos(){
   for(i = 0; i < window.vList.length; i++){
   	var vLink = window.vList[i].firstChild.href;
     if(vLink != null){
-    	if(vLink.includes("www.youtube.com/watch?v=")){ //standard youtube link
-    		var vPos = vLink.lastIndexOf("www.youtube.com/watch?v=") + 24;
+    	if(vLink.includes("youtube.com/watch?v=")){ //standard youtube link
+    		var vPos = vLink.lastIndexOf("youtube.com/watch?v=") + 20;
     		var vId = vLink.slice(vPos);
         embedVideo(vId);
       }
-      else if(vLink.includes("www.youtube.com%2Fwatch%3Fv%3D")){ //messenger redirect
-        var vPos = vLink.lastIndexOf("www.youtube.com%2Fwatch%3Fv%3D") + 30;
+      else if(vLink.includes("youtube.com%2Fwatch%3Fv%3D")){ //messenger redirect
+        var vPos = vLink.lastIndexOf("youtube.com%2Fwatch%3Fv%3D") + 26;
     		var vId = vLink.slice(vPos);
         if (vId.indexOf("%26") != -1 && vId.indexOf("%26") < vId.indexOf("&"))
           vId = vId.slice(0, vId.indexOf("%26"));
