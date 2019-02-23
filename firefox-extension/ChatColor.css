@@ -1,0 +1,7 @@
+root:{
+  --chat-color: #474747
+}
+
+._43by{
+  background-color: var(--chat-color) !important;
+}

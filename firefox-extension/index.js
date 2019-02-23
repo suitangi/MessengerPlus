@@ -10,10 +10,10 @@ function create(htmlStr) {
 }
 
 //embeds a youtube video with the specific vId
-function embedVideo(vId){
+function embedVideo(i, source, vId){
   var wid = window.vList[i].offsetWidth;
   var hei = wid / 16 * 9;
-  var video = create("<iframe width=\""+ wid +"\" height=\""+ hei + "\" src=\"https://www.youtube.com/embed/" + vId + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
+  var video = create("<iframe width=\""+ wid +"\" height=\""+ hei + "\" src=\"" + source + vId + "\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
   var placer = window.vList[i].firstChild;
   window.vList[i].style.cssText = "border: 0px !important";
   window.vList[i].insertBefore(video, placer);
@@ -29,31 +29,38 @@ function embedVideos(){
     	if(vLink.includes("youtube.com/watch?v=")){ //standard youtube link
     		var vPos = vLink.lastIndexOf("youtube.com/watch?v=") + 20;
     		var vId = vLink.slice(vPos);
-        embedVideo(vId);
+        embedVideo(i, "https://www.youtube.com/embed/", vId);
       }
-      else if(vLink.includes("youtube.com%2Fwatch%3Fv%3D")){ //messenger redirect
+      else if(vLink.includes("youtube.com%2Fwatch%3Fv%3D")){ //messenger yt redirect
         var vPos = vLink.lastIndexOf("youtube.com%2Fwatch%3Fv%3D") + 26;
     		var vId = vLink.slice(vPos);
         if (vId.indexOf("%26") != -1 && vId.indexOf("%26") < vId.indexOf("&"))
           vId = vId.slice(0, vId.indexOf("%26"));
         else
           vId = vId.slice(0, vId.indexOf("&"));
-          embedVideo(vId);
+          embedVideo(i, "https://www.youtube.com/embed/", vId);
       }
-      else if(vLink.includes("youtu.be%2F")){ //linkedshortened messenger redirect
+      else if(vLink.includes("youtu.be%2F")){ //linkedshortened yt messenger redirect
         var vPos = vLink.lastIndexOf("youtu.be%2F") + 11;
         var vId = vLink.slice(vPos);
         if (vId.indexOf("%26") != -1 && vId.indexOf("%26") < vId.indexOf("&"))
           vId = vId.slice(0, vId.indexOf("%26"));
         else
           vId = vId.slice(0, vId.indexOf("&"));
-          embedVideo(vId);
+          embedVideo(i, "https://www.youtube.com/embed/", vId);
       }
-      else if(vLink.includes("youtu.be/")){ //linkedshortened messenger redirect
+      else if(vLink.includes("youtu.be/")){ //linkedshortened yt messenger redirect
         var vPos = vLink.lastIndexOf("youtu.be/") + 9;
         var vId = vLink.slice(vPos);
-          embedVideo(vId);
+          embedVideo(i, "https://www.youtube.com/embed/", vId);
       }
+      else if(vLink.includes("clips.twitch.tv%2F")){//messenger redirect twitch clip
+        console.log("test");
+        // var vPos = vLink.lastIndexOf("clips.twitch.tv%2F") + 18;
+        // var vId = vLink.slice(vPos);
+        //   embedVideo(i, "https://clips.twitch.tv/embed?clip=", vId);
+      }
+      console.log(i, (vLink.includes("clips.twitch.tv%2F"))
 
     }
   }
