@@ -250,110 +250,118 @@ function changeChatColor(col){
   document.documentElement.style.setProperty("--chat-color", col);
 }
 
+//load this for chat pages
+if(window.location.href.includes("messenger.com/t/")){
+  //to load at the start of the DOM after it has been dynamically built
+  var start = setInterval(function(){
+      console.log("Loading...");
+      loadCSS('css/Default');
+      if(document.getElementsByClassName("_5l-3 _1ht1").length > 0){
 
+        //create the light switch and its variable-holder attribute
+        var lightswitch = create("<div class = \"lightswitch\" title = \"Light and Dark mode switch\"></div>");
+        var title = document.getElementsByClassName("_1tqi")[0]
+        title.parentElement.insertBefore(lightswitch, title);
+        var lights = document.getElementsByClassName("lightswitch")[0];
+        var att = document.createAttribute("data-light");
+        att.value = "";
+        lights.setAttributeNode(att);
 
-//to load at the start of the DOM after it has been dynamically built
-var start = setInterval(function(){
-    console.log("Loading...");
-    loadCSS('css/Default');
-    if(document.getElementsByClassName("_5l-3 _1ht1").length > 0){
+        //get the dark/light theme saved from chrome data
+        chrome.storage.sync.get({light_switch: 'on'}, function(data) {
+          lights.setAttribute('data-light', data.light_switch);
+          if(data.light_switch == 'off')
+            loadCSS("css/DarkSkin");
+        });
 
-      //create the light switch and its variable-holder attribute
-      var lightswitch = create("<div class = \"lightswitch\" title = \"Light and Dark mode switch\"></div>");
-      var title = document.getElementsByClassName("_1tqi")[0]
-      title.parentElement.insertBefore(lightswitch, title);
-      var lights = document.getElementsByClassName("lightswitch")[0];
-      var att = document.createAttribute("data-light");
-      att.value = "";
-      lights.setAttributeNode(att);
+        //adds click listeners for the light switch
+        lights.addEventListener("click", function(){
+          if(lights.getAttribute('data-light') == 'on'){
+            loadCSS('css/DarkSkin');
+            unloadCSS('css/Default');
+            lights.setAttribute('data-light', 'off');
+            chrome.storage.sync.set({light_switch: 'off'}, function() {});
 
-      //get the dark/light theme saved from chrome data
-      chrome.storage.sync.get({light_switch: 'on'}, function(data) {
-        lights.setAttribute('data-light', data.light_switch);
-        // console.log(data.light_switch);
-        if(data.light_switch == 'off')
-          loadCSS("css/DarkSkin");
-      });
-
-      //adds click listeners for the light switch
-      lights.addEventListener("click", function(){
-        if(lights.getAttribute('data-light') == 'on'){
-          loadCSS('css/DarkSkin');
-          unloadCSS('css/Default');
-          lights.setAttribute('data-light', 'off');
-          chrome.storage.sync.set({light_switch: 'off'}, function() {});
-
-          var cList = document.getElementsByClassName("_5l-3 _1ht1");
-          for (var i = 0; i < cList.length; i++) {
-            var style = window.getComputedStyle(cList[i]);
-            if(style.getPropertyValue('order') == -1)
-              cList[i].style.cssText = "background-color: #181818 !important; order: -1 !important;";
+            var cList = document.getElementsByClassName("_5l-3 _1ht1");
+            for (var i = 0; i < cList.length; i++) {
+              var style = window.getComputedStyle(cList[i]);
+              if(style.getPropertyValue('order') == -1)
+                cList[i].style.cssText = "background-color: #181818 !important; order: -1 !important;";
+            }
           }
-        }
-        else{
-          loadCSS('css/Default');
-          unloadCSS('css/DarkSkin');
-          lights.setAttribute('data-light', 'on');
-          chrome.storage.sync.set({light_switch: 'on'}, function() {});
+          else{
+            loadCSS('css/Default');
+            unloadCSS('css/DarkSkin');
+            lights.setAttribute('data-light', 'on');
+            chrome.storage.sync.set({light_switch: 'on'}, function() {});
 
-          var cList = document.getElementsByClassName("_5l-3 _1ht1");
-          for (var i = 0; i < cList.length; i++) {
-            var style = window.getComputedStyle(cList[i]);
-            if(style.getPropertyValue('order') == -1)
-              cList[i].style.cssText = "background-color: #ddd !important; order: -1 !important;";
+            var cList = document.getElementsByClassName("_5l-3 _1ht1");
+            for (var i = 0; i < cList.length; i++) {
+              var style = window.getComputedStyle(cList[i]);
+              if(style.getPropertyValue('order') == -1)
+                cList[i].style.cssText = "background-color: #ddd !important; order: -1 !important;";
+            }
           }
-        }
-      });
+        });
 
 
-      oncReset();
-      console.log("Loaded");
+        oncReset();
+        console.log("Loaded");
 
-      //chatcolortest
-      // loadCSS("ChatColor");
-      // changeChatColor("#384712");
+        //chatcolortest
+        // loadCSS("ChatColor");
+        // changeChatColor("#384712");
 
-      //the mutation observer for changing active convos
-      window.link = window.location.href;
-      window.ob = new MutationObserver(function() {
+        //the mutation observer for changing active convos
+        window.link = window.location.href;
+        window.ob = new MutationObserver(function() {
+          setTimeout(function(){embedVideos();}, 500);
+          classChanged();
+        });
+        var act = document.getElementsByClassName("_1ht2")[0];
+        window.ob.observe(act, {
+          attributes: true,
+          attributeFilter: ["class"]
+        });
+
+        //getting the list of pinned convos from chrome storage
+        chrome.storage.sync.get({pinlist: ''}, function(data) {
+          var pinnedList = data.pinlist.trim().split(" ");
+          // console.log(pinnedList); //Debug Purposes
+          pinAll(pinnedList);
+        });
+
+        //the mutation observer for new messages
+        window.ob2 = new MutationObserver(function() {
+          setTimeout(function(){embedVideos();}, 1000);
+        });
+
+        var videm = setInterval(function(){
+            if(document.getElementsByClassName("_2k8v")[0] != null){
+              window.ob2.observe(document.getElementsByClassName("_2k8v")[0].nextSibling ,{
+                childList: true,
+                subtree: true});
+            }
+            clearInterval(videm);
+        }, 100);
+
+        // start the youtube replacements
+        window.vList = document.getElementsByClassName("_5i_d");
         setTimeout(function(){embedVideos();}, 500);
-        classChanged();
-      });
-      var act = document.getElementsByClassName("_1ht2")[0];
-      window.ob.observe(act, {
-        attributes: true,
-        attributeFilter: ["class"]
-      });
 
-      //getting the list of pinned convos from chrome storage
-      chrome.storage.sync.get({pinlist: ''}, function(data) {
-        var pinnedList = data.pinlist.trim().split(" ");
-        // console.log(pinnedList); //Debug Purposes
-        pinAll(pinnedList);
-      });
+        //setting some CSS and reset functions
+        document.getElementsByClassName("_5l-3 _1ht1")[0].parentElement.style.cssText = "display: flex !important; flex-direction: column !important;";
+        document.getElementsByClassName("uiScrollableAreaWrap scrollable")[0].onscroll = function(){oncReset();};
 
-      //the mutation observer for new messages
-      window.ob2 = new MutationObserver(function() {
-        setTimeout(function(){embedVideos();}, 1000);
-      });
-
-      var videm = setInterval(function(){
-          if(document.getElementsByClassName("_2k8v")[0] != null){
-            window.ob2.observe(document.getElementsByClassName("_2k8v")[0].nextSibling ,{
-              childList: true,
-              subtree: true});
-          }
-          clearInterval(videm);
-      }, 100);
-
-      // start the youtube replacements
-      window.vList = document.getElementsByClassName("_5i_d");
-      setTimeout(function(){embedVideos();}, 500);
-
-      //setting some CSS and reset functions
-      document.getElementsByClassName("_5l-3 _1ht1")[0].parentElement.style.cssText = "display: flex !important; flex-direction: column !important;";
-      document.getElementsByClassName("uiScrollableAreaWrap scrollable")[0].onscroll = function(){oncReset();};
-
-      clearInterval(start);
-    }
-}, 1000); //before DOM is dynamically loaded, check every second
+        clearInterval(start);
+      }
+  }, 1000); //before DOM is dynamically loaded, check every second
+}
+else if (window.location.href.includes("messenger.com/videocall/")) {//load this for call pages
+  console.log("yatta");
+  //get the dark/light theme saved from chrome data
+  chrome.storage.sync.get({light_switch: 'on'}, function(data) {
+    if(data.light_switch == 'off')
+      loadCSS("css/DarkCall");
+  });
+}

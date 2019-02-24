@@ -37,3 +37,24 @@
   opacity: 0.2;
   filter:saturate(0) brightness(0);
 }
+
+.plusMenu {
+  width: 156px;
+}
+
+.plusMenu a {
+  background-color: #fff; /* Grey background color */
+  color: black; /* Black text color */
+  display: block; /* Make the links appear below each other */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+  background-color: #0084ff; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+  background-color: #4CAF50; /* Add a green color to the "active/current" link */
+  color: white;
+}

@@ -51,6 +51,7 @@ label {
   width: 32px !important;
   color: rgba(255, 255, 255, 1) !important;
   background: url('../icons/plusIcon.png') !important;
+  cursor: pointer !important;
 }
 
 .pinsym{

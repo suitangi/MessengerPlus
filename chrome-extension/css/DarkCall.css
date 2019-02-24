@@ -1,0 +1,72 @@
+._32ut._32uu{
+    background-color: #181818 !important;
+}
+._dzt,
+._4a-d,
+._6-ls{
+    color: #eee !important;
+}
+._497p,
+._50f7{
+  color:rgba(255, 255, 255, .6) !important;
+}
+.grip{
+  filter:invert();
+}
+._1a7z ._1a7p{
+  border-color: #181818 !important;
+  background-color: #181818 !important;
+  color: #eee !important;
+}
+
+/* message */
+._29_7 ._hh7,
+._29_7._-5k ._hh7 {
+    background-color: #333333!important;
+}
+.__6j._43kk {
+    border-bottom: 6px solid #333333!important;
+    border-left: 10px solid #3333!important;
+    border-right: 10px solid #333!important;
+    border-top: 6px solid #333333!important;
+}
+
+._4_j4 {
+    background-color: #282828!important;
+}
+._29_7 ._hh7,
+._pyf{
+    color: #a5a5a5!important;
+}
+._hh7 a {
+    color: inherit !important;
+}
+._hh7._aol {
+    border-color: transparent !important;
+}
+._29_7 ._hh7:active,
+._-5k ._hh7,
+._29_7 ._hh7 > span > a:hover {
+    background-color: #333!important;
+}
+/* own message */
+._o46._nd_ ._hh7{
+    background-color: #474747;
+    color: #f4f4f4!important;
+}
+._o46._nd_ ._hh7:active,
+._o46._nd_._-5k ._hh7 {
+    background-color: #3d3d3d!important;
+}
+/* emoji-only messages */
+._hh7._2f5r,
+._-5k ._hh7._2f5r {
+    background-color: transparent !important;
+}
+/* reactions */
+._aou {
+    background-color: #333 !important;
+}
+._4kf5 {
+    background-color: transparent !important;
+}
