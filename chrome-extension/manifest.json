@@ -18,5 +18,5 @@
         "all_frames": true
     }
   ],
-  "web_accessible_resources": [ "DarkSkin.css", "index.js", "Default.css", "ChatColor.css"]
+  "web_accessible_resources": [ "css/DarkSkin.css", "index.js", "css/Default.css", "css/ChatColor.css", "icons/plusIcon.png"]
 }

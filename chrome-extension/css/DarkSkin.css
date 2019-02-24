@@ -42,12 +42,15 @@ label {
 .lightswitch{
   font-size: 18px !important;
   position: absolute !important;
-  top: 12px !important;
+  top: 9px !important;
   left: 40px !important;
-  filter: hue-rotate(180deg) !important;
+  /* filter: hue-rotate(180deg) !important;
   filter: saturate(0.1) !important;
-  opacity: 1 !important;
+  opacity: 1 !important; */
+  height: 32px !important;
+  width: 32px !important;
   color: rgba(255, 255, 255, 1) !important;
+  background: url('../icons/plusIcon.png') !important;
 }
 
 .pinsym{

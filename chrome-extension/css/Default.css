@@ -20,11 +20,13 @@
 .lightswitch {
   font-size: 18px;
   position: absolute;
-  top: 12px;
+  top: 9px;
   left: 40px;
-  filter: hue-rotate(180deg);
+  /* filter: hue-rotate(180deg); */
   cursor: pointer;
-
+  height: 32px;
+  width: 32px;
+  background: url('../icons/plusIcon.png');
 }
 
 .pinsym{

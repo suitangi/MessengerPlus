@@ -10,10 +10,10 @@ function create(htmlStr) {
 }
 
 //embeds a youtube video with the specific vId
-function embedVideo(i, source, vId, add){
+function embedVideo(i, source, vId){
   var wid = window.vList[i].offsetWidth;
   var hei = wid / 16 * 9;
-  var video = create("<iframe width=\""+ wid +"\" height=\""+ hei + "\" src=\"" + source + vId + " " + add + "\" frameborder=\"0\" allow=\"accelerometer; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
+  var video = create("<iframe width=\""+ wid +"\" height=\""+ hei + "\" src=\"" + source + vId + "\" frameborder=\"0\" allow=\"accelerometer; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
   var placer = window.vList[i].firstChild;
   window.vList[i].style.cssText = "border: 0px !important";
   window.vList[i].insertBefore(video, placer);
@@ -29,7 +29,7 @@ function embedVideos(){
     	if(vLink.includes("youtube.com/watch?v=")){ //standard youtube link
     		var vPos = vLink.lastIndexOf("youtube.com/watch?v=") + 20;
     		var vId = vLink.slice(vPos);
-        embedVideo(i, "https://www.youtube.com/embed/", vId, "");
+        embedVideo(i, "https://www.youtube.com/embed/", vId);
       }
       else if(vLink.includes("youtube.com%2Fwatch%3Fv%3D")){ //messenger yt redirect
         var vPos = vLink.lastIndexOf("youtube.com%2Fwatch%3Fv%3D") + 26;
@@ -38,7 +38,7 @@ function embedVideos(){
           vId = vId.slice(0, vId.indexOf("%26"));
         else
           vId = vId.slice(0, vId.indexOf("&"));
-          embedVideo(i, "https://www.youtube.com/embed/", vId, "");
+          embedVideo(i, "https://www.youtube.com/embed/", vId);
       }
       else if(vLink.includes("youtu.be%2F")){ //linkedshortened yt messenger redirect
         var vPos = vLink.lastIndexOf("youtu.be%2F") + 11;
@@ -47,22 +47,24 @@ function embedVideos(){
           vId = vId.slice(0, vId.indexOf("%26"));
         else
           vId = vId.slice(0, vId.indexOf("&"));
-          embedVideo(i, "https://www.youtube.com/embed/", vId, "");
+          embedVideo(i, "https://www.youtube.com/embed/", vId);
       }
       else if(vLink.includes("youtu.be/")){ //linkedshortened yt messenger redirect
         var vPos = vLink.lastIndexOf("youtu.be/") + 9;
         var vId = vLink.slice(vPos);
-          embedVideo(i, "https://www.youtube.com/embed/", vId, "");
+          embedVideo(i, "https://www.youtube.com/embed/", vId);
       }
       else if(vLink.includes("clips.twitch.tv/")){//standard twitch clip
         var vPos = vLink.lastIndexOf("clips.twitch.tv/") + 16;
         var vId = vLink.slice(vPos);
-          embedVideo(i, "https://clips.twitch.tv/embed?clip=", vId, "autoplay=\"false\";");
+        vId += "&autoplay=false";
+          embedVideo(i, "https://clips.twitch.tv/embed?clip=", vId);
       }
       else if(vLink.includes("clips.twitch.tv%2F")){//messenger redirect twitch clip
         var vPos = vLink.lastIndexOf("clips.twitch.tv%2F") + 18;
         var vId = vLink.slice(vPos);
-          embedVideo(i, "https://clips.twitch.tv/embed?clip=", vId, "autoplay=\"false\";");
+        vId += "&autoplay=false";
+          embedVideo(i, "https://clips.twitch.tv/embed?clip=", vId);
       }
     }
   }
@@ -253,11 +255,11 @@ function changeChatColor(col){
 //to load at the start of the DOM after it has been dynamically built
 var start = setInterval(function(){
     console.log("Loading...");
-    loadCSS('Default');
+    loadCSS('css/Default');
     if(document.getElementsByClassName("_5l-3 _1ht1").length > 0){
 
       //create the light switch and its variable-holder attribute
-      var lightswitch = create("<div class = \"lightswitch\" title = \"Light and Dark mode switch\">  💡</div>");
+      var lightswitch = create("<div class = \"lightswitch\" title = \"Light and Dark mode switch\"></div>");
       var title = document.getElementsByClassName("_1tqi")[0]
       title.parentElement.insertBefore(lightswitch, title);
       var lights = document.getElementsByClassName("lightswitch")[0];
@@ -270,14 +272,14 @@ var start = setInterval(function(){
         lights.setAttribute('data-light', data.light_switch);
         // console.log(data.light_switch);
         if(data.light_switch == 'off')
-          loadCSS("DarkSkin");
+          loadCSS("css/DarkSkin");
       });
 
       //adds click listeners for the light switch
       lights.addEventListener("click", function(){
         if(lights.getAttribute('data-light') == 'on'){
-          loadCSS('DarkSkin');
-          unloadCSS('Default');
+          loadCSS('css/DarkSkin');
+          unloadCSS('css/Default');
           lights.setAttribute('data-light', 'off');
           chrome.storage.sync.set({light_switch: 'off'}, function() {});
 
@@ -289,8 +291,8 @@ var start = setInterval(function(){
           }
         }
         else{
-          loadCSS('Default');
-          unloadCSS('DarkSkin');
+          loadCSS('css/Default');
+          unloadCSS('css/DarkSkin');
           lights.setAttribute('data-light', 'on');
           chrome.storage.sync.set({light_switch: 'on'}, function() {});
 
