@@ -250,8 +250,16 @@ function changeChatColor(col){
   document.documentElement.style.setProperty("--chat-color", col);
 }
 
-//load this for chat pages
-if(window.location.href.includes("messenger.com/t/")){
+
+if (window.location.href.includes("messenger.com/videocall/")) {//load this for call pages
+  console.log("yatta");
+  //get the dark/light theme saved from chrome data
+  chrome.storage.sync.get({light_switch: 'on'}, function(data) {
+    if(data.light_switch == 'off')
+      loadCSS("css/DarkCall");
+  });
+}
+else{ //load this for other pages
   //to load at the start of the DOM after it has been dynamically built
   var start = setInterval(function(){
       console.log("Loading...");
@@ -356,12 +364,4 @@ if(window.location.href.includes("messenger.com/t/")){
         clearInterval(start);
       }
   }, 1000); //before DOM is dynamically loaded, check every second
-}
-else if (window.location.href.includes("messenger.com/videocall/")) {//load this for call pages
-  console.log("yatta");
-  //get the dark/light theme saved from chrome data
-  chrome.storage.sync.get({light_switch: 'on'}, function(data) {
-    if(data.light_switch == 'off')
-      loadCSS("css/DarkCall");
-  });
 }
