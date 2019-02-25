@@ -349,9 +349,6 @@ input::-webkit-input-placeholder {
 ._5l37 {
     background-color: #282828 !important;
 }
-._4_j5 {
-    border-color: #282828 !important;
-}
 
 /* convo name, mute label, user in user list, section headings */
 ._2jnv,
@@ -713,22 +710,12 @@ div._5a8u,
 ._4t2a {
     border-radius: 0px!important;
 }
-/*get rid of some borders */
-._1li-,
-._4rv3,
-._37wu,
-._1t2u,
-._37wv,
-._36ic,
-._673w
-{
-    border-color: #282828!important;
-}
 
 
+/*get rid of unwanted borders and margins */
 ._2pgc,
 ._54ng {
-    border: 0px !important;
+    border-color: transparent !important;
 }
 ._5r8a._5qcj,
 ._5r8a._5qck {

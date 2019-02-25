@@ -294,6 +294,26 @@ function changeTheme(){
   }
 }
 
+//toggles the border modes
+function changeBorder(){
+  var borders = document.getElementById("BorderB");
+  var pMButt = document.getElementById("pMenuButton");
+  if(pMButt.getAttribute('data-border') == 'on'){ //borders on, turn it off
+    loadCSS("css/NoBorders");
+    if(pMButt.getAttribute('data-light') == 'off')
+      unloadCSS("css/DarkBorders");
+    pMButt.setAttribute('data-border', 'off');
+    borders.innerHTML = "Borders On";
+  }
+  else {//borders off, turn it on (why tho)
+    unloadCSS("css/NoBorders");
+    if(pMButt.getAttribute('data-light') == 'off')
+      loadCSS("css/DarkBorders");
+    pMButt.setAttribute('data-border', 'on');
+    borders.innerHTML = "Borders Off";
+  }
+}
+
 //initialization code~
 if (window.location.href.includes("messenger.com/videocall/")) {//load this for call pages
   //get the dark/light theme saved from chrome data
@@ -314,20 +334,37 @@ else{ //load this for other pages
         var title = document.getElementsByClassName("_1tqi")[0]
         title.parentElement.insertBefore(pMenuButton, title);
         var pMButt = document.getElementById("pMenuButton");
-        var att = document.createAttribute("data-light");
-        att.value = "";
-        var att1 = document.createAttribute("data-clicked");
-        att1.value = ""
-        pMButt.setAttributeNode(att);
-        pMButt.setAttributeNode(att1);
+        var att_light = document.createAttribute("data-light");
+        att_light.value = "";
+        var att_click = document.createAttribute("data-clicked");
+        att_click.value = ""
+        var att_border = document.createAttribute("data-border");
+        att_border.value = ""
+        pMButt.setAttributeNode(att_light);
+        pMButt.setAttributeNode(att_click);
+        pMButt.setAttributeNode(att_border);
         pMButt.setAttribute('data-clicked', 'off');
 
         // get the dark/light theme saved from chrome data
-        chrome.storage.sync.get({light_switch: 'off'}, function(data) {
+        chrome.storage.sync.get({light_switch: 'on'}, function(data) {
           pMButt.setAttribute('data-light', data.light_switch);
           if(data.light_switch == 'off'){
             loadCSS("css/DarkSkin");
             unloadCSS("css/Default");
+          }
+        });
+
+        //borders are default off because I like it that way
+        loadCSS("css/NoBorders");
+
+        // get the border on/off saved from chrome data
+        chrome.storage.sync.get({borders: 'off'}, function(data) {
+          var pMButt = document.getElementById("pMenuButton");
+          pMButt.setAttribute('data-border', data.borders);
+          if(data.borders == 'on'){
+            unloadCSS("css/NoBorders");
+            if(pMButt.getAttribute('data-light') == 'off')
+              loadCSS("css/DarkBorders");
           }
         });
 
@@ -345,12 +382,22 @@ else{ //load this for other pages
                   var pMenu = create(myText);
                   var pMButt = document.getElementById("pMenuButton");
                   pMButt.parentElement.insertBefore(pMenu, pMButt);
+
+                  //Set the lights button clickListener
                   var lights = document.getElementById("LightB");
                   lights.addEventListener("click", function(){
                     changeTheme();
                   });
                   if(pMButt.getAttribute('data-light') == 'off')
                     lights.innerHTML = "Light Mode";
+
+                  //Set the borders button clickListener
+                  var borders = document.getElementById("BorderB");
+                  borders.addEventListener("click", function(){
+                    changeBorder();
+                  });
+                  if(pMButt.getAttribute('data-border') == 'on')
+                    borders.innerHTML = "Borders On";
 
                 });
               }
