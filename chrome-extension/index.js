@@ -308,7 +308,7 @@ function changeBorder(){
     if(pMButt.getAttribute('data-light') == 'off')
       unloadCSS("css/DarkBorders");
     pMButt.setAttribute('data-border', 'off');
-    borders.innerHTML = "Borders On";
+    borders.innerHTML = "Enable Borders";
   }
   else {//borders off, turn it on (why tho)
     unloadCSS("css/NoBorders");
@@ -316,7 +316,7 @@ function changeBorder(){
     if(pMButt.getAttribute('data-light') == 'off')
       loadCSS("css/DarkBorders");
     pMButt.setAttribute('data-border', 'on');
-    borders.innerHTML = "Borders Off";
+    borders.innerHTML = "Disable Borders";
   }
 }
 
@@ -431,7 +431,7 @@ else{ //load this for other pages
                     changeBorder();
                   });
                   if(pMButt.getAttribute('data-border') == 'on')
-                    borders.innerHTML = "Borders Off";
+                    borders.innerHTML = "Disable Borders";
 
                   //Set the private button clickListener
                   var privates = document.getElementById("PrivateB");
