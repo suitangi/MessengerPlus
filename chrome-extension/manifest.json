@@ -18,5 +18,5 @@
         "all_frames": true
     }
   ],
-  "web_accessible_resources": [ "css/DarkSkin.css", "index.js", "css/Default.css", "css/ChatColor.css", "css/DarkCall.css", "icons/plusIcon.png"]
+  "web_accessible_resources": [ "css/DarkSkin.css", "index.js", "css/Default.css", "css/ChatColor.css", "css/DarkCall.css", "icons/plusIcon.png", "PlusMenu.html"]
 }

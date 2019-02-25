@@ -108,6 +108,15 @@ function unloadCSS(file) {
   cssNode && cssNode.parentNode.removeChild(cssNode);
 }
 
+//get the file's text
+function getHtml(file){
+  var link = document.createElement("link");
+  link.href = chrome.extension.getURL(file);
+  link.id = file;
+  link.type = "text/html";
+  console.log(link);
+}
+
 //pins all the convo in the list passed (used for beginning of run)
 function pinAll(list) {
   var cList = document.getElementsByClassName("_5l-3 _1ht1");
@@ -124,8 +133,8 @@ function pinAll(list) {
 function pin(convo) {
 
     convo.className += " pinned";
-    var lights = document.getElementsByClassName("lightswitch")[0];
-    if(lights.getAttribute('data-light') == 'on'){
+    var pMButt = document.getElementById("pMenuButton");
+    if(pMButt.getAttribute('data-light') == 'on'){
       convo.style.cssText = "background-color: #ddd !important; order: -1 !important;";
     }
     else{
@@ -189,8 +198,8 @@ function addPin(){
 
     //setting the pin/unpin button mouseover stylechange
     pinbutt.onmouseover  = function() {
-      var lights = document.getElementsByClassName("lightswitch")[0];
-      if(lights.getAttribute('data-light') == 'on'){
+      var pMButt = document.getElementById("pMenuButton");
+      if(pMButt.getAttribute('data-light') == 'on'){
         document.getElementsByClassName("_pinbutton")[0].style.cssText = "background-color: #0084ff !important;";
         document.getElementsByClassName("_pintext")[0].style.cssText = "color: #fff !important;";
       }
@@ -250,9 +259,43 @@ function changeChatColor(col){
   document.documentElement.style.setProperty("--chat-color", col);
 }
 
+//toggles themes between dark and light
+function changeTheme(){
+  var lights = document.getElementById("LightB");
+  var pMButt = document.getElementById("pMenuButton");
+  if(pMButt.getAttribute('data-light') == 'on'){ //in light mode, go to the dark side
+    loadCSS('css/DarkSkin');
+    unloadCSS('css/Default');
+    chrome.storage.sync.set({light_switch: 'off'}, function() {});
+    var pMButt = document.getElementById("pMenuButton");
+    pMButt.setAttribute('data-light', 'off');
+    var cList = document.getElementsByClassName("_5l-3 _1ht1");
+    for (var i = 0; i < cList.length; i++) {
+      var style = window.getComputedStyle(cList[i]);
+      if(style.getPropertyValue('order') == -1)
+        cList[i].style.cssText = "background-color: #181818 !important; order: -1 !important;";
+    }
+    lights.innerHTML = "Light Mode";
+  }
+  else{//already in dark mode, go back to light mode
+    loadCSS('css/Default');
+    unloadCSS('css/DarkSkin');
+    pMButt.setAttribute('data-light', 'off');
+    chrome.storage.sync.set({light_switch: 'on'}, function() {});
+    var pMButt = document.getElementById("pMenuButton");
+    pMButt.setAttribute('data-light', 'on');
+    var cList = document.getElementsByClassName("_5l-3 _1ht1");
+    for (var i = 0; i < cList.length; i++) {
+      var style = window.getComputedStyle(cList[i]);
+      if(style.getPropertyValue('order') == -1)
+        cList[i].style.cssText = "background-color: #ddd !important; order: -1 !important;";
+    }
+    lights.innerHTML = "Dark Mode";
+  }
+}
 
+//initialization code~
 if (window.location.href.includes("messenger.com/videocall/")) {//load this for call pages
-  console.log("yatta");
   //get the dark/light theme saved from chrome data
   chrome.storage.sync.get({light_switch: 'on'}, function(data) {
     if(data.light_switch == 'off')
@@ -267,51 +310,65 @@ else{ //load this for other pages
       if(document.getElementsByClassName("_5l-3 _1ht1").length > 0){
 
         //create the light switch and its variable-holder attribute
-        var lightswitch = create("<div class = \"lightswitch\" title = \"Light and Dark mode switch\"></div>");
+        var pMenuButton = create("<div class=\"pMenuButton\" id=\"pMenuButton\" title = \"Light and Dark mode switch\"></div>");
         var title = document.getElementsByClassName("_1tqi")[0]
-        title.parentElement.insertBefore(lightswitch, title);
-        var lights = document.getElementsByClassName("lightswitch")[0];
+        title.parentElement.insertBefore(pMenuButton, title);
+        var pMButt = document.getElementById("pMenuButton");
         var att = document.createAttribute("data-light");
         att.value = "";
-        lights.setAttributeNode(att);
+        var att1 = document.createAttribute("data-clicked");
+        att1.value = ""
+        pMButt.setAttributeNode(att);
+        pMButt.setAttributeNode(att1);
+        pMButt.setAttribute('data-clicked', 'off');
 
-        //get the dark/light theme saved from chrome data
-        chrome.storage.sync.get({light_switch: 'on'}, function(data) {
-          lights.setAttribute('data-light', data.light_switch);
-          if(data.light_switch == 'off')
+        // get the dark/light theme saved from chrome data
+        chrome.storage.sync.get({light_switch: 'off'}, function(data) {
+          pMButt.setAttribute('data-light', data.light_switch);
+          if(data.light_switch == 'off'){
             loadCSS("css/DarkSkin");
-        });
-
-        //adds click listeners for the light switch
-        lights.addEventListener("click", function(){
-          if(lights.getAttribute('data-light') == 'on'){
-            loadCSS('css/DarkSkin');
-            unloadCSS('css/Default');
-            lights.setAttribute('data-light', 'off');
-            chrome.storage.sync.set({light_switch: 'off'}, function() {});
-
-            var cList = document.getElementsByClassName("_5l-3 _1ht1");
-            for (var i = 0; i < cList.length; i++) {
-              var style = window.getComputedStyle(cList[i]);
-              if(style.getPropertyValue('order') == -1)
-                cList[i].style.cssText = "background-color: #181818 !important; order: -1 !important;";
-            }
-          }
-          else{
-            loadCSS('css/Default');
-            unloadCSS('css/DarkSkin');
-            lights.setAttribute('data-light', 'on');
-            chrome.storage.sync.set({light_switch: 'on'}, function() {});
-
-            var cList = document.getElementsByClassName("_5l-3 _1ht1");
-            for (var i = 0; i < cList.length; i++) {
-              var style = window.getComputedStyle(cList[i]);
-              if(style.getPropertyValue('order') == -1)
-                cList[i].style.cssText = "background-color: #ddd !important; order: -1 !important;";
-            }
+            unloadCSS("css/Default");
           }
         });
 
+        //adds click listeners for the plus menu button
+        pMButt.addEventListener("click", function(){
+          if(pMButt.getAttribute('data-clicked') == 'off'){
+            pMButt.setAttribute('data-clicked', 'on');
+
+            if(document.getElementById("pMenu") == null){
+              var url = chrome.extension.getURL("PlusMenu.html");
+              fetch(url)
+                .then(function(response) {
+                  return response.text();
+                }).then(function(myText) {
+                  var pMenu = create(myText);
+                  var pMButt = document.getElementById("pMenuButton");
+                  pMButt.parentElement.insertBefore(pMenu, pMButt);
+                  var lights = document.getElementById("LightB");
+                  lights.addEventListener("click", function(){
+                    changeTheme();
+                  });
+                  if(pMButt.getAttribute('data-light') == 'off')
+                    lights.innerHTML = "Light Mode";
+
+                });
+              }
+              else {
+                document.getElementById("pMenu").style.visibility = "visible";
+              }
+
+          }
+        });
+
+        //other clicks closes the menu
+        document.addEventListener("click", function(){
+          if(pMButt.getAttribute('data-clicked') == 'on'){
+            pMButt.setAttribute('data-clicked', 'off');
+            if(document.getElementById("pMenu") != null)
+              document.getElementById("pMenu").style.visibility = "hidden";
+          }
+        }, true);
 
         oncReset();
         console.log("Loaded");
@@ -344,13 +401,15 @@ else{ //load this for other pages
           setTimeout(function(){embedVideos();}, 1000);
         });
 
+        //implementing the observe for ob2
         var videm = setInterval(function(){
             if(document.getElementsByClassName("_2k8v")[0] != null){
               window.ob2.observe(document.getElementsByClassName("_2k8v")[0].nextSibling ,{
                 childList: true,
-                subtree: true});
+                subtree: true
+              });
+              clearInterval(videm);
             }
-            clearInterval(videm);
         }, 100);
 
         // start the youtube replacements

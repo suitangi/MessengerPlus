@@ -16,11 +16,11 @@
 }
 
 
-/* light_switch */
-.lightswitch {
+/* plusButton */
+.pMenuButton {
   font-size: 18px;
   position: absolute;
-  top: 9px;
+  top: 8px;
   left: 40px;
   /* filter: hue-rotate(180deg); */
   cursor: pointer;
@@ -39,22 +39,60 @@
 }
 
 .plusMenu {
-  width: 156px;
+  z-index: 99 !important;
+  position: absolute !important;
+  top: 48px;
+  left: 42px;
+  width: 170px;
+  border: 1px solid;
+  border-color: #aaa;
+  border-radius: 2px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.plusMenu a {
-  background-color: #fff; /* Grey background color */
-  color: black; /* Black text color */
-  display: block; /* Make the links appear below each other */
-  padding: 12px; /* Add some padding */
-  text-decoration: none; /* Remove underline from links */
+.plusMenuOptions{
+  background-color: #fff;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
-.vertical-menu a:hover {
-  background-color: #0084ff; /* Dark grey background on mouse-over */
+.plusMenuOptions a {
+  background-color: #fff;
+  color: black;
+  display: block;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 24px;
+  padding-right: 20px;
+  text-decoration: none;
 }
 
-.vertical-menu a.active {
-  background-color: #4CAF50; /* Add a green color to the "active/current" link */
-  color: white;
+.plusMenuOptions a:hover {
+  background-color: #0084ff;
+  color: #eee;
+}
+
+
+.tshadow{
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: -9px;
+  left: 5px;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-bottom: 9px solid #aaa;
+}
+.triangle{
+    border-left: 8px solid transparent !important;
+    border-right: 8px solid transparent !important;
+    border-bottom: 8px solid #fff;
+    position: absolute;
+    left: -8px;
+    top: 1px;
+}
+.divider{
+  border-bottom: 1px solid rgba(0, 0, 0, .05);
+  margin: 6px 0;
+  cursor: default !important;
 }

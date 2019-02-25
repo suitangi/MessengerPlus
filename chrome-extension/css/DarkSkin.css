@@ -39,7 +39,7 @@ label {
 }
 
 /*MessengerPlus Functions*/
-.lightswitch{
+.pMenuButton {
   font-size: 18px !important;
   position: absolute !important;
   top: 9px !important;
@@ -63,6 +63,85 @@ label {
   filter:saturate(0) brightness(40) !important;
 }
 
+.pMenuButton {
+  font-size: 18px;
+  position: absolute;
+  top: 8px;
+  left: 40px;
+  /* filter: hue-rotate(180deg); */
+  cursor: pointer;
+  height: 32px;
+  width: 32px;
+  background: url('../icons/plusIcon.png');
+}
+
+.pinsym{
+  position: absolute;
+  top:27px;
+  right: 30px;
+  font-size: 20px;
+  opacity: 0.2;
+  filter:saturate(0) brightness(0);
+}
+
+.plusMenu {
+  z-index: 99 !important;
+  position: absolute !important;
+  top: 48px;
+  left: 42px;
+  width: 170px;
+  border: 1px solid;
+  border-color: #333;
+  border-radius: 2px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.plusMenuOptions{
+  background-color: #333;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.plusMenuOptions a {
+  background-color: #333;
+  color: #ccc;
+  display: block;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 24px;
+  padding-right: 20px;
+  text-decoration: none;
+}
+
+.plusMenuOptions a:hover {
+  background-color: #505050;
+  color: #fff;
+}
+
+
+.tshadow{
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: -9px;
+  left: 5px;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-bottom: 9px solid #333;
+}
+.triangle{
+    border-left: 8px solid transparent !important;
+    border-right: 8px solid transparent !important;
+    border-bottom: 8px solid #333;
+    position: absolute;
+    left: -8px;
+    top: 1px;
+}
+.divider{
+  border-bottom: 1px solid rgba(0, 0, 0, .05);
+  margin: 6px 0;
+  cursor: default !important;
+}
 
 /*typing animation box*/
 ._4gd0 {
