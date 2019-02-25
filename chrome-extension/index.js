@@ -276,6 +276,8 @@ function changeTheme(){
         cList[i].style.cssText = "background-color: #181818 !important; order: -1 !important;";
     }
     lights.innerHTML = "Light Mode";
+    if(pMButt.getAttribute('data-border') == 'on')//load the dark border css
+      loadCSS("css/DarkBorders");
   }
   else{//already in dark mode, go back to light mode
     loadCSS('css/Default');
@@ -291,6 +293,8 @@ function changeTheme(){
         cList[i].style.cssText = "background-color: #ddd !important; order: -1 !important;";
     }
     lights.innerHTML = "Dark Mode";
+    if(pMButt.getAttribute('data-border') == 'on')//unload the border css
+      unloadCSS("css/DarkBorders");
   }
 }
 
@@ -300,6 +304,7 @@ function changeBorder(){
   var pMButt = document.getElementById("pMenuButton");
   if(pMButt.getAttribute('data-border') == 'on'){ //borders on, turn it off
     loadCSS("css/NoBorders");
+    chrome.storage.sync.set({border_switch: 'off'}, function() {});
     if(pMButt.getAttribute('data-light') == 'off')
       unloadCSS("css/DarkBorders");
     pMButt.setAttribute('data-border', 'off');
@@ -307,6 +312,7 @@ function changeBorder(){
   }
   else {//borders off, turn it on (why tho)
     unloadCSS("css/NoBorders");
+    chrome.storage.sync.set({border_switch: 'on'}, function() {});
     if(pMButt.getAttribute('data-light') == 'off')
       loadCSS("css/DarkBorders");
     pMButt.setAttribute('data-border', 'on');
@@ -358,10 +364,10 @@ else{ //load this for other pages
         loadCSS("css/NoBorders");
 
         // get the border on/off saved from chrome data
-        chrome.storage.sync.get({borders: 'off'}, function(data) {
+        chrome.storage.sync.get({border_switch: 'off'}, function(data) {
           var pMButt = document.getElementById("pMenuButton");
-          pMButt.setAttribute('data-border', data.borders);
-          if(data.borders == 'on'){
+          pMButt.setAttribute('data-border', data.border_switch);
+          if(data.border_switch == 'on'){
             unloadCSS("css/NoBorders");
             if(pMButt.getAttribute('data-light') == 'off')
               loadCSS("css/DarkBorders");
