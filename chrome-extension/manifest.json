@@ -1,6 +1,6 @@
 {
   "name": "MesssengerPlus",
-  "version": "1.3.3",
+  "version": "2.0.2",
   "description": "An extension that provides additional functionality and visual themes for www.messenger.com.",
   "manifest_version": 2,
   "permissions": ["*://www.messenger.com/*", "storage"],
@@ -19,6 +19,8 @@
     }
   ],
   "web_accessible_resources": ["index.js", "PlusMenu.html",
-    "css/DarkSkin.css", "css/Default.css", "css/ChatColor.css", "css/DarkCall.css", "css/NoBorders.css", "css/DarkBorders.css",
+    "css/DarkSkin.css", "css/Default.css", "css/ChatColor.css",
+    "css/DarkCall.css", "css/NoBorders.css", "css/DarkBorders.css",
+    "css/Private.css",
     "icons/plusIcon.png"]
 }

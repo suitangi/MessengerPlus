@@ -320,6 +320,23 @@ function changeBorder(){
   }
 }
 
+//toggles the private modes
+function changePrivate(){
+  var privates = document.getElementById("PrivateB");
+  var pMButt = document.getElementById("pMenuButton");
+  if(pMButt.getAttribute('data-private') == 'on'){ //private mode  on, turn it off
+    unloadCSS("css/Private");
+    chrome.storage.sync.set({private_switch: 'off'}, function() {});
+    pMButt.setAttribute('data-private', 'off');
+    privates.innerHTML = "Enable Private Mode";
+  }
+  else { //private mode off, turn it on
+    loadCSS("css/Private");
+    chrome.storage.sync.set({private_switch: 'on'}, function() {});
+    pMButt.setAttribute('data-private', 'on');
+    privates.innerHTML = "Disable Private Mode";
+  }
+}
 //initialization code~
 if (window.location.href.includes("messenger.com/videocall/")) {//load this for call pages
   //get the dark/light theme saved from chrome data
@@ -346,9 +363,12 @@ else{ //load this for other pages
         att_click.value = ""
         var att_border = document.createAttribute("data-border");
         att_border.value = ""
+        var att_private = document.createAttribute("data-private");
+        att_private.value = ""
         pMButt.setAttributeNode(att_light);
         pMButt.setAttributeNode(att_click);
         pMButt.setAttributeNode(att_border);
+        pMButt.setAttributeNode(att_private);
         pMButt.setAttribute('data-clicked', 'off');
 
         // get the dark/light theme saved from chrome data
@@ -371,6 +391,14 @@ else{ //load this for other pages
             unloadCSS("css/NoBorders");
             if(pMButt.getAttribute('data-light') == 'off')
               loadCSS("css/DarkBorders");
+          }
+        });
+
+        //get the private mode on/off saved from chrome data
+        chrome.storage.sync.get({private_switch: 'off'}, function(data) {
+          pMButt.setAttribute('data-light', data.private_switch);
+          if(data.private_switch == 'on'){
+            loadCSS("css/Private");
           }
         });
 
@@ -403,7 +431,15 @@ else{ //load this for other pages
                     changeBorder();
                   });
                   if(pMButt.getAttribute('data-border') == 'on')
-                    borders.innerHTML = "Borders On";
+                    borders.innerHTML = "Borders Off";
+
+                  //Set the private button clickListener
+                  var privates = document.getElementById("PrivateB");
+                  privates.addEventListener("click", function(){
+                    changePrivate();
+                  });
+                  if(pMButt.getAttribute('data-private') == 'on')
+                    privates.innerHTML = "Disable Private Mode";
 
                 });
               }

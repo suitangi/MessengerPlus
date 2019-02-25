@@ -714,7 +714,7 @@ div._5a8u,
 /*get rid of unwanted borders and margins */
 ._2pgc,
 ._54ng {
-    border-color: transparent !important;
+    border: 0px !important;
 }
 ._5r8a._5qcj,
 ._5r8a._5qck {

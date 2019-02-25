@@ -1,0 +1,49 @@
+._17w2,
+._1jt6 {
+    /* convo titles */
+    filter: blur(3px) saturate(0.5);
+    transition-duration: 0.5s;
+}
+
+._5l-3 {
+    /* convo list */
+    filter: blur(3px) saturate(0.5);
+    transition-duration: 0.5s;
+}
+/* Shared photos */
+._3m31 {
+    filter: blur(5px) saturate(0.5);
+    transition-duration: 0.5s;
+}
+
+/* Text messages and links */
+._1t_p {
+    filter: blur(5px) saturate(0);
+    transition-duration: 0.3s;
+}
+
+/*People List */
+._4wc- {
+    filter: blur(5px) saturate(0.5);
+    transition-duration: 0.5s;
+}
+
+._1qt4,
+._1qt5,
+._2j6,
+._1qt3,
+._3oh-,
+._3058,
+._36ic,
+._2jnv {
+    filter: none;
+}
+
+._4wc-:hover,
+._1t_p:hover,
+._5l-3:hover,
+._1jt6:hover,
+._17w2:hover,
+._3m31:hover {
+    filter: none;
+}
