@@ -396,7 +396,7 @@ else{ //load this for other pages
 
         //get the private mode on/off saved from chrome data
         chrome.storage.sync.get({private_switch: 'off'}, function(data) {
-          pMButt.setAttribute('data-light', data.private_switch);
+          pMButt.setAttribute('data-private', data.private_switch);
           if(data.private_switch == 'on'){
             loadCSS("css/Private");
           }
