@@ -49,7 +49,7 @@ function embedVideos(){
           vId = vId.slice(0, vId.indexOf("&"));
           embedVideo(i, "https://www.youtube.com/embed/", vId);
       }
-      else if(vLink.includes("youtu.be/")){ //linkedshortened yt messenger redirect
+      else if(vLink.includes("youtu.be/")){ //linkedshortened yt link
         var vPos = vLink.lastIndexOf("youtu.be/") + 9;
         var vId = vLink.slice(vPos);
           embedVideo(i, "https://www.youtube.com/embed/", vId);
@@ -62,7 +62,13 @@ function embedVideos(){
       }
       else if(vLink.includes("clips.twitch.tv%2F")){//messenger redirect twitch clip
         var vPos = vLink.lastIndexOf("clips.twitch.tv%2F") + 18;
-        var vId = vLink.slice(vPos);
+        var vId = vLink.slice(vPos, vId.indexOf("&"));
+        vId += "&autoplay=false";
+          embedVideo(i, "https://clips.twitch.tv/embed?clip=", vId);
+      }
+      else if(vLink.includes("twitch.tv%2Ftwitch%2Fclip%2F")){//messenger redirect twitch clip
+        var vPos = vLink.lastIndexOf("twitch.tv%2Ftwitch%2Fclip%2F") + 28;
+        var vId = vLink.slice(vPos, vId.indexOf("&"));
         vId += "&autoplay=false";
           embedVideo(i, "https://clips.twitch.tv/embed?clip=", vId);
       }
