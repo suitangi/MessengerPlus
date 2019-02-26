@@ -477,7 +477,7 @@ else{ //load this for other pages
                     changeCompact();
                   });
                   if(pMButt.getAttribute('data-compact') == 'on')
-                    privates.innerHTML = "Disable Compact Mode";
+                    compacts.innerHTML = "Disable Compact Mode";
 
                 });
               }
