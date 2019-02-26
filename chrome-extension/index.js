@@ -337,6 +337,25 @@ function changePrivate(){
     privates.innerHTML = "Disable Private Mode";
   }
 }
+
+//toggles the compact modes
+function changeCompact(){
+  var compacts = document.getElementById("CompactB");
+  var pMButt = document.getElementById("pMenuButton");
+  if(pMButt.getAttribute('data-compact') == 'on'){ //private mode  on, turn it off
+    unloadCSS("css/Compact");
+    chrome.storage.sync.set({compact_switch: 'off'}, function() {});
+    pMButt.setAttribute('data-compact', 'off');
+    compacts.innerHTML = "Enable Compact Mode";
+  }
+  else { //compact mode off, turn it on
+    loadCSS("css/Compact");
+    chrome.storage.sync.set({compact_switch: 'on'}, function() {});
+    pMButt.setAttribute('data-compact', 'on');
+    compacts.innerHTML = "Disable Compact Mode";
+  }
+}
+
 //initialization code~
 if (window.location.href.includes("messenger.com/videocall/")) {//load this for call pages
   //get the dark/light theme saved from chrome data
@@ -353,7 +372,7 @@ else{ //load this for other pages
       if(document.getElementsByClassName("_5l-3 _1ht1").length > 0){
 
         //create the light switch and its variable-holder attribute
-        var pMenuButton = create("<div class=\"pMenuButton\" id=\"pMenuButton\" title = \"Light and Dark mode switch\"></div>");
+        var pMenuButton = create("<div><div class=\"pMenuButton\" id=\"pMenuButton\" title = \"Light and Dark mode switch\"></div></div>");
         var title = document.getElementsByClassName("_1tqi")[0]
         title.parentElement.insertBefore(pMenuButton, title);
         var pMButt = document.getElementById("pMenuButton");
@@ -365,10 +384,13 @@ else{ //load this for other pages
         att_border.value = ""
         var att_private = document.createAttribute("data-private");
         att_private.value = ""
+        var att_compact = document.createAttribute("data-compact");
+        att_compact.value = ""
         pMButt.setAttributeNode(att_light);
         pMButt.setAttributeNode(att_click);
         pMButt.setAttributeNode(att_border);
         pMButt.setAttributeNode(att_private);
+        pMButt.setAttributeNode(att_compact);
         pMButt.setAttribute('data-clicked', 'off');
 
         // get the dark/light theme saved from chrome data
@@ -399,6 +421,14 @@ else{ //load this for other pages
           pMButt.setAttribute('data-private', data.private_switch);
           if(data.private_switch == 'on'){
             loadCSS("css/Private");
+          }
+        });
+
+        //get the compact mode on/off saved from chrome data
+        chrome.storage.sync.get({compact_switch: 'off'}, function(data) {
+          pMButt.setAttribute('data-compact', data.compact_switch);
+          if(data.compact_switch == 'on'){
+            loadCSS("css/Compact");
           }
         });
 
@@ -440,6 +470,14 @@ else{ //load this for other pages
                   });
                   if(pMButt.getAttribute('data-private') == 'on')
                     privates.innerHTML = "Disable Private Mode";
+
+                  //Set the compact button clickListener
+                  var compacts = document.getElementById("CompactB");
+                  compacts.addEventListener("click", function(){
+                    changeCompact();
+                  });
+                  if(pMButt.getAttribute('data-compact') == 'on')
+                    privates.innerHTML = "Disable Compact Mode";
 
                 });
               }

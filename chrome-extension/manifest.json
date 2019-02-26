@@ -21,6 +21,6 @@
   "web_accessible_resources": ["index.js", "PlusMenu.html",
     "css/DarkSkin.css", "css/Default.css", "css/ChatColor.css",
     "css/DarkCall.css", "css/NoBorders.css", "css/DarkBorders.css",
-    "css/Private.css",
+    "css/Private.css", "css/Compact.css",
     "icons/plusIcon.png"]
 }

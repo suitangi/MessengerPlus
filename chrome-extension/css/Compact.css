@@ -1,0 +1,52 @@
+._1enh {
+    max-width: 74px;
+    min-width: 74px;
+    position: fixed;
+    background-color: #fff;
+    transition: all .5s cubic-bezier(.68, -0.55, .27, 1.55);
+    z-index: 5;
+}
+._1enh:hover {
+    max-width: 420px;
+    min-width: 240px;
+}
+._1enh:hover .pMenuButton {
+    margin-left: 0;
+    transition: all .5s ease;
+}
+._1enh:hover ._2oc8,
+._1enh:hover ._36ic ._4qba,
+._1enh:hover ._2j6,
+._1enh:hover ._1qt4,
+._1enh:hover ._2fug {
+    opacity: 1 !important;
+    transition: all .5s ease;
+}
+._1enh:hover .pinsym {
+    opacity: 0.2 !important;
+    transition: all .5s ease;
+}
+._20bp {
+    margin-left: 74px;
+    z-index: 1;
+}
+._2oc8,
+._36ic ._4qba,
+._2j6,
+._1qt4,
+._2fug,
+.pinsym {
+    opacity: 0 !important;
+    transition: all .5s ease;
+}
+._673w {
+    z-index: 2;
+    margin-left: 74px;
+}
+.pMenuButton {
+    margin-left: -20px;
+    transition: all .5s ease;
+}
+._1enh .uiScrollableArea > .uiScrollableAreaTrack {
+    margin-top: 55px;
+}

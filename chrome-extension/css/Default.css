@@ -5,12 +5,19 @@
   margin-right: 0px !important;
 }
 
+._1enh {
+      border-right: 1px solid rgba(0, 0, 0, .20);
+  }
+  ._1t2u{
+    border: 0px !important;
+  }
+
 /* plusButton */
 .pMenuButton {
   font-size: 18px;
-  position: absolute;
+  /* position: absolute;
   top: 8px;
-  left: 40px;
+  left: 40px; */
   /* filter: hue-rotate(180deg); */
   cursor: pointer;
   height: 32px;

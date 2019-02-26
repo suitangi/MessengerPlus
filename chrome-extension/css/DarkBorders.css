@@ -2,11 +2,19 @@
 ._1li-,
 ._4rv3,
 ._37wu,
-._1t2u,
 ._37wv,
 ._36ic,
 ._673w,
 ._4_j5
 {
     border-color: #444!important;
+}
+
+._1enh {
+      border-right: 1px solid;
+      border-right-color: #444;
+  }
+
+._1t2u{
+  border: 0px !important;
 }
