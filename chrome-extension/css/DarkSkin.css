@@ -1,12 +1,25 @@
 @namespace url(http://www.w3.org/1999/xhtml);
 /* #141823 is Messenger's normal text colour, white is normal background colour */
 /* #1E1E1E and #2D2D30 are Visual Studio, don't ask */
-html * {
-    font-weight: 300 !important;
-}
 
 b, strong {
     font-weight: 600 !important;
+}
+
+/*smaller font weight */
+._li,
+._1enh,
+._1tqi,
+._17w2,
+._1ht6,
+._1ht7,
+._1htf,
+._54nh,
+._2v6o,
+._50f7,
+._2pir,
+._1lj0 {
+    font-weight: 300 !important;
 }
 
 ::-webkit-scrollbar {
@@ -179,6 +192,14 @@ input::-webkit-input-placeholder {
 ._1n-e._36zg {
     color: #eee !important;
 }
+/*block quotes*/
+._pye{
+    color: rgba(255, 255, 255, .3) !important;
+}
+._pyf{
+  background-color: rgba(255, 255, 255, .3) !important;
+}
+
 /* message */
 ._29_7 ._hh7,
 ._29_7._-5k ._hh7 {
@@ -315,7 +336,6 @@ input::-webkit-input-placeholder {
 */
 /* messenger thumb up stickers */
 ._576q {
-    -webkit-filter: brightness(75%)!important;
     filter: brightness(75%)!important;
 }
 /* facebook-removed messages et al */
@@ -458,9 +478,7 @@ input::-webkit-input-placeholder {
 ._4rv6,
 ._4ce_,
 ._2t5t {
-    -webkit-filter: invert(1)!important;
     filter: invert(1)!important;
-
     opacity: .6 !important;
 }
 /* top left buttons */
@@ -475,7 +493,6 @@ input::-webkit-input-placeholder {
 /* menu dropdown triangles */
 ._53ik ._53io,
 ._53il ._53io {
-    -webkit-filter: brightness(20%)!important;
     filter: brightness(20%)!important;
 }
 /* delivery indicators */
@@ -487,7 +504,6 @@ input::-webkit-input-placeholder {
 ._4-0h,
 ._57gs,
 label > input + span::before {
-    -webkit-filter: brightness(80%)!important;
     filter: brightness(80%)!important;
 }
 ._5iwm ._58ak::before,
@@ -496,7 +512,6 @@ label > input + span::before {
 :not(._3no3) > ._uwa,
 ._5jdr ._5jds,
 ._5nxe .img {
-    -webkit-filter: invert(1)!important;
     filter: invert(1)!important;
 }
 /* camera */
@@ -746,6 +761,7 @@ div._5a8u,
 ._4x7m,
 ._4goh,
 ._4x7b,
-._2mjl {
+._2mjl,
+._6cs7 {
     color: rgba(255, 255, 255, .6) !important;
 }

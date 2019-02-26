@@ -5,6 +5,10 @@
   margin-right: 0px !important;
 }
 
+b, strong {
+    font-weight: 600 !important;
+}
+
 ._1enh {
       border-right: 1px solid rgba(0, 0, 0, .20);
   }
