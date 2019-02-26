@@ -13,7 +13,7 @@ function create(htmlStr) {
 function embedVideo(i, source, vId){
   var wid = window.vList[i].offsetWidth;
   var hei = wid / 16 * 9;
-  var video = create("<iframe width=\""+ wid +"\" height=\""+ hei + "\" src=\"" + source + vId + "\" frameborder=\"0\" allow=\"accelerometer; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
+  var video = create("<div class=\"video-container\"><iframe width=\""+ wid +"\" height=\""+ hei + "\" src=\"" + source + vId + "\" frameborder=\"0\" allow=\"accelerometer; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div>");
   var placer = window.vList[i].firstChild;
   window.vList[i].style.cssText = "border: 0px !important";
   window.vList[i].insertBefore(video, placer);
