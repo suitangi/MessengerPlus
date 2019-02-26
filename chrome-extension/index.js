@@ -372,7 +372,7 @@ else{ //load this for other pages
       if(document.getElementsByClassName("_5l-3 _1ht1").length > 0){
 
         //create the light switch and its variable-holder attribute
-        var pMenuButton = create("<div><div class=\"pMenuButton\" id=\"pMenuButton\" title = \"Light and Dark mode switch\"></div></div>");
+        var pMenuButton = create("<div><div class=\"pMenuButton\" id=\"pMenuButton\" title = \"MessengerPlus Options\"></div></div>");
         var title = document.getElementsByClassName("_1tqi")[0]
         title.parentElement.insertBefore(pMenuButton, title);
         var pMButt = document.getElementById("pMenuButton");
