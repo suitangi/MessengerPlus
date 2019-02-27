@@ -1,7 +1,7 @@
 {
   "name": "MesssengerPlus",
   "version": "2.0.3",
-  "description": "An extension that provides additional functionality and visual themes for www.messenger.com.",
+  "description": "An extension that provides additional functionality and visual modes for www.messenger.com.",
   "manifest_version": 2,
   "permissions": ["*://www.messenger.com/*", "storage"],
   "icons": { "16": "icons/icon16.png",
