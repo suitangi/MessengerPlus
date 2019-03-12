@@ -126,14 +126,28 @@ function getHtml(file){
 //pins all the convo in the list passed (used for beginning of run)
 function pinAll(list) {
   var cList = document.getElementsByClassName("_5l-3 _1ht1");
-  var i = 0, j = 0;
-  for(i = 0; i < list.length; i++){
-    for(j = 0; j < cList.length; j++){
-      if(list[i] == cList[j].firstChild.firstChild.getAttribute("data-href"))
-        pin(cList[j]);
+  var objDiv = document.getElementsByClassName("uiScrollableAreaWrap")[0];
+  var pinny = setInterval(function(){
+    var i = 0, j = 0;
+    for(i = 0; i < list.length; i++){
+      for(j = 0; j < cList.length; j++){
+        if(list[i] == cList[j].firstChild.firstChild.getAttribute("data-href")){
+          pin(cList[j]);
+          list.splice(i, 1);
+          i--;
+          break;
+        }
+      }
     }
-  }
+    objDiv.scrollTop = objDiv.scrollHeight;
+    console.log(list);
+    if(list.length == 0){
+      clearInterval(pinny);
+      objDiv.scrollTop = 0;
+    }
+  }, 350);
 }
+
 
 //pins the conversation passed in (convo passed is an HTML li element)
 function pin(convo) {
@@ -511,16 +525,16 @@ else{ //load this for other pages
         // changeChatColor("#384712");
 
         //the mutation observer for changing active convos
-        window.link = window.location.href;
-        window.ob = new MutationObserver(function() {
-          setTimeout(function(){embedVideos();}, 500);
-          classChanged();
-        });
-        var act = document.getElementsByClassName("_1ht2")[0];
-        window.ob.observe(act, {
-          attributes: true,
-          attributeFilter: ["class"]
-        });
+        // window.link = window.location.href;
+        // window.ob = new MutationObserver(function() {
+        //   setTimeout(function(){embedVideos();}, 500);
+        //   classChanged();
+        // });
+        // var act = document.getElementsByClassName("_1ht2")[0];
+        // window.ob.observe(act, {
+        //   attributes: true,
+        //   attributeFilter: ["class"]
+        // });
 
         //getting the list of pinned convos from chrome storage
         chrome.storage.sync.get({pinlist: ''}, function(data) {
