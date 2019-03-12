@@ -249,7 +249,11 @@ input::-webkit-input-placeholder {
 /* own message */
 ._o46._nd_ ._hh7{
     background-color: #474747;
-    color: #f4f4f4!important;
+    color: #f4f4f4 !important;
+}
+/* block quotes */
+._pye {
+    color: #ddd !important;
 }
 ._o46._nd_ ._hh7:active,
 ._o46._nd_._-5k ._hh7 {

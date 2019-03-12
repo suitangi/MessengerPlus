@@ -375,7 +375,7 @@ else{ //load this for other pages
   var start = setInterval(function(){
       console.log("Loading...");
       loadCSS('css/Default');
-      if(document.getElementsByClassName("_5l-3 _1ht1").length > 0){
+      if(document.getElementsByClassName("_1tqi").length > 0){
 
         //create the light switch and its variable-holder attribute
         var pMenuButton = create("<div><div class=\"pMenuButton\" id=\"pMenuButton\" title = \"MessengerPlus Options\"></div></div>");
