@@ -127,7 +127,11 @@ function getHtml(file){
 function pinAll(list) {
   var cList = document.getElementsByClassName("_5l-3 _1ht1");
   var objDiv = document.getElementsByClassName("uiScrollableAreaWrap")[0];
+
+  var tries = 0;
   var pinny = setInterval(function(){
+    tries += 1;
+    console.log("Searching for pinned conversations. Iteration: " + tries);
     var i = 0, j = 0;
     for(i = 0; i < list.length; i++){
       for(j = 0; j < cList.length; j++){
@@ -139,13 +143,50 @@ function pinAll(list) {
         }
       }
     }
+    // console.log(list); //debug
     objDiv.scrollTop = objDiv.scrollHeight;
-    console.log(list);
-    if(list.length == 0){
+    if(list.length == 0 || (list.length == 1 && list[0] == "")){
       clearInterval(pinny);
       objDiv.scrollTop = 0;
+      var load = document.getElementById("loader");
+      document.getElementById("loadtext").innerHTML = "All Done!";
+      load.removeChild(document.getElementsByClassName("lds-ring")[0])
+      setTimeout(function(){
+        load.style.opacity = 0;
+      },500);
+      setTimeout(function(){
+        load.parentElement.removeChild(load);
+        unloadCSS("css/Loading");
+      },1500);
+
     }
-  }, 350);
+    if(tries > 29){ //timeout
+      clearInterval(pinny);
+      var load = document.getElementById("loader");
+      load.parentElement.removeChild(load);
+      unloadCSS("css/Loading");
+      objDiv.scrollTop = 0;
+      window.removeList = [];
+      for(j = 0; j < list.length; j++){
+        window.removeList.push(list[j]);
+      }
+      chrome.storage.sync.get({pinlist: ''}, function(data) {
+        var pinnedList = data.pinlist.split(" ");
+        for(j = 0; j < window.removeList.length; j++){
+            for(var i = 0; i < pinnedList.length; i++){
+             if (pinnedList[i] == window.removeList[j]) {
+               pinnedList.splice(i, 1);
+              console.log(i)
+             }
+          }
+        }
+        chrome.storage.sync.set({pinlist: pinnedList.join(' ')}, function() {
+        });
+      })
+      window.alert("Unable to pin conversations at: " + list.join(", ") + " . Conversations unpinned.");
+      list = [];
+    }
+  }, 500);
 }
 
 
@@ -385,6 +426,14 @@ if (window.location.href.includes("messenger.com/videocall/")) {//load this for 
   });
 }
 else{ //load this for other pages
+
+  //dislplay the loading screen
+  loadCSS("css/Loading");
+  var frag = create("<div ID = \"loader\" style = \"height: 100vh;width:100vw; background:black;\"><div ID=\"loadtext\">Messenger+ is customizing your messenger, please wait...</div><div class=\"lds-ring\"><div></div><div></div><div></div><div></div></div></div>");
+  var body = document.getElementsByTagName("body")[0];
+  body.insertBefore(frag, body.firstElementChild);
+
+
   //to load at the start of the DOM after it has been dynamically built
   var start = setInterval(function(){
       console.log("Loading...");
