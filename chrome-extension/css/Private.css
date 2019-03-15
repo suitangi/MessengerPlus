@@ -1,49 +1,137 @@
+div,
+span,
+img {
+    -webkit-backface-visibility: hidden;
+}
+
+/* people list */
+._29hl li a img{
+    filter: blur(1.8px) saturate(0.5);
+    transition-duration: 0.5s;
+}
+._29hl li ._364g{
+    filter: blur(2px) saturate(0.5);
+    opacity: 0.5;
+    transition-duration: 0.5s;
+}
+._29hl:hover li ._364g,
+._29hl:hover li a img{
+    filter: none !important;
+    opacity: 0.99 !important;
+    transition-duration: 0.5s !important;
+}
+
+
+/* convo list */
+._5l-m div:first-child span,
+._5l-m div:first-child div {
+    filter: blur(1.8px) saturate(0.5);
+    transition-duration: 0.5s;
+}
+._4b0g {
+    opacity: 1 !important;
+    filter: none !important;
+}
+._5l-3 div:first-child div:first-child div:first-child div:first-child,
+._5l-3 div:last-child div:first-child {
+    filter: blur(2px) saturate(0.5);
+    transition-duration: 0.5s;
+}
+._5l-m div:nth-child(2) span {
+    opacity: 0;
+    transition-duration: 0.5s;
+}
+._5l-3:hover span,
+._5l-3:hover ._5l-m div:first-child div,
+._5l-3:hover div:first-child div:first-child div:first-child div:first-child,
+._5l-3:hover div:last-child div:first-child {
+    filter: none !important;
+    opacity: 0.99 !important;
+    transition-duration: 0.5s !important;
+}
+
+
+/* convo titles */
 ._17w2,
-._1jt6 {
-    /* convo titles */
-    filter: blur(3px) saturate(0.5);
+._1jt6 a,
+._1jt6 div:first-child div:nth-child(2) div:nth-child(2) div:first-child,
+._1jt6 div:first-child div:nth-child(2) div:first-child span{
+    filter: blur(2px) saturate(0.5);
+    opacity: 0.5;
     transition-duration: 0.5s;
 }
 
-._5l-3 {
-    /* convo list */
-    filter: blur(3px) saturate(0.5);
+._1jt6 img,
+._1jt6 div:first-child div:first-child div:first-child div:first-child div:first-child div:first-child {
+    filter: blur(2px) saturate(0.5);
     transition-duration: 0.5s;
 }
-/* Shared photos */
-._3m31 {
-    filter: blur(5px) saturate(0.5);
+._17w2:hover,
+._1jt6:hover a,
+._1jt6:hover div:first-child div:nth-child(2) div:nth-child(2) div:first-child,
+._1jt6:hover img,
+._1jt6:hover div:first-child div:first-child div:first-child div:first-child div:first-child div:first-child ,
+._1jt6:hover div:first-child div:nth-child(2) div:first-child span{
+    filter: none;
+    opacity: 0.99;
     transition-duration: 0.5s;
 }
+
+
 
 /* Text messages and links */
-._1t_p {
-    filter: blur(5px) saturate(0);
-    transition-duration: 0.3s;
-}
-
-/*People List */
-._4wc- {
-    filter: blur(5px) saturate(0.5);
+._o46 div div span,
+._3wb1 div {
+    filter: blur(1px) saturate(0);
+    opacity: 0;
     transition-duration: 0.5s;
 }
 
-._1qt4,
-._1qt5,
-._2j6,
-._1qt3,
-._3oh-,
-._3058,
-._36ic,
-._2jnv {
-    filter: none;
+._4gd0 ._o46:last-child div {
+    filter: none !important;
 }
 
-._4wc-:hover,
-._1t_p:hover,
-._5l-3:hover,
-._1jt6:hover,
-._17w2:hover,
+._1t_p h5,
+._1t_p div div div img,
+._3oh- span div,
+._497p span span span {
+    filter: blur(2.5px) saturate(0);
+    transition-duration: 0.5s;
+}
+
+._1t_p iframe,
+._o46 div div div div,
+._1t_p ._2poz {
+    filter: blur(7px) saturate(0);
+    transition-duration: 0.5s;
+}
+._1t_p ._2poz,
+._1t_p ._2poz:hover {
+    transition-duration: 0s !important;
+}
+
+._aou {
+    filter: none !important;
+}
+
+._1t_p:hover span,
+._1t_p:hover iframe,
+._1t_p:hover div,
+._3wb1:hover div,
+._1t_p:hover h5,
+._1t_p:hover img,
+._3oh-:hover span div,
+._497p:hover span span span {
+    filter: none;
+    opacity: 0.99;
+}
+
+/*Shared Photos */
+._3m31 {
+    filter: blur(3px) saturate(0);
+    transition-duration: 0.5s;
+}
 ._3m31:hover {
     filter: none;
+    transition-duration: 0.5s;
 }

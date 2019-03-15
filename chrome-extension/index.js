@@ -150,7 +150,7 @@ function pinAll(list) {
       objDiv.scrollTop = 0;
       var load = document.getElementById("loader");
       document.getElementById("loadtext").innerHTML = "All Done!";
-      load.removeChild(document.getElementsByClassName("lds-ring")[0])
+      load.removeChild(document.getElementsByClassName("lds-ring")[0]);
       setTimeout(function(){
         load.style.opacity = 0;
       },500);
@@ -183,7 +183,7 @@ function pinAll(list) {
         chrome.storage.sync.set({pinlist: pinnedList.join(' ')}, function() {
         });
       })
-      window.alert("Unable to pin conversations at: " + list.join(", ") + " . Conversations unpinned.");
+      window.alert("Unable to locate and pin conversations at: " + list.join(", ") + " . Conversations unpinned.\nPlease check your internet connection and Facebook Messenger's Status.");
       list = [];
     }
   }, 500);
@@ -429,7 +429,7 @@ else{ //load this for other pages
 
   //dislplay the loading screen
   loadCSS("css/Loading");
-  var frag = create("<div ID = \"loader\" style = \"height: 100vh;width:100vw; background:black;\"><div ID=\"loadtext\">Messenger+ is customizing your messenger, please wait...</div><div class=\"lds-ring\"><div></div><div></div><div></div><div></div></div></div>");
+  var frag = create("<div ID = \"loader\" style = \"background:#101010;\"><div ID=\"loadtext\">Messenger+ is customizing your messenger, please wait...</div><div class=\"lds-ring\"><div></div><div></div><div></div><div></div></div></div>");
   var body = document.getElementsByTagName("body")[0];
   body.insertBefore(frag, body.firstElementChild);
 
@@ -574,16 +574,16 @@ else{ //load this for other pages
         // changeChatColor("#384712");
 
         //the mutation observer for changing active convos
-        // window.link = window.location.href;
-        // window.ob = new MutationObserver(function() {
-        //   setTimeout(function(){embedVideos();}, 500);
-        //   classChanged();
-        // });
-        // var act = document.getElementsByClassName("_1ht2")[0];
-        // window.ob.observe(act, {
-        //   attributes: true,
-        //   attributeFilter: ["class"]
-        // });
+        window.link = window.location.href;
+        window.ob = new MutationObserver(function() {
+          setTimeout(function(){embedVideos();}, 500);
+          classChanged();
+        });
+        var act = document.getElementsByClassName("_1ht2")[0];
+        window.ob.observe(act, {
+          attributes: true,
+          attributeFilter: ["class"]
+        });
 
         //getting the list of pinned convos from chrome storage
         chrome.storage.sync.get({pinlist: ''}, function(data) {
