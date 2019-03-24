@@ -228,6 +228,11 @@ input::-webkit-input-placeholder {
     border-top: 6px solid #333333!important;
 }
 
+/* quoted messages */
+.ellipsis, .direction_ltr{
+    color: #a5a5a5 !important;
+}
+
 ._4_j4 {
     background-color: #282828!important;
 }

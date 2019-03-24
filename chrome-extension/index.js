@@ -62,13 +62,13 @@ function embedVideos(){
       }
       else if(vLink.includes("clips.twitch.tv%2F")){//messenger redirect twitch clip
         var vPos = vLink.lastIndexOf("clips.twitch.tv%2F") + 18;
-        var vId = vLink.slice(vPos, vId.indexOf("&"));
+        var vId = vLink.slice(vPos, vLink.indexOf("&"));
         vId += "&autoplay=false";
           embedVideo(i, "https://clips.twitch.tv/embed?clip=", vId);
       }
       else if(vLink.includes("twitch.tv%2Ftwitch%2Fclip%2F")){//messenger redirect twitch clip
         var vPos = vLink.lastIndexOf("twitch.tv%2Ftwitch%2Fclip%2F") + 28;
-        var vId = vLink.slice(vPos, vId.indexOf("&"));
+        var vId = vLink.slice(vPos, vLink.indexOf("&"));
         vId += "&autoplay=false";
           embedVideo(i, "https://clips.twitch.tv/embed?clip=", vId);
       }
