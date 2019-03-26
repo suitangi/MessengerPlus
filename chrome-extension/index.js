@@ -291,7 +291,7 @@ function oncReset(){
         attr.value = "true";
         bList[i].setAttributeNode(attr);
         bList[i].addEventListener("click", function(){
-          setTimeout(function(){ addPin();}, 20);
+          setTimeout(function(){ addPin();}, 60);
         });
       }
     }
@@ -427,11 +427,24 @@ if (window.location.href.includes("messenger.com/videocall/")) {//load this for 
 }
 else{ //load this for other pages
 
-  //dislplay the loading screen
-  loadCSS("css/Loading");
-  var frag = create("<div ID = \"loader\" style = \"background:#101010;\"><div ID=\"loadtext\">Messenger+ is customizing your messenger, please wait...</div><div class=\"lds-ring\"><div></div><div></div><div></div><div></div></div></div>");
-  var body = document.getElementsByTagName("body")[0];
-  body.insertBefore(frag, body.firstElementChild);
+  //checks to see it's not on log in screen
+  if(window.location.href.includes("messenger.com/t/")){
+    loadCSS("css/Loading");
+    var frag = create("<div ID = \"loader\" style = \"background:#101010;\"><div ID=\"loadtext\">Messenger+ is customizing your messenger, please wait...</div><div class=\"lds-ring\"><div></div><div></div><div></div><div></div></div></div>");
+    var body = document.getElementsByTagName("body")[0];
+    body.insertBefore(frag, body.firstElementChild);
+  }
+  else{ //if it is, then check to see when they log in
+    var displayLoad = setInterval(function(){
+      if(window.location.href.includes("messenger.com/t/")){
+        loadCSS("css/Loading");
+        var frag = create("<div ID = \"loader\" style = \"background:#101010;\"><div ID=\"loadtext\">Messenger+ is customizing your messenger, please wait...</div><div class=\"lds-ring\"><div></div><div></div><div></div><div></div></div></div>");
+        var body = document.getElementsByTagName("body")[0];
+        body.insertBefore(frag, body.firstElementChild);
+        clearInterval(displayLoad);
+      }
+    }, 1000);
+  }
 
 
   //to load at the start of the DOM after it has been dynamically built
