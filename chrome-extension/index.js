@@ -150,7 +150,7 @@ function pinAll(list) {
       objDiv.scrollTop = 0;
       var load = document.getElementById("loader");
       document.getElementById("loadtext").innerHTML = "All Done!";
-      load.removeChild(document.getElementsByClassName("lds-ring")[0]);
+      load.removeChild(document.getElementsByClassName("lds-ellipsis")[0]);
       setTimeout(function(){
         load.style.opacity = 0;
       },500);
@@ -430,7 +430,7 @@ else{ //load this for other pages
   //checks to see it's not on log in screen
   if(window.location.href.includes("messenger.com/t/")){
     loadCSS("css/Loading");
-    var frag = create("<div ID = \"loader\" style = \"background:#101010;\"><div ID=\"loadtext\">Messenger+ is customizing your messenger, please wait...</div><div class=\"lds-ring\"><div></div><div></div><div></div><div></div></div></div>");
+    var frag = create("<div ID = \"loader\" style = \"background:#101010;\"><div ID=\"loadtext\">Messenger+ is customizing your messenger, please wait...</div><div class=\"lds-ellipsis\"><div></div><div></div><div></div><div></div></div>");
     var body = document.getElementsByTagName("body")[0];
     body.insertBefore(frag, body.firstElementChild);
   }
@@ -438,7 +438,7 @@ else{ //load this for other pages
     var displayLoad = setInterval(function(){
       if(window.location.href.includes("messenger.com/t/")){
         loadCSS("css/Loading");
-        var frag = create("<div ID = \"loader\" style = \"background:#101010;\"><div ID=\"loadtext\">Messenger+ is customizing your messenger, please wait...</div><div class=\"lds-ring\"><div></div><div></div><div></div><div></div></div></div>");
+        var frag = create("<div ID = \"loader\" style = \"background:#101010;\"><div ID=\"loadtext\">Messenger+ is customizing your messenger, please wait...</div><div class=\"lds-ellipsis\"><div></div><div></div><div></div><div></div></div>");
         var body = document.getElementsByTagName("body")[0];
         body.insertBefore(frag, body.firstElementChild);
         clearInterval(displayLoad);
