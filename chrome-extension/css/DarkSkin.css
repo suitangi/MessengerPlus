@@ -228,6 +228,14 @@ input::-webkit-input-placeholder {
     border-top: 6px solid #333333!important;
 }
 
+/* reactions counts */
+._koh {
+    border-color: #333333 !important;
+}
+._koh li {
+    color: #aaa !important;
+}
+
 /* quoted messages */
 .ellipsis, .direction_ltr{
     color: #a5a5a5 !important;
