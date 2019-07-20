@@ -451,11 +451,12 @@ else{ //load this for other pages
   var start = setInterval(function(){
       console.log("Loading...");
       loadCSS('css/Default');
-      if(document.getElementsByClassName("_1tqi").length > 0){
+      alert("Messenger has updated their site. The devs for MessengerPlus are working on a fix to restore functionality.\nAs of now, only the dark mode works, the + button and the rest are still being fixed. If you usually use light mode, please disable the extension for now at chrome://extension.");
+      if(document.getElementsByClassName("_6-xo").length > 0){
 
         //create the light switch and its variable-holder attribute
         var pMenuButton = create("<div><div class=\"pMenuButton\" id=\"pMenuButton\" title = \"MessengerPlus Options\"></div></div>");
-        var title = document.getElementsByClassName("_1tqi")[0]
+        var title = document.getElementsByClassName("_6-xo")[0]
         title.parentElement.insertBefore(pMenuButton, title);
         var pMButt = document.getElementById("pMenuButton");
         var att_light = document.createAttribute("data-light");

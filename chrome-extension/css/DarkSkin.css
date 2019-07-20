@@ -6,6 +6,14 @@ b, strong {
     font-weight: 600 !important;
 }
 
+/* hot fixes */
+._6-xo{
+    color: #aaa;
+}
+#fill-1 {
+    fill: #aaa !important;
+}
+
 /*smaller font weight */
 ._li,
 ._1enh,
@@ -354,10 +362,13 @@ input::-webkit-input-placeholder {
     background-color: #040404 !important;
 }
 /* composer */
-._4rv3 {
+._4rv3, ._5irm._7mkm {
     background-color: #282828 !important;
 }
-._5rpb {
+._7kpk {
+    background-color: rgba(255, 255, 255, .08) !important;
+}
+._5rpb, ._5rpu {
     color: #a5a5a5!important;
 }
 /* make static stickers slightly more readable */
