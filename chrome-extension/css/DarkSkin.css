@@ -7,12 +7,14 @@ b, strong {
 }
 
 /* hot fixes */
-._6-xo{
-    color: #aaa;
+._6-xo, ._7q1q{
+    color: #888;
+    font-weight: 500 !important;
 }
-#fill-1 {
-    fill: #aaa !important;
+._80co {
+    border-radius: 60px !important;
 }
+
 
 /*smaller font weight */
 ._li,
@@ -110,7 +112,7 @@ label {
   z-index: 99 !important;
   position: absolute !important;
   top: 48px;
-  left: 42px;
+  left: 135px;
   width: 185px;
   border: 1px solid;
   border-color: #333;
@@ -411,7 +413,7 @@ input::-webkit-input-placeholder {
 
 /* person name */
 ._3oh- a {
-    color: #ddd;
+    color: #ddd !important;
 }
 
 

@@ -126,7 +126,7 @@ function getHtml(file){
 //pins all the convo in the list passed (used for beginning of run)
 function pinAll(list) {
   var cList = document.getElementsByClassName("_5l-3 _1ht1");
-  var objDiv = document.getElementsByClassName("uiScrollableAreaWrap")[0];
+  var objDiv = document.getElementsByClassName("uiScrollableAreaBody")[0];
 
   var tries = 0;
   var pinny = setInterval(function(){
@@ -275,15 +275,15 @@ function addPin(){
 
     //setting the click action for the pin/unpin button
     if (ord == 0)
-      pinbutt.addEventListener("click", function(){pin(convo); convo.getElementsByClassName("_5blh _4-0h")[0].click();});
+      pinbutt.addEventListener("click", function(){pin(convo); convo.getElementsByClassName("_5blh _8102")[0].click();});
     else
-      pinbutt.addEventListener("click", function(){unpin(convo); convo.getElementsByClassName("_5blh _4-0h")[0].click();});
+      pinbutt.addEventListener("click", function(){unpin(convo); convo.getElementsByClassName("_5blh _8102")[0].click();});
   }
 }
 
 //sets/resets the onclick actions for the settings button
 function oncReset(){
-    var bList = document.getElementsByClassName("_5blh _4-0h");
+    var bList = document.getElementsByClassName("_5blh _8102");
     var i  = 0;
     for(i = 0; i < bList.length; i++){
       if(!bList[i].hasAttribute("data-pin")){
@@ -417,6 +417,27 @@ function changeCompact(){
   }
 }
 
+//changes the colors of the buttons
+function setButtonColors(color){
+  butts = document.getElementsByTagName("path")
+  for (i = 0; i< butts.length; i++){
+    butts[i].setAttribute("fill", color);
+  }
+  tus = document.getElementsByClassName("_3058 _15gf");
+  for(i = 0; i< tus.length; i++){
+    tus[i].getElementsByTagName("path")[0].removeAttribute("fill");
+    tus[i].getElementsByTagName("rect")[1].setAttribute("fill", "#333");
+  }
+}
+
+function setThumbsups(color){
+    tus = document.getElementsByClassName("_3058 _15gf");
+    for(i = 0; i< tus.length; i++){
+      tus[i].getElementsByTagName("path")[0].removeAttribute("fill");
+      tus[i].getElementsByTagName("rect")[1].setAttribute("fill", color);
+    }
+}
+
 //initialization code~
 if (window.location.href.includes("messenger.com/videocall/")) {//load this for call pages
   //get the dark/light theme saved from chrome data
@@ -448,15 +469,15 @@ else{ //load this for other pages
 
 
   //to load at the start of the DOM after it has been dynamically built
+  // alesrt("Messenger has updated their site. The devs for MessengerPlus are working on a fix to restore functionality.\nAs of now, only the dark mode works, the + button and the rest are still being fixed. If you usually use light mode, please disable the extension for now at chrome://extension.");
   var start = setInterval(function(){
       console.log("Loading...");
       loadCSS('css/Default');
-      alert("Messenger has updated their site. The devs for MessengerPlus are working on a fix to restore functionality.\nAs of now, only the dark mode works, the + button and the rest are still being fixed. If you usually use light mode, please disable the extension for now at chrome://extension.");
-      if(document.getElementsByClassName("_6-xo").length > 0){
+      if(document.getElementsByClassName("_6-xl _6-xm").length > 0){
 
         //create the light switch and its variable-holder attribute
         var pMenuButton = create("<div><div class=\"pMenuButton\" id=\"pMenuButton\" title = \"MessengerPlus Options\"></div></div>");
-        var title = document.getElementsByClassName("_6-xo")[0]
+        var title = document.getElementsByClassName("_6-xl _6-xm")[0]
         title.parentElement.insertBefore(pMenuButton, title);
         var pMButt = document.getElementById("pMenuButton");
         var att_light = document.createAttribute("data-light");
@@ -476,12 +497,15 @@ else{ //load this for other pages
         pMButt.setAttributeNode(att_compact);
         pMButt.setAttribute('data-clicked', 'off');
 
+
+
         // get the dark/light theme saved from chrome data
         chrome.storage.sync.get({light_switch: 'on'}, function(data) {
           pMButt.setAttribute('data-light', data.light_switch);
           if(data.light_switch == 'off'){
             loadCSS("css/DarkSkin");
             unloadCSS("css/Default");
+            setButtonColors("#888");
           }
         });
 
@@ -592,6 +616,10 @@ else{ //load this for other pages
         window.ob = new MutationObserver(function() {
           setTimeout(function(){embedVideos();}, 500);
           classChanged();
+          if(document.getElementById("pMenuButton").getAttribute('data-light') == 'off'){
+            setButtonColors("#aaa");
+          }
+
         });
         var act = document.getElementsByClassName("_1ht2")[0];
         window.ob.observe(act, {
@@ -609,6 +637,9 @@ else{ //load this for other pages
         //the mutation observer for new messages
         window.ob2 = new MutationObserver(function() {
           setTimeout(function(){embedVideos();}, 1000);
+          if(document.getElementById("pMenuButton").getAttribute('data-light') == 'off'){
+            setButtonColors("#aaa");
+          }
         });
 
         //implementing the observe for ob2

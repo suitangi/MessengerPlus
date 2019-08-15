@@ -1,6 +1,6 @@
 {
   "name": "MesssengerPlus",
-  "version": "2.1.4",
+  "version": "2.2.0",
   "short_name": "Messenger+",
   "description": "An extension that provides additional functionality and visual modes for www.messenger.com.",
   "manifest_version": 2,

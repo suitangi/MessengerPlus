@@ -1,10 +1,13 @@
 ._1enh {
-    max-width: 74px;
-    min-width: 74px;
+    max-width: 78px;
+    min-width: 78px;
     position: fixed;
     background-color: #fff;
     transition: all .5s cubic-bezier(.68, -0.55, .27, 1.55);
     z-index: 5;
+}
+._1enh._7q1s {
+    min-width: 78px;
 }
 ._1enh:hover {
     max-width: 420px;
@@ -18,7 +21,11 @@
 ._1enh:hover ._36ic ._4qba,
 ._1enh:hover ._2j6,
 ._1enh:hover ._1qt4,
-._1enh:hover ._2fug {
+._1enh:hover ._2fug,
+._1enh:hover ._6ymu,
+._1enh:hover ._6-xp,
+._1enh:hover ._6-xo,
+._1enh:hover ._7sta{
     opacity: 1 !important;
     transition: all .5s ease;
 }
@@ -27,7 +34,7 @@
     transition: all 1s ease;
 }
 ._20bp {
-    margin-left: 74px;
+    margin-left: 78px;
     z-index: 1;
 }
 ._2oc8,
@@ -35,16 +42,23 @@
 ._2j6,
 ._1qt4,
 ._2fug,
-.pinsym {
+.pinsym,
+._6ymu,
+._6-xp,
+._6-xo,
+._7sta
+{
     opacity: 0 !important;
     transition: all .5s ease;
 }
+
+
 ._673w {
     z-index: 2;
-    margin-left: 74px;
+    margin-left: 78px;
 }
 .pMenuButton {
-    margin-left: -20px;
+    margin-left: -40px;
     transition: all .5s ease;
 }
 ._1enh .uiScrollableArea > .uiScrollableAreaTrack {
