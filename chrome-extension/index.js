@@ -425,8 +425,10 @@ function setButtonColors(color){
   }
   tus = document.getElementsByClassName("_3058 _15gf");
   for(i = 0; i< tus.length; i++){
-    tus[i].getElementsByTagName("path")[0].removeAttribute("fill");
-    tus[i].getElementsByTagName("rect")[1].setAttribute("fill", "#333");
+    if(tus[i].getElementsByTagName("path").length > 0)
+      tus[i].getElementsByTagName("path")[0].removeAttribute("fill");
+    if(tus[i].getElementsByTagName("rect").length > 0)
+      tus[i].getElementsByTagName("rect")[1].setAttribute("fill", "#353535");
   }
 }
 
