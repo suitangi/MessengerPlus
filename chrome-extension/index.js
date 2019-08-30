@@ -126,7 +126,7 @@ function getHtml(file){
 //pins all the convo in the list passed (used for beginning of run)
 function pinAll(list) {
   var cList = document.getElementsByClassName("_5l-3 _1ht1");
-  var objDiv = document.getElementsByClassName("uiScrollableAreaBody")[0];
+  var objDiv = document.getElementsByClassName("uiScrollableAreaWrap")[0];
 
   var tries = 0;
   var pinny = setInterval(function(){
