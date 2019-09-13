@@ -15,6 +15,10 @@ b, strong {
     border-radius: 60px !important;
 }
 
+._1p1t, ._2mjm {
+    color: #a5a5a5!important;
+    -webkit-text-fill-color: #a5a5a5 !important;
+}
 
 /*smaller font weight */
 ._li,
