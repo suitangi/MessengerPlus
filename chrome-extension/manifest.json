@@ -1,6 +1,6 @@
 {
   "name": "MesssengerPlus",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "short_name": "Messenger+",
   "description": "An extension that provides additional functionality and visual modes for www.messenger.com.",
   "manifest_version": 2,
@@ -9,7 +9,8 @@
            "48": "icons/icon48.png",
           "128": "icons/icon128.png" },
   "browser_action": {
-    "default_icon": "icons/default-icon.png"
+    "default_icon": "icons/default-icon.png",
+    "default_popup": "popup.html"
   },
     "content_scripts": [
     {
