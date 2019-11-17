@@ -325,6 +325,9 @@ function changeTheme(){
   var lights = document.getElementById("LightB");
   var pMButt = document.getElementById("pMenuButton");
   if(pMButt.getAttribute('data-light') == 'on'){ //in light mode, go to the dark side
+
+    setButtonColors("#aaa");
+    setThumbsups("#aaa");
     loadCSS('css/DarkSkin');
     unloadCSS('css/Default');
     chrome.storage.sync.set({light_switch: 'off'}, function() {});
@@ -354,6 +357,7 @@ function changeTheme(){
         cList[i].style.cssText = "background-color: #ddd !important; order: -1 !important;";
     }
     lights.innerHTML = "Dark Mode";
+    reverseButtonColors();
     if(pMButt.getAttribute('data-border') == 'on')//unload the border css
       unloadCSS("css/DarkBorders");
   }
@@ -419,25 +423,54 @@ function changeCompact(){
 
 //changes the colors of the buttons
 function setButtonColors(color){
-  butts = document.getElementsByTagName("path")
+  recordButtonColors();
+  butts = document.getElementsByClassName("uiScrollableAreaContent")[1].getElementsByTagName("path");
   for (i = 0; i< butts.length; i++){
     butts[i].setAttribute("fill", color);
   }
-  tus = document.getElementsByClassName("_3058 _15gf");
-  for(i = 0; i< tus.length; i++){
-    if(tus[i].getElementsByTagName("path").length > 0)
-      tus[i].getElementsByTagName("path")[0].removeAttribute("fill");
-    if(tus[i].getElementsByTagName("rect").length > 0)
-      tus[i].getElementsByTagName("rect")[1].setAttribute("fill", "#353535");
+  butts = document.getElementsByClassName("uiScrollableAreaContent")[0].getElementsByTagName("path");
+  for (i = 0; i< butts.length; i++){
+    butts[i].setAttribute("fill", color);
+  }
+  butts = document.getElementsByClassName("_6-xk")[0].getElementsByTagName("path");
+  for (i = 0; i< butts.length; i++){
+    butts[i].setAttribute("fill", color);
   }
 }
 
 function setThumbsups(color){
-    tus = document.getElementsByClassName("_3058 _15gf");
-    for(i = 0; i< tus.length; i++){
-      tus[i].getElementsByTagName("path")[0].removeAttribute("fill");
-      tus[i].getElementsByTagName("rect")[1].setAttribute("fill", color);
+  recordButtonColors();
+  var thumbs_up_messages = document.getElementsByClassName("_2poz _ui9 _576q");
+  for(i = 0; i< thumbs_up_messages.length; i++){
+    if(thumbs_up_messages[i].getElementsByTagName("path").length > 0)
+      thumbs_up_messages[i].getElementsByTagName("path")[0].setAttribute("fill", null);
+    if(thumbs_up_messages[i].getElementsByTagName("rect").length > 0)
+      thumbs_up_messages[i].getElementsByTagName("rect")[1].setAttribute("fill", "#353535");
+  }
+}
+
+//reverse button color chagnes
+function reverseButtonColors(){
+  butts = document.getElementsByTagName("path");
+  for (i = 0; i< butts.length; i++){
+    butts[i].setAttribute("fill", butts[i].getAttribute("original-color"));
+  }
+  butts = document.getElementsByTagName("rect");
+  for (i = 0; i< butts.length; i++){
+    butts[i].setAttribute("fill", "White");
+  }
+}
+
+//records the original button setButtonColors
+function recordButtonColors(){
+  butts = document.getElementsByTagName("path");
+  for (i = 0; i< butts.length; i++){
+    if(!butts[i].hasAttribute("original-color")){
+      var att = document.createAttribute("original-color");
+      att.value = butts[i].getAttribute("fill");
+      butts[i].setAttributeNode(att);
     }
+  }
 }
 
 //initialization code~
@@ -499,7 +532,8 @@ else{ //load this for other pages
         pMButt.setAttributeNode(att_compact);
         pMButt.setAttribute('data-clicked', 'off');
 
-
+        //get the original vector color values from the buttons
+        recordButtonColors();
 
         // get the dark/light theme saved from chrome data
         chrome.storage.sync.get({light_switch: 'on'}, function(data) {
@@ -619,9 +653,10 @@ else{ //load this for other pages
           setTimeout(function(){embedVideos();}, 500);
           classChanged();
           if(document.getElementById("pMenuButton").getAttribute('data-light') == 'off'){
+            recordButtonColors();
             setButtonColors("#aaa");
+            setThumbsups("aaa");
           }
-
         });
         var act = document.getElementsByClassName("_1ht2")[0];
         window.ob.observe(act, {
@@ -640,7 +675,8 @@ else{ //load this for other pages
         window.ob2 = new MutationObserver(function() {
           setTimeout(function(){embedVideos();}, 1000);
           if(document.getElementById("pMenuButton").getAttribute('data-light') == 'off'){
-            setButtonColors("#aaa");
+            recordButtonColors();
+            setThumbsups("#aaa");
           }
         });
 
