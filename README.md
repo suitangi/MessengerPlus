@@ -3,6 +3,7 @@ CSS Wrapper for messenger to turn it to dark mode
 
 ![Screenshot](http://i.imgur.com/TIUISbD.png)
 
+## Change-Log
 ```
 ‣ 2.2.6 Large update for the DarkMode of vector graphics from Facebook.
 ‣ 2.2.5 Small dark-mode patch. Reply text background.
