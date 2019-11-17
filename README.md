@@ -3,7 +3,7 @@ CSS Wrapper for messenger to turn it to dark mode
 
 ![Screenshot](http://i.imgur.com/TIUISbD.png)
 
-
+```
 ‣ 2.2.6 Large update for the DarkMode of vector graphics from Facebook.
 ‣ 2.2.5 Small dark-mode patch. Reply text background.
 ‣ 2.2.4 Pop up message on the extension button added.
@@ -28,3 +28,4 @@ CSS Wrapper for messenger to turn it to dark mode
 ‣ 1.1.0 Pin Conversations Functionality Released
 ‣ 1.0.1 Minor Bug Fixes
 ‣ 1.0.0 Initial Release as "DarkMessenger"
+```
