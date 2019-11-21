@@ -5,6 +5,7 @@ CSS Wrapper for messenger to turn it to dark mode
 
 ## Change-Log
 ```
+‣ 2.2.7 Small dark mode patch for groupchat icons.
 ‣ 2.2.6 Large update for the DarkMode of vector graphics from Facebook.
 ‣ 2.2.5 Small dark-mode patch. Reply text background.
 ‣ 2.2.4 Pop up message on the extension button added.

@@ -434,7 +434,6 @@ input::-webkit-input-placeholder {
     color: #ddd !important;
 }
 
-
 /* convo list */
 ._li ._1enh {
     /* fix convo list hiders */
@@ -467,6 +466,16 @@ input::-webkit-input-placeholder {
 ._57pm {
     border-color: transparent !important;
 }
+/*groupchat icon rings */
+._7q1i, ._7q0v, ._7q1m, ._7q1n {
+  border-color: rgba(255, 255, 255, 0) !important;
+}
+/* groupchat icon + more */
+._7q1p{
+  background-color: rgba(255, 255, 255, .05) !important;
+  border-color: rgba(255, 255, 255, 0) !important;
+}
+
 /* message request from */
 ._2kt ._5nxb {
     color: #ddd !important;
