@@ -110,20 +110,22 @@ label {
 
 .pinsym{
   position: absolute !important;
-  top:27px !important;
-  right: 30px !important;
-  font-size: 20px !important;
+  top:19px !important;
+  right: 32px !important;
+  font-size: 18px !important;
   opacity: 0.2 !important;
   filter:saturate(0) brightness(40) !important;
+  animation-duration: 0s !important;
 }
 
 .pinsym{
   position: absolute;
-  top:27px;
-  right: 30px;
-  font-size: 20px;
+  top:19px;
+  right: 32px;
+  font-size: 18px;
   opacity: 0.2;
   filter:saturate(0) brightness(0);
+  animation-duration: 0s !important;
 }
 
 .plusMenu {

@@ -9,6 +9,13 @@ b, strong {
     font-weight: 600 !important;
 }
 
+._1ht1._1ht2 {
+  background-color: rgba(0, 0, 0, .05) !important;
+}
+._1ht1._1ht2 ._6zkc{
+  background-color: transparent !important;
+}
+
 ._1enh {
       border-right: 1px solid rgba(0, 0, 0, .20);
   }
@@ -49,11 +56,13 @@ b, strong {
 
 .pinsym{
   position: absolute;
-  top:27px;
-  right: 30px;
-  font-size: 20px;
+  top:19px;
+  right: 32px;
+  font-size: 18px;
+  font-weight: 600;
   opacity: 0.2;
-  filter:saturate(0) brightness(0);
+  filter:saturate(0) brightness(40) invert(100%) !important;
+  animation-duration: 0s !important;
 }
 
 .plusMenu {
