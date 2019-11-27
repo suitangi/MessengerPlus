@@ -655,7 +655,7 @@ else{ //load this for other pages
           if(document.getElementById("pMenuButton").getAttribute('data-light') == 'off'){
             recordButtonColors();
             setButtonColors("#aaa");
-            setThumbsups("aaa");
+            setTimeout(function(){setThumbsups("aaa");}, 500);
           }
         });
         var act = document.getElementsByClassName("_1ht2")[0];
