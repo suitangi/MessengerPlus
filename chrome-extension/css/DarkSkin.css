@@ -7,6 +7,13 @@ b, strong {
 }
 
 /* hot fixes */
+._8slc {
+    color: rgba(220, 220, 220, 1) !important;
+}
+
+._7ht_{
+  color: rgba(255, 255, 255, .40) !important;
+}
 
 ._87b_ {
   color: #888 !important;
@@ -469,7 +476,7 @@ input::-webkit-input-placeholder {
     border-color: transparent !important;
 }
 /*groupchat icon rings */
-._7q1i, ._7q0v, ._7q1m, ._7q1n {
+._7q1i, ._7q0v, ._7q1m, ._7q1n, ._7q1l {
   border-color: rgba(255, 255, 255, 0) !important;
 }
 /* groupchat icon + more */
