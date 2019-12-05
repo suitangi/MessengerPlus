@@ -1,5 +1,5 @@
-# Dark-Messenger
-CSS Wrapper for messenger to turn it to dark mode
+# MessengerPlus
+An extension that provides additional functionality and visual modes for www.messenger.com.
 
 ![Screenshot](http://i.imgur.com/TIUISbD.png)
 
