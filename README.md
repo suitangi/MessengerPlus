@@ -1,7 +1,8 @@
 # MessengerPlus
 An extension that provides additional functionality and visual modes for www.messenger.com.
 
-![Screenshot](http://i.imgur.com/TIUISbD.png)
+![Screenshot](https://i.imgur.com/sg4WdVT.png)
+![Screenshot](https://i.imgur.com/0osUnlp.png)
 
 ## Change-Log
 ```
