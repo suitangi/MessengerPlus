@@ -24,7 +24,7 @@ b, strong {
 }
 
 ._6-xo, ._7q1q{
-    color: #888;
+    color: #888 !important;
     font-weight: 500 !important;
 }
 ._80co {
@@ -36,8 +36,9 @@ b, strong {
     -webkit-text-fill-color: #a5a5a5 !important;
 }
 ._3egs {
-    background: #282828;
+    background: #282828 !important;
 }
+
 ._7301._hh7, ._7301._hh7._hh7._6ybn {
     background-color: #3d3d3d;
 }
