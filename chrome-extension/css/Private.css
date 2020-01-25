@@ -5,41 +5,41 @@ img {
 }
 
 /* people list */
-._29hl li a img{
-    filter: blur(1.8px) saturate(0.5);
-    transition-duration: 0.5s;
+._29hl li a img {
+    filter: blur(1.8px) saturate(0.0);
+    transition-duration: 0.0s;
 }
-._29hl li ._364g{
-    filter: blur(2px) saturate(0.5);
-    opacity: 0.5;
-    transition-duration: 0.5s;
+._29hl li ._364g {
+    filter: blur(2px) saturate(0.0);
+    opacity: 0.0;
+    transition-duration: 0.0s;
 }
 ._29hl:hover li ._364g,
-._29hl:hover li a img{
+._29hl:hover li a img {
     filter: none !important;
     opacity: 0.99 !important;
-    transition-duration: 0.5s !important;
+    transition-duration: 0.0s !important;
 }
 
 
 /* convo list */
 ._5l-m div:first-child span,
 ._5l-m div:first-child div {
-    filter: blur(1.8px) saturate(0.5);
-    transition-duration: 0.5s;
+    filter: blur(1.8px) saturate(0.0);
+    transition-duration: 0.0s;
 }
 ._4b0g {
     opacity: 1 !important;
     filter: none !important;
 }
-._5l-3 div:first-child div:first-child div:first-child div:first-child,
+/* ._5l-3 div:first-child div:first-child div:first-child div:first-child,
 ._5l-3 div:last-child div:first-child {
-    filter: blur(2px) saturate(0.5);
-    transition-duration: 0.5s;
-}
+    filter: blur(2px) saturate(0.0);
+    transition-duration: 0.0s;
+} */
 ._5l-m div:nth-child(2) span {
     opacity: 0;
-    transition-duration: 0.5s;
+    transition-duration: 0.0s;
 }
 ._5l-3:hover span,
 ._5l-3:hover ._5l-m div:first-child div,
@@ -47,36 +47,110 @@ img {
 ._5l-3:hover div:last-child div:first-child {
     filter: none !important;
     opacity: 0.99 !important;
-    transition-duration: 0.5s !important;
+    transition-duration: 0.0s !important;
+}
+._5l-3:hover .pinsym{
+    filter:saturate(0) brightness(40) !important;
+}
+
+/* profile pictures in convo list */
+._5l-3 ._87v3,
+._5l-3 ._7q1i,
+._5l-3 ._7q0v{
+    content:url('../icons/profile.png');
+}
+._5l-3:hover ._87v3 ,
+._5l-3:hover ._7q1i,
+._5l-3:hover ._7q0v{
+    content: none;
+}
+
+/* profile pictures in chat area */
+._1t_p ._4ld- {
+    content:url('../icons/profile.png');
+}
+._1t_p:hover ._4ld- {
+    content: none;
+}
+
+/* right side column profile */
+._1jt6 ._87v3{
+  content:url('../icons/profile.png');
+}
+._1jt6:hover ._87v3{
+  content: none;
+}
+
+/* right side column group chat */
+._1jt6:not(:hover) ._7101 div:first-child{
+    background-image:url('../icons/group.png') !important;
 }
 
 
+/* right side column contact name */
+._1jt6 ._3oh-{
+  filter: blur(3px) saturate(0.0);
+  transition-duration: 0.0s;
+}
+._1jt6:hover ._3oh-{
+  filter: none;
+  transition-duration: 0.0s;
+}
+
+
+/* group chat pictures */
+._5l-3:not(:hover) ._1qt3._6-5k._5l-3 div:empty{
+    background-image:url('../icons/group.png') !important;
+}
+
+
+
 /* convo titles */
-._17w2,
+/* ._17w2,
 ._1jt6 a,
 ._1jt6 div:first-child div:nth-child(2) div:nth-child(2) div:first-child,
-._1jt6 div:first-child div:nth-child(2) div:first-child span{
-    filter: blur(2px) saturate(0.5);
-    opacity: 0.5;
-    transition-duration: 0.5s;
+._1jt6 div:first-child div:nth-child(2) div:first-child span {
+    filter: blur(2px) saturate(0.0);
+    opacity: 0.0;
+    transition-duration: 0.0s;
 }
 
 ._1jt6 img,
 ._1jt6 div:first-child div:first-child div:first-child div:first-child div:first-child div:first-child {
-    filter: blur(2px) saturate(0.5);
-    transition-duration: 0.5s;
+    filter: blur(2px) saturate(0.0);
+    transition-duration: 0.0s;
 }
 ._17w2:hover,
 ._1jt6:hover a,
 ._1jt6:hover div:first-child div:nth-child(2) div:nth-child(2) div:first-child,
 ._1jt6:hover img,
-._1jt6:hover div:first-child div:first-child div:first-child div:first-child div:first-child div:first-child ,
-._1jt6:hover div:first-child div:nth-child(2) div:first-child span{
+._1jt6:hover div:first-child div:first-child div:first-child div:first-child div:first-child div:first-child,
+._1jt6:hover div:first-child div:nth-child(2) div:first-child span {
     filter: none;
     opacity: 0.99;
-    transition-duration: 0.5s;
-}
+    transition-duration: 0.0s;
+} */
 
+/* top title and profiles*/
+._5743 ._3oh-,
+._5743 ._2v6o {
+    filter: blur(2px) saturate(0.0);
+    transition-duration: 0.0s;
+}
+._5743 ._87v3 {
+    content:url('../icons/profile.png');
+}
+._5743:hover ._3oh-,
+._5743:hover ._2v6o {
+    filter: none;
+    transition-duration: 0.0s;
+}
+._5743:hover ._87v3 {
+    content: none;
+}
+._5743:not(:hover) ._6ynm{
+    background-image:url('../icons/group.png') !important;
+}
 
 
 /* Text messages and links */
@@ -84,7 +158,7 @@ img {
 ._3wb1 div {
     filter: blur(1px) saturate(0);
     opacity: 0;
-    transition-duration: 0.5s;
+    transition-duration: 0.0s;
 }
 
 ._4gd0 ._o46:last-child div {
@@ -92,18 +166,18 @@ img {
 }
 
 ._1t_p h5,
-._1t_p div div div img,
 ._3oh- span div,
 ._497p span span span {
     filter: blur(2.5px) saturate(0);
-    transition-duration: 0.5s;
+    transition-duration: 0.0s;
 }
 
 ._1t_p iframe,
 ._o46 div div div div,
-._1t_p ._2poz {
+._1t_p ._2poz,
+._1t_p ._1ift {
     filter: blur(7px) saturate(0);
-    transition-duration: 0.5s;
+    transition-duration: 0.0s;
 }
 ._1t_p ._2poz,
 ._1t_p ._2poz:hover {
@@ -121,7 +195,8 @@ img {
 ._1t_p:hover h5,
 ._1t_p:hover img,
 ._3oh-:hover span div,
-._497p:hover span span span {
+._497p:hover span span span
+ {
     filter: none;
     opacity: 0.99;
 }
@@ -129,9 +204,9 @@ img {
 /*Shared Photos */
 ._3m31 {
     filter: blur(3px) saturate(0);
-    transition-duration: 0.5s;
+    transition-duration: 0.0s;
 }
 ._3m31:hover {
     filter: none;
-    transition-duration: 0.5s;
+    transition-duration: 0.0s;
 }

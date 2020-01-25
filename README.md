@@ -1,12 +1,11 @@
 # MessengerPlus
 An extension that provides additional functionality and visual modes for www.messenger.com.
 
-![Screenshot](https://i.imgur.com/sg4WdVT.png)
-![Screenshot](https://i.imgur.com/0osUnlp.png)
+![Screenshot](http://i.imgur.com/TIUISbD.png)
 
 ## Change-Log
 ```
-‣ 2.2.8 Small Darkmode patch to align with Messenger update.
+‣ 2.3.0 New private mode: updated animations and placeholders
 ‣ 2.2.7 Small UI patch for groupchat icons and some color changes.
 ‣ 2.2.6 Large update for the DarkMode of vector graphics from Facebook.
 ‣ 2.2.5 Small dark-mode patch. Reply text background.
