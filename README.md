@@ -1,7 +1,78 @@
-# MessengerPlus
-An extension that provides additional functionality and visual modes for www.messenger.com.
 
-![Screenshot](http://i.imgur.com/TIUISbD.png)
+# MessengerPlus ![icon](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/icon48.png)
+An extension that provides additional functionality and visual modes for [www.messenger.com](www.messenger.com).
+
+**Install the extension [here](https://chrome.google.com/webstore/detail/messsengerplus/hmciajeemeompacmillfkacaihdbpafj)**
+
+## How to Use
+1. Install the Extension on Chrome.
+2. Go to www.messenger.com (if you already have it open, refresh the page) make sure you are logged in to Facebook Messenger.
+3. That's it!
+
+## Plus Button Customization
+The Plus button is located on the top left of the screen and looks like this:
+![plus button](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/plusButton.png)
+
+### Light/Dark Mode
+This changes the theme of messenger to be light or dark. See below for screenshots.
+
+### Borders On/Off
+This toggles the borders of each section of the page on and off.
+
+#### Light mode, Borders On
+![Light, borders on](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/border.png)
+
+#### Light mode, Borders Off
+![Light, borders off](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/noborder.png)
+
+#### Dark mode, Borders On
+![Light, borders on](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/darkborder.png)
+
+#### Dark mode, Borders Off
+![Light, borders off](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/darknoborder.png)
+
+### Private mode
+When private mode is on, messages and conversations are blurred out or invisible until the mouse hovers over it.
+
+#### Private Mode, Light
+![private](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/private.png)
+
+#### Private Mode, Dark
+![dark private](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/darkprivate.png)
+
+### Compact mode
+When compact mode is on, the conversation list will automatically minimize into a list of icons and expands when the mouse hovers over it. This is ideal for smaller screen devices.
+
+## Video embedding
+A video link that is recognized will automatically be embedded. Only Youtube videos and Twitch clips are recognized right now.
+![video](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/video.png)
+
+## Pinning and Unpinning a Conversation
+To pin a conversation, click on the settings button on the right side of the conversation on the list, click "Pin conversation".
+
+![pin](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/pin.png)
+
+To unpin a conversation, click on the "Unpin conversation" in the settings menu of the conversation.
+
+![unpin](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/unpin.png)
+
+## Other Information
+This extension is free and I do not collect any user data, nor will I in the future.
+
+*Disclaimer: This extension nor its developer is in any way associated with Facebook or Facebook Messenger. This is a third-party extension.*
+
+## FAQ
+#### The loading page never finishes loading
+You might have an older version of messenger, see if [this](https://chrome.google.com/webstore/detail/messsengerplus-old-versio/neaollicfdeidikoaehophbicpkohjof) legacy extension works.
+
+#### I got a message that says it can't find my pinned conversations
+If the pinned conversation hasn't seen activity recently, you might need to message that conversation for MessengerPlus to be able to find it and pin it.
+
+#### A video wasn't correctly embedded
+This happens sometimes when the link is formatted in a different way. Unfortunately this is still being worked on and you'll have to click the link to see the video.
+
+##### There's a feature I want or a bug I want to report
+Please email suitangi778@gmail.com for suggestions, comments or concerns!
 
 ## Change-Log
 ```

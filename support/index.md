@@ -1,4 +1,9 @@
-# MessengerPlus
+---
+title: Messenger+
+description: Messenger, made better just the way you like it.
+---
+
+# MessengerPlus ![icon](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/icon48.png)
 An extension that provides additional functionality and visual modes for [www.messenger.com](www.messenger.com).
 
 **Install the extension [here](https://chrome.google.com/webstore/detail/messsengerplus/hmciajeemeompacmillfkacaihdbpafj)**
@@ -18,25 +23,25 @@ This changes the theme of messenger to be light or dark. See below for screensho
 ### Borders On/Off
 This toggles the borders of each section of the page on and off.
 
-###### Light mode, Borders On
+#### Light mode, Borders On
 ![Light, borders on](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/border.png)
 
-###### Light mode, Borders Off
+#### Light mode, Borders Off
 ![Light, borders off](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/noborder.png)
 
-###### Dark mode, Borders On
+#### Dark mode, Borders On
 ![Light, borders on](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/darkborder.png)
 
-###### Dark mode, Borders Off
+#### Dark mode, Borders Off
 ![Light, borders off](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/darknoborder.png)
 
 ### Private mode
 When private mode is on, messages and conversations are blurred out or invisible until the mouse hovers over it.
 
-###### Private Mode, Light
+#### Private Mode, Light
 ![private](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/private.png)
 
-###### Private Mode, Dark
+#### Private Mode, Dark
 ![dark private](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/darkprivate.png)
 
 ### Compact mode
@@ -61,13 +66,13 @@ This extension is free and I do not collect any user data, nor will I in the fut
 *Disclaimer: This extension nor its developer is in any way associated with Facebook or Facebook Messenger. This is a third-party extension.*
 
 ## FAQ
-###### The loading page never finishes loading
+#### The loading page never finishes loading
 You might have an older version of messenger, see if [this](https://chrome.google.com/webstore/detail/messsengerplus-old-versio/neaollicfdeidikoaehophbicpkohjof) legacy extension works.
 
-###### I got a message that says it can't find my pinned conversations
+#### I got a message that says it can't find my pinned conversations
 If the pinned conversation hasn't seen activity recently, you might need to message that conversation for MessengerPlus to be able to find it and pin it.
 
-###### A video wasn't correctly embedded
+#### A video wasn't correctly embedded
 This happens sometimes when the link is formatted in a different way. Unfortunately this is still being worked on and you'll have to click the link to see the video.
 
 ##### There's a feature I want or a bug I want to report
