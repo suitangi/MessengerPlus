@@ -4,7 +4,7 @@ description: Messenger, made better just the way you like it.
 ---
 
 # MessengerPlus ![icon](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/icon48.png)
-An extension that provides additional functionality and visual modes for [www.messenger.com](www.messenger.com).
+A browser extension that provides additional functionality and visual modes for [www.messenger.com](www.messenger.com).
 
 **Install the extension [here](https://chrome.google.com/webstore/detail/messsengerplus/hmciajeemeompacmillfkacaihdbpafj)**
 
@@ -75,7 +75,7 @@ If the pinned conversation hasn't seen activity recently, you might need to mess
 #### A video wasn't correctly embedded
 This happens sometimes when the link is formatted in a different way. Unfortunately this is still being worked on and you'll have to click the link to see the video.
 
-##### There's a feature I want or a bug I want to report
+#### There's a feature I want or a bug I want to report
 Please email suitangi778@gmail.com for suggestions, comments or concerns!
 
 ## Change-Log

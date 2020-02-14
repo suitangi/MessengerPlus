@@ -1,6 +1,6 @@
 
 # MessengerPlus ![icon](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/icon48.png)
-An extension that provides additional functionality and visual modes for [www.messenger.com](www.messenger.com).
+A browser extension that provides additional functionality and visual modes for [www.messenger.com](www.messenger.com).
 
 **Install the extension [here](https://chrome.google.com/webstore/detail/messsengerplus/hmciajeemeompacmillfkacaihdbpafj)**
 
