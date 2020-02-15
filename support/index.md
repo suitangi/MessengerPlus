@@ -46,6 +46,7 @@ When private mode is on, messages and conversations are blurred out or invisible
 
 ### Compact mode
 When compact mode is on, the conversation list will automatically minimize into a list of icons and expands when the mouse hovers over it. This is ideal for smaller screen devices.
+![compact](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/compact.png)
 
 ## Video embedding
 A video link that is recognized will automatically be embedded. Only Youtube videos and Twitch clips are recognized right now.
@@ -67,13 +68,16 @@ This extension is free and I do not collect any user data, nor will I in the fut
 
 ## FAQ
 #### The loading page never finishes loading
-You might have an older version of messenger, see if [this](https://chrome.google.com/webstore/detail/messsengerplus-old-versio/neaollicfdeidikoaehophbicpkohjof) legacy extension works.
+You might have an older version of messenger, see if **[this](https://chrome.google.com/webstore/detail/messsengerplus-old-versio/neaollicfdeidikoaehophbicpkohjof)** legacy extension works.
 
 #### I got a message that says it can't find my pinned conversations
 If the pinned conversation hasn't seen activity recently, you might need to message that conversation for MessengerPlus to be able to find it and pin it.
 
 #### A video wasn't correctly embedded
 This happens sometimes when the link is formatted in a different way. Unfortunately this is still being worked on and you'll have to click the link to see the video.
+
+#### The Pin/Unpin button in the settings menu isn't showing up
+Refresh the page and this issue should be fixed.
 
 #### There's a feature I want or a bug I want to report
 Please email suitangi778@gmail.com for suggestions, comments or concerns!
