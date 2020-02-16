@@ -1,0 +1,229 @@
+div,
+span,
+img {
+    -webkit-backface-visibility: hidden;
+}
+
+/* Convo List: Styling and blurring*/
+._5l-m div:first-child span,
+._5l-m div:first-child div {
+    filter: blur(1.8px) saturate(0.0);
+    transition-duration: 0.0s;
+}
+._4b0g {
+    opacity: 1 !important;
+    filter: none !important;
+}
+._5l-m div:nth-child(2) span {
+    opacity: 0;
+    transition-duration: 0.0s;
+}
+._5l-3:hover span,
+._5l-3:hover ._5l-m div:first-child div,
+._5l-3:hover div:first-child div:first-child div:first-child div:first-child,
+._5l-3:hover div:last-child div:first-child {
+    filter: none !important;
+    opacity: 0.99 !important;
+    transition-duration: 0.0s !important;
+}
+._5l-3:hover .pinsym{
+    filter:saturate(0) brightness(40) !important;
+}
+
+/* Convo List: profile pictures*/
+._5l-3 ._87v3,
+._5l-3 ._7q1i,
+._5l-3 ._7q0v,
+._5l-3 ._5bli{
+    content:url('../icons/profiledark.png');
+}
+._5l-3:hover ._87v3 ,
+._5l-3:hover ._7q1i,
+._5l-3:hover ._7q0v,
+._5l-3:hover ._5bli{
+    content: none;
+}
+
+/* Convo List: group chat pictures*/
+._5l-3:not(:hover) ._1qt3._6-5k._5l-3 div:empty{
+    background-image:url('../icons/groupdark.png') !important;
+}
+
+/* Chat Area: Profile Pictures */
+._1t_p ._4ld- {
+    content:url('../icons/profiledark.png');
+}
+._1t_p:hover ._4ld- {
+    content: none;
+}
+
+/* Chat Area: Read Profiles */
+._5f0v ._jf2{
+    content:url('../icons/profiledark.png');
+}
+._5f0v:hover ._jf2{
+    content:none;
+}
+
+/* Right Panel: Profile */
+._1jt6 ._87v3{
+  content:url('../icons/profiledark.png');
+}
+._1jt6:hover ._87v3{
+  content: none;
+}
+
+/* Right Panel: Profiles for groupchat with no group profile */
+._1jt6 ._7q1l img,
+._1jt6 ._7q1n img,
+._1jt6 ._7q1m img{
+  content:url('../icons/profiledark.png');
+}
+._1jt6:hover ._7q1l img,
+._1jt6:hover ._7q1n img,
+._1jt6:hover ._7q1m img{
+  content: none;
+}
+
+
+/* Right Panel: Group chat icon */
+._1jt6:not(:hover) ._7101 div:first-child{
+    background-image:url('../icons/groupdark.png') !important;
+}
+
+
+/* Right Pane: Contact name */
+._1jt6 ._3oh-{
+  filter: blur(3px) saturate(0.0);
+  transition-duration: 0.0s;
+}
+._1jt6:hover ._3oh-{
+  filter: none;
+  transition-duration: 0.0s;
+}
+
+/* Right Panel: Group chat members list*/
+._29hl li a img {
+    content:url('../icons/profiledark.png');
+}
+._29hl li ._8slc {
+    filter: blur(2px) saturate(0.0);
+    opacity: 0.0;
+    transition-duration: 0.0s;
+}
+._29hl:hover li a img{
+  content: none;
+}
+._29hl:hover li ._8slc{
+    filter: none !important;
+    opacity: 0.99 !important;
+    transition-duration: 0.0s !important;
+}
+
+/* Right Panel: Shared Photos */
+._3m31 {
+    filter: blur(3px) saturate(0);
+    transition-duration: 0.0s;
+}
+._3m31:hover {
+    filter: none;
+    transition-duration: 0.0s;
+}
+
+
+
+/* convo titles */
+/* ._17w2,
+._1jt6 a,
+._1jt6 div:first-child div:nth-child(2) div:nth-child(2) div:first-child,
+._1jt6 div:first-child div:nth-child(2) div:first-child span {
+    filter: blur(2px) saturate(0.0);
+    opacity: 0.0;
+    transition-duration: 0.0s;
+}
+
+._1jt6 img,
+._1jt6 div:first-child div:first-child div:first-child div:first-child div:first-child div:first-child {
+    filter: blur(2px) saturate(0.0);
+    transition-duration: 0.0s;
+}
+._17w2:hover,
+._1jt6:hover a,
+._1jt6:hover div:first-child div:nth-child(2) div:nth-child(2) div:first-child,
+._1jt6:hover img,
+._1jt6:hover div:first-child div:first-child div:first-child div:first-child div:first-child div:first-child,
+._1jt6:hover div:first-child div:nth-child(2) div:first-child span {
+    filter: none;
+    opacity: 0.99;
+    transition-duration: 0.0s;
+} */
+
+/* Top: title and profiles*/
+._5743 ._3oh-,
+._5743 ._2v6o {
+    filter: blur(2px) saturate(0.0);
+    transition-duration: 0.0s;
+}
+._5743 ._87v3 {
+    content:url('../icons/profiledark.png');
+}
+._5743:hover ._3oh-,
+._5743:hover ._2v6o {
+    filter: none;
+    transition-duration: 0.0s;
+}
+._5743:hover ._87v3 {
+    content: none;
+}
+._5743:not(:hover) ._6ynm{
+    background-image:url('../icons/groupdark.png') !important;
+}
+
+
+/* Chat Area: Text messages and links */
+._o46 div div span,
+._3wb1 div {
+    filter: blur(1px) saturate(0);
+    opacity: 0;
+    transition-duration: 0.0s;
+}
+
+._4gd0 ._o46:last-child div {
+    filter: none !important;
+}
+
+._1t_p h5,
+._3oh- span div,
+._497p span span span {
+    filter: blur(2.5px) saturate(0);
+    transition-duration: 0.0s;
+}
+
+._1t_p iframe,
+._o46 div div div div,
+._1t_p ._2poz,
+._1t_p ._1ift {
+    filter: blur(7px) saturate(0);
+    transition-duration: 0.0s;
+}
+._1t_p ._2poz,
+._1t_p ._2poz:hover {
+    transition-duration: 0s !important;
+}
+
+._aou {
+    filter: none !important;
+}
+
+._1t_p:hover span,
+._1t_p:hover iframe,
+._1t_p:hover div,
+._3wb1:hover div,
+._1t_p:hover h5,
+._1t_p:hover img,
+._3oh-:hover span div,
+._497p:hover span span span
+ {
+    filter: none;
+    opacity: 0.99;
+}

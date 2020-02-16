@@ -46,7 +46,12 @@ When private mode is on, messages and conversations are blurred out or invisible
 
 ### Compact mode
 When compact mode is on, the conversation list will automatically minimize into a list of icons and expands when the mouse hovers over it. This is ideal for smaller screen devices.
+
+#### Compact mode, Light
 ![compact](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/compact.png)
+
+#### Compact mode, Light
+![compact](https://raw.githubusercontent.com/suitangi/MessengerPlus/master/support/img/darkcompact.png)
 
 ## Video embedding
 A video link that is recognized will automatically be embedded. Only Youtube videos and Twitch clips are recognized right now.

@@ -1,19 +1,19 @@
 //creates an HTML element given the string to build said element
 function create(htmlStr) {
-    var frag = document.createDocumentFragment(),
-        temp = document.createElement('div');
-    temp.innerHTML = htmlStr;
-    while (temp.firstChild) {
-        frag.appendChild(temp.firstChild);
-    }
-    return frag;
+  var frag = document.createDocumentFragment(),
+    temp = document.createElement('div');
+  temp.innerHTML = htmlStr;
+  while (temp.firstChild) {
+    frag.appendChild(temp.firstChild);
+  }
+  return frag;
 }
 
 //embeds a youtube video with the specific vId
-function embedVideo(i, source, vId){
+function embedVideo(i, source, vId) {
   var wid = window.vList[i].offsetWidth;
   var hei = wid / 16 * 9;
-  var video = create("<div class=\"video-container\"><iframe width=\""+ wid +"\" height=\""+ hei + "\" src=\"" + source + vId + "\" frameborder=\"0\" allow=\"accelerometer; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div>");
+  var video = create("<div class=\"video-container\"><iframe width=\"" + wid + "\" height=\"" + hei + "\" src=\"" + source + vId + "\" frameborder=\"0\" allow=\"accelerometer; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe></div>");
   var placer = window.vList[i].firstChild;
   window.vList[i].style.cssText = "border: 0px !important";
   window.vList[i].insertBefore(video, placer);
@@ -21,63 +21,58 @@ function embedVideo(i, source, vId){
 }
 
 //Replace Youtube links with embedded video
-function embedVideos(){
+function embedVideos() {
   window.ob2.disconnect();
-  for(i = 0; i < window.vList.length; i++){
-  	var vLink = window.vList[i].firstChild.href;
-    if(vLink != null){
-    	if(vLink.includes("youtube.com/watch?v=")){ //standard youtube link
-    		var vPos = vLink.lastIndexOf("youtube.com/watch?v=") + 20;
-    		var vId = vLink.slice(vPos);
+  for (i = 0; i < window.vList.length; i++) {
+    var vLink = window.vList[i].firstChild.href;
+    if (vLink != null) {
+      if (vLink.includes("youtube.com/watch?v=")) { //standard youtube link
+        var vPos = vLink.lastIndexOf("youtube.com/watch?v=") + 20;
+        var vId = vLink.slice(vPos);
         embedVideo(i, "https://www.youtube.com/embed/", vId);
-      }
-      else if(vLink.includes("youtube.com%2Fwatch%3Fv%3D")){ //messenger yt redirect
+      } else if (vLink.includes("youtube.com%2Fwatch%3Fv%3D")) { //messenger yt redirect
         var vPos = vLink.lastIndexOf("youtube.com%2Fwatch%3Fv%3D") + 26;
-    		var vId = vLink.slice(vPos);
+        var vId = vLink.slice(vPos);
         if (vId.indexOf("%26") != -1 && vId.indexOf("%26") < vId.indexOf("&"))
           vId = vId.slice(0, vId.indexOf("%26"));
         else
           vId = vId.slice(0, vId.indexOf("&"));
-          embedVideo(i, "https://www.youtube.com/embed/", vId);
-      }
-      else if(vLink.includes("youtu.be%2F")){ //linkedshortened yt messenger redirect
+        embedVideo(i, "https://www.youtube.com/embed/", vId);
+      } else if (vLink.includes("youtu.be%2F")) { //linkedshortened yt messenger redirect
         var vPos = vLink.lastIndexOf("youtu.be%2F") + 11;
         var vId = vLink.slice(vPos);
         if (vId.indexOf("%26") != -1 && vId.indexOf("%26") < vId.indexOf("&"))
           vId = vId.slice(0, vId.indexOf("%26"));
         else
           vId = vId.slice(0, vId.indexOf("&"));
-          embedVideo(i, "https://www.youtube.com/embed/", vId);
-      }
-      else if(vLink.includes("youtu.be/")){ //linkedshortened yt link
+        embedVideo(i, "https://www.youtube.com/embed/", vId);
+      } else if (vLink.includes("youtu.be/")) { //linkedshortened yt link
         var vPos = vLink.lastIndexOf("youtu.be/") + 9;
         var vId = vLink.slice(vPos);
-          embedVideo(i, "https://www.youtube.com/embed/", vId);
-      }
-      else if(vLink.includes("clips.twitch.tv/")){//standard twitch clip
+        embedVideo(i, "https://www.youtube.com/embed/", vId);
+      } else if (vLink.includes("clips.twitch.tv/")) { //standard twitch clip
         var vPos = vLink.lastIndexOf("clips.twitch.tv/") + 16;
         var vId = vLink.slice(vPos);
         vId += "&autoplay=false";
-          embedVideo(i, "https://clips.twitch.tv/embed?clip=", vId);
-      }
-      else if(vLink.includes("clips.twitch.tv%2F")){//messenger redirect twitch clip
+        embedVideo(i, "https://clips.twitch.tv/embed?clip=", vId);
+      } else if (vLink.includes("clips.twitch.tv%2F")) { //messenger redirect twitch clip
         var vPos = vLink.lastIndexOf("clips.twitch.tv%2F") + 18;
         var vId = vLink.slice(vPos, vLink.indexOf("&"));
         vId += "&autoplay=false";
-          embedVideo(i, "https://clips.twitch.tv/embed?clip=", vId);
-      }
-      else if(vLink.includes("twitch.tv%2Ftwitch%2Fclip%2F")){//messenger redirect twitch clip
+        embedVideo(i, "https://clips.twitch.tv/embed?clip=", vId);
+      } else if (vLink.includes("twitch.tv%2Ftwitch%2Fclip%2F")) { //messenger redirect twitch clip
         var vPos = vLink.lastIndexOf("twitch.tv%2Ftwitch%2Fclip%2F") + 28;
         var vId = vLink.slice(vPos, vLink.indexOf("&"));
         vId += "&autoplay=false";
-          embedVideo(i, "https://clips.twitch.tv/embed?clip=", vId);
+        embedVideo(i, "https://clips.twitch.tv/embed?clip=", vId);
       }
     }
   }
-  if(document.getElementsByClassName("_2k8v")[0] != null){
-    window.ob2.observe(document.getElementsByClassName("_2k8v")[0].nextSibling ,{
+  if (document.getElementsByClassName("_2k8v")[0] != null) {
+    window.ob2.observe(document.getElementsByClassName("_2k8v")[0].nextSibling, {
       childList: true,
-      subtree: true});
+      subtree: true
+    });
   }
 }
 
@@ -115,7 +110,7 @@ function unloadCSS(file) {
 }
 
 //get the file's text
-function getHtml(file){
+function getHtml(file) {
   var link = document.createElement("link");
   link.href = chrome.extension.getURL(file);
   link.id = file;
@@ -129,13 +124,14 @@ function pinAll(list) {
   var objDiv = document.getElementsByClassName("uiScrollableAreaWrap")[0];
 
   var tries = 0;
-  var pinny = setInterval(function(){
+  var pinny = setInterval(function() {
     tries += 1;
     console.log("Searching for pinned conversations. Iteration: " + tries);
-    var i = 0, j = 0;
-    for(i = 0; i < list.length; i++){
-      for(j = 0; j < cList.length; j++){
-        if(list[i] == cList[j].firstChild.firstChild.getAttribute("data-href")){
+    var i = 0,
+      j = 0;
+    for (i = 0; i < list.length; i++) {
+      for (j = 0; j < cList.length; j++) {
+        if (list[i] == cList[j].firstChild.firstChild.getAttribute("data-href")) {
           pin(cList[j]);
           list.splice(i, 1);
           i--;
@@ -145,43 +141,46 @@ function pinAll(list) {
     }
     // console.log(list); //debug
     objDiv.scrollTop = objDiv.scrollHeight;
-    if(list.length == 0 || (list.length == 1 && list[0] == "")){
+    if (list.length == 0 || (list.length == 1 && list[0] == "")) {
       clearInterval(pinny);
       objDiv.scrollTop = 0;
       var load = document.getElementById("loader");
       document.getElementById("loadtext").innerHTML = "All Done!";
       load.removeChild(document.getElementsByClassName("lds-ellipsis")[0]);
-      setTimeout(function(){
+      setTimeout(function() {
         load.style.opacity = 0;
-      },500);
-      setTimeout(function(){
+      }, 500);
+      setTimeout(function() {
         load.parentElement.removeChild(load);
         unloadCSS("css/Loading");
-      },1500);
+      }, 1500);
 
     }
-    if(tries > 29){ //timeout
+    if (tries > 29) { //timeout
       clearInterval(pinny);
       var load = document.getElementById("loader");
       load.parentElement.removeChild(load);
       unloadCSS("css/Loading");
       objDiv.scrollTop = 0;
       window.removeList = [];
-      for(j = 0; j < list.length; j++){
+      for (j = 0; j < list.length; j++) {
         window.removeList.push(list[j]);
       }
-      chrome.storage.sync.get({pinlist: ''}, function(data) {
+      chrome.storage.sync.get({
+        pinlist: ''
+      }, function(data) {
         var pinnedList = data.pinlist.split(" ");
-        for(j = 0; j < window.removeList.length; j++){
-            for(var i = 0; i < pinnedList.length; i++){
-             if (pinnedList[i] == window.removeList[j]) {
-               pinnedList.splice(i, 1);
+        for (j = 0; j < window.removeList.length; j++) {
+          for (var i = 0; i < pinnedList.length; i++) {
+            if (pinnedList[i] == window.removeList[j]) {
+              pinnedList.splice(i, 1);
               console.log(i)
-             }
+            }
           }
         }
-        chrome.storage.sync.set({pinlist: pinnedList.join(' ')}, function() {
-        });
+        chrome.storage.sync.set({
+          pinlist: pinnedList.join(' ')
+        }, function() {});
       })
       window.alert("Unable to locate and pin conversations at: " + list.join(", ") + " . Conversations unpinned.\nPlease check your internet connection and Facebook Messenger's Status.");
       list = [];
@@ -193,56 +192,62 @@ function pinAll(list) {
 //pins the conversation passed in (convo passed is an HTML li element)
 function pin(convo) {
 
-    convo.className += " pinned";
-    var pMButt = document.getElementById("pMenuButton");
-    if(pMButt.getAttribute('data-light') == 'on'){
-      convo.style.cssText = "background-color: #ddd !important; order: -1 !important;";
-    }
-    else{
-      convo.style.cssText = "background-color: #181818 !important; order: -1 !important;";
+  convo.className += " pinned";
+  var pMButt = document.getElementById("pMenuButton");
+  if (pMButt.getAttribute('data-light') == 'on') {
+    convo.style.cssText = "background-color: #ddd !important; order: -1 !important;";
+  } else {
+    convo.style.cssText = "background-color: #181818 !important; order: -1 !important;";
 
-    }
-    var pinSym = create("<div class = \"pinsym\">📌</div>");
-    var convoEle = convo.getElementsByClassName("_1qt3 _5l-3")[0];
-    convoEle.insertBefore(pinSym, convoEle.lastChild.nextSibling);
-    chrome.storage.sync.get({pinlist: ''}, function(data) {
-      var pinnedList = data.pinlist.split(" ");
-      if(!pinnedList.includes(convo.firstChild.firstChild.getAttribute("data-href")))
-        pinnedList.push(convo.firstChild.firstChild.getAttribute("data-href"));
-      chrome.storage.sync.set({pinlist: pinnedList.join(' ')}, function() {
-      });
-    })
+  }
+  var pinSym = create("<div class = \"pinsym\">📌</div>");
+  var convoEle = convo.getElementsByClassName("_1qt3 _5l-3")[0];
+  convoEle.insertBefore(pinSym, convoEle.lastChild.nextSibling);
+  chrome.storage.sync.get({
+    pinlist: ''
+  }, function(data) {
+    var pinnedList = data.pinlist.split(" ");
+    if (!pinnedList.includes(convo.firstChild.firstChild.getAttribute("data-href")))
+      pinnedList.push(convo.firstChild.firstChild.getAttribute("data-href"));
+    chrome.storage.sync.set({
+      pinlist: pinnedList.join(' ')
+    }, function() {});
+  })
 }
 
 //unpins the conversation pased in (HTML li element)
 function unpin(convo) {
-    convo.style.cssText = "";
-    while(convo.getElementsByClassName("pinsym").length > 0){
-      convo.getElementsByClassName("pinsym")[0].remove();}
-    chrome.storage.sync.get({pinlist: ''}, function(data) {
-      var pinnedList = data.pinlist.split(" ");
-      for(var i = 0; i < pinnedList.length; i++){
-       if (pinnedList[i] == convo.firstChild.firstChild.getAttribute("data-href")) {
-         pinnedList.splice(i, 1);
-       }
+  convo.style.cssText = "";
+  while (convo.getElementsByClassName("pinsym").length > 0) {
+    convo.getElementsByClassName("pinsym")[0].remove();
+  }
+  chrome.storage.sync.get({
+    pinlist: ''
+  }, function(data) {
+    var pinnedList = data.pinlist.split(" ");
+    for (var i = 0; i < pinnedList.length; i++) {
+      if (pinnedList[i] == convo.firstChild.firstChild.getAttribute("data-href")) {
+        pinnedList.splice(i, 1);
       }
-      chrome.storage.sync.set({pinlist: pinnedList.join(' ')}, function() {
-      });
-    })
+    }
+    chrome.storage.sync.set({
+      pinlist: pinnedList.join(' ')
+    }, function() {});
+  })
 }
 
 //adds the pin button to the menu clicked
-function addPin(){
+function addPin() {
   var menuL = document.getElementsByClassName("_54nf");
 
   //if menu item exists
-  if(menuL.length > 0){
+  if (menuL.length > 0) {
     //find the convo that has the menu open
     var cList = document.getElementsByClassName("_5l-3 _1ht1");
     var i;
     var convo;
     for (i = 0; i < cList.length; i++) {
-        if(cList[i].getElementsByClassName("openToggler selected").length > 0)
+      if (cList[i].getElementsByClassName("openToggler selected").length > 0)
         convo = cList[i];
     }
     var style = window.getComputedStyle(convo);
@@ -258,13 +263,12 @@ function addPin(){
     var pinbutt = document.getElementsByClassName("_pinbutton")[0];
 
     //setting the pin/unpin button mouseover stylechange
-    pinbutt.onmouseover  = function() {
+    pinbutt.onmouseover = function() {
       var pMButt = document.getElementById("pMenuButton");
-      if(pMButt.getAttribute('data-light') == 'on'){
+      if (pMButt.getAttribute('data-light') == 'on') {
         document.getElementsByClassName("_pinbutton")[0].style.cssText = "background-color: #0084ff !important;";
         document.getElementsByClassName("_pintext")[0].style.cssText = "color: #fff !important;";
-      }
-      else{
+      } else {
         document.getElementsByClassName("_pinbutton")[0].style.cssText = "background-color: #505050 !important; color: #fff !important;";
       }
     };
@@ -275,110 +279,134 @@ function addPin(){
 
     //setting the click action for the pin/unpin button
     if (ord == 0)
-      pinbutt.addEventListener("click", function(){pin(convo); convo.getElementsByClassName("_5blh _8102")[0].click();});
+      pinbutt.addEventListener("click", function() {
+        pin(convo);
+        convo.getElementsByClassName("_5blh _8102")[0].click();
+      });
     else
-      pinbutt.addEventListener("click", function(){unpin(convo); convo.getElementsByClassName("_5blh _8102")[0].click();});
+      pinbutt.addEventListener("click", function() {
+        unpin(convo);
+        convo.getElementsByClassName("_5blh _8102")[0].click();
+      });
   }
 }
 
 //sets/resets the onclick actions for the settings button
-function oncReset(){
-    var bList = document.getElementsByClassName("_5blh _8102");
-    var i  = 0;
-    for(i = 0; i < bList.length; i++){
-      if(!bList[i].hasAttribute("data-pin")){
-        var attr = document.createAttribute("data-pin");
-        attr.value = "true";
-        bList[i].setAttributeNode(attr);
-        bList[i].addEventListener("click", function(){
-          setTimeout(function(){ addPin();}, 60);
-        });
-      }
+function oncReset() {
+  var bList = document.getElementsByClassName("_5blh _8102");
+  var i = 0;
+  for (i = 0; i < bList.length; i++) {
+    if (!bList[i].hasAttribute("data-pin")) {
+      var attr = document.createAttribute("data-pin");
+      attr.value = "true";
+      bList[i].setAttributeNode(attr);
+      bList[i].addEventListener("click", function() {
+        setTimeout(function() {
+          addPin();
+        }, 60);
+      });
     }
+  }
 }
-document.addEventListener("click", function(){
-    oncReset();
+document.addEventListener("click", function() {
+  oncReset();
 });
 
 
 //Classchanged function for the MutationObserver for active conversation
 function classChanged() {
-	if(link != window.location.href){
-		window.link = window.location.href;
-		pos = window.link.lastIndexOf("/");
-		// console.log(window.link.slice(pos + 1)); //debug purposes
-	}
-	var act = document.getElementsByClassName("_1ht2")[0];
-    window.ob.observe(act, {
-      attributes: true,
-      attributeFilter: ["class"]
-    });
+  if (link != window.location.href) {
+    window.link = window.location.href;
+    pos = window.link.lastIndexOf("/");
+    // console.log(window.link.slice(pos + 1)); //debug purposes
+  }
+  var act = document.getElementsByClassName("_1ht2")[0];
+  window.ob.observe(act, {
+    attributes: true,
+    attributeFilter: ["class"]
+  });
 }
 
 //Set the chat color to the color passed into the parameter
-function changeChatColor(col){
+function changeChatColor(col) {
   document.documentElement.style.setProperty("--chat-color", col);
 }
 
 //toggles themes between dark and light
-function changeTheme(){
+function changeTheme() {
   var lights = document.getElementById("LightB");
   var pMButt = document.getElementById("pMenuButton");
-  if(pMButt.getAttribute('data-light') == 'on'){ //in light mode, go to the dark side
+  if (pMButt.getAttribute('data-light') == 'on') { //in light mode, go to the dark side
 
     setButtonColors("#aaa");
     setThumbsups("#aaa");
+
+    if (pMButt.getAttribute('data-private') == 'on') {
+      unloadCSS('css/Private');
+      loadCSS('css/PrivateDark');
+    }
+
     loadCSS('css/DarkSkin');
     unloadCSS('css/Default');
-    chrome.storage.sync.set({light_switch: 'off'}, function() {});
+    chrome.storage.sync.set({
+      light_switch: 'off'
+    }, function() {});
     var pMButt = document.getElementById("pMenuButton");
     pMButt.setAttribute('data-light', 'off');
     var cList = document.getElementsByClassName("_5l-3 _1ht1");
     for (var i = 0; i < cList.length; i++) {
       var style = window.getComputedStyle(cList[i]);
-      if(style.getPropertyValue('order') == -1)
+      if (style.getPropertyValue('order') == -1)
         cList[i].style.cssText = "background-color: #181818 !important; order: -1 !important;";
     }
     lights.innerHTML = "Light Mode";
-    if(pMButt.getAttribute('data-border') == 'on')//load the dark border css
+    if (pMButt.getAttribute('data-border') == 'on') //load the dark border css
       loadCSS("css/DarkBorders");
-  }
-  else{//already in dark mode, go back to light mode
+  } else { //already in dark mode, go back to light mode
+    if (pMButt.getAttribute('data-private') == 'on') {
+      unloadCSS('css/PrivateDark');
+      loadCSS('css/Private');
+    }
     loadCSS('css/Default');
     unloadCSS('css/DarkSkin');
     pMButt.setAttribute('data-light', 'off');
-    chrome.storage.sync.set({light_switch: 'on'}, function() {});
+    chrome.storage.sync.set({
+      light_switch: 'on'
+    }, function() {});
     var pMButt = document.getElementById("pMenuButton");
     pMButt.setAttribute('data-light', 'on');
     var cList = document.getElementsByClassName("_5l-3 _1ht1");
     for (var i = 0; i < cList.length; i++) {
       var style = window.getComputedStyle(cList[i]);
-      if(style.getPropertyValue('order') == -1)
+      if (style.getPropertyValue('order') == -1)
         cList[i].style.cssText = "background-color: #ddd !important; order: -1 !important;";
     }
     lights.innerHTML = "Dark Mode";
     reverseButtonColors();
-    if(pMButt.getAttribute('data-border') == 'on')//unload the border css
+    if (pMButt.getAttribute('data-border') == 'on') //unload the border css
       unloadCSS("css/DarkBorders");
   }
 }
 
 //toggles the border modes
-function changeBorder(){
+function changeBorder() {
   var borders = document.getElementById("BorderB");
   var pMButt = document.getElementById("pMenuButton");
-  if(pMButt.getAttribute('data-border') == 'on'){ //borders on, turn it off
+  if (pMButt.getAttribute('data-border') == 'on') { //borders on, turn it off
     loadCSS("css/NoBorders");
-    chrome.storage.sync.set({border_switch: 'off'}, function() {});
-    if(pMButt.getAttribute('data-light') == 'off')
+    chrome.storage.sync.set({
+      border_switch: 'off'
+    }, function() {});
+    if (pMButt.getAttribute('data-light') == 'off')
       unloadCSS("css/DarkBorders");
     pMButt.setAttribute('data-border', 'off');
     borders.innerHTML = "Enable Borders";
-  }
-  else {//borders off, turn it on (why tho)
+  } else { //borders off, turn it on (why tho)
     unloadCSS("css/NoBorders");
-    chrome.storage.sync.set({border_switch: 'on'}, function() {});
-    if(pMButt.getAttribute('data-light') == 'off')
+    chrome.storage.sync.set({
+      border_switch: 'on'
+    }, function() {});
+    if (pMButt.getAttribute('data-light') == 'off')
       loadCSS("css/DarkBorders");
     pMButt.setAttribute('data-border', 'on');
     borders.innerHTML = "Disable Borders";
@@ -386,86 +414,100 @@ function changeBorder(){
 }
 
 //toggles the private modes
-function changePrivate(){
+function changePrivate() {
   var privates = document.getElementById("PrivateB");
   var pMButt = document.getElementById("pMenuButton");
-  if(pMButt.getAttribute('data-private') == 'on'){ //private mode  on, turn it off
-    unloadCSS("css/Private");
-    chrome.storage.sync.set({private_switch: 'off'}, function() {});
+  if (pMButt.getAttribute('data-private') == 'on') { //private mode  on, turn it off
+    if(pMButt.getAttribute('data-light') == 'on'){
+      unloadCSS('css/Private');
+    } else {
+      unloadCSS("css/PrivateDark");
+    }
+    chrome.storage.sync.set({
+      private_switch: 'off'
+    }, function() {});
     pMButt.setAttribute('data-private', 'off');
     privates.innerHTML = "Enable Private Mode";
-  }
-  else { //private mode off, turn it on
-    loadCSS("css/Private");
-    chrome.storage.sync.set({private_switch: 'on'}, function() {});
+  } else { //private mode off, turn it on
+    if(pMButt.getAttribute('data-light') == 'on'){
+      loadCSS('css/Private');
+    } else {
+      loadCSS("css/PrivateDark");
+    }
+    chrome.storage.sync.set({
+      private_switch: 'on'
+    }, function() {});
     pMButt.setAttribute('data-private', 'on');
     privates.innerHTML = "Disable Private Mode";
   }
 }
 
 //toggles the compact modes
-function changeCompact(){
+function changeCompact() {
   var compacts = document.getElementById("CompactB");
   var pMButt = document.getElementById("pMenuButton");
-  if(pMButt.getAttribute('data-compact') == 'on'){ //private mode  on, turn it off
+  if (pMButt.getAttribute('data-compact') == 'on') { //private mode  on, turn it off
     unloadCSS("css/Compact");
-    chrome.storage.sync.set({compact_switch: 'off'}, function() {});
+    chrome.storage.sync.set({
+      compact_switch: 'off'
+    }, function() {});
     pMButt.setAttribute('data-compact', 'off');
     compacts.innerHTML = "Enable Compact Mode";
-  }
-  else { //compact mode off, turn it on
+  } else { //compact mode off, turn it on
     loadCSS("css/Compact");
-    chrome.storage.sync.set({compact_switch: 'on'}, function() {});
+    chrome.storage.sync.set({
+      compact_switch: 'on'
+    }, function() {});
     pMButt.setAttribute('data-compact', 'on');
     compacts.innerHTML = "Disable Compact Mode";
   }
 }
 
 //changes the colors of the buttons
-function setButtonColors(color){
+function setButtonColors(color) {
   recordButtonColors();
   butts = document.getElementsByClassName("uiScrollableAreaContent")[1].getElementsByTagName("path");
-  for (i = 0; i< butts.length; i++){
+  for (i = 0; i < butts.length; i++) {
     butts[i].setAttribute("fill", color);
   }
   butts = document.getElementsByClassName("uiScrollableAreaContent")[0].getElementsByTagName("path");
-  for (i = 0; i< butts.length; i++){
+  for (i = 0; i < butts.length; i++) {
     butts[i].setAttribute("fill", color);
   }
   butts = document.getElementsByClassName("_6-xk")[0].getElementsByTagName("path");
-  for (i = 0; i< butts.length; i++){
+  for (i = 0; i < butts.length; i++) {
     butts[i].setAttribute("fill", color);
   }
 }
 
-function setThumbsups(color){
+function setThumbsups(color) {
   recordButtonColors();
   var thumbs_up_messages = document.getElementsByClassName("_2poz _ui9 _576q");
-  for(i = 0; i< thumbs_up_messages.length; i++){
-    if(thumbs_up_messages[i].getElementsByTagName("path").length > 0)
+  for (i = 0; i < thumbs_up_messages.length; i++) {
+    if (thumbs_up_messages[i].getElementsByTagName("path").length > 0)
       thumbs_up_messages[i].getElementsByTagName("path")[0].setAttribute("fill", null);
-    if(thumbs_up_messages[i].getElementsByTagName("rect").length > 0)
+    if (thumbs_up_messages[i].getElementsByTagName("rect").length > 0)
       thumbs_up_messages[i].getElementsByTagName("rect")[1].setAttribute("fill", "#353535");
   }
 }
 
 //reverse button color chagnes
-function reverseButtonColors(){
+function reverseButtonColors() {
   butts = document.getElementsByTagName("path");
-  for (i = 0; i< butts.length; i++){
+  for (i = 0; i < butts.length; i++) {
     butts[i].setAttribute("fill", butts[i].getAttribute("original-color"));
   }
   butts = document.getElementsByTagName("rect");
-  for (i = 0; i< butts.length; i++){
+  for (i = 0; i < butts.length; i++) {
     butts[i].setAttribute("fill", "White");
   }
 }
 
 //records the original button setButtonColors
-function recordButtonColors(){
+function recordButtonColors() {
   butts = document.getElementsByTagName("path");
-  for (i = 0; i< butts.length; i++){
-    if(!butts[i].hasAttribute("original-color")){
+  for (i = 0; i < butts.length; i++) {
+    if (!butts[i].hasAttribute("original-color")) {
       var att = document.createAttribute("original-color");
       att.value = butts[i].getAttribute("fill");
       butts[i].setAttributeNode(att);
@@ -474,25 +516,25 @@ function recordButtonColors(){
 }
 
 //initialization code~
-if (window.location.href.includes("messenger.com/videocall/")) {//load this for call pages
+if (window.location.href.includes("messenger.com/videocall/")) { //load this for call pages
   //get the dark/light theme saved from chrome data
-  chrome.storage.sync.get({light_switch: 'on'}, function(data) {
-    if(data.light_switch == 'off')
+  chrome.storage.sync.get({
+    light_switch: 'on'
+  }, function(data) {
+    if (data.light_switch == 'off')
       loadCSS("css/DarkCall");
   });
-}
-else{ //load this for other pages
+} else { //load this for other pages
 
   //checks to see it's not on log in screen
-  if(window.location.href.includes("messenger.com/t/")){
+  if (window.location.href.includes("messenger.com/t/")) {
     loadCSS("css/Loading");
     var frag = create("<div ID = \"loader\" style = \"background:#101010;\"><div ID=\"loadtext\">Messenger+ is customizing your messenger, please wait...</div><div class=\"lds-ellipsis\"><div></div><div></div><div></div><div></div></div>");
     var body = document.getElementsByTagName("body")[0];
     body.insertBefore(frag, body.firstElementChild);
-  }
-  else{ //if it is, then check to see when they log in
-    var displayLoad = setInterval(function(){
-      if(window.location.href.includes("messenger.com/t/")){
+  } else { //if it is, then check to see when they log in
+    var displayLoad = setInterval(function() {
+      if (window.location.href.includes("messenger.com/t/")) {
         loadCSS("css/Loading");
         var frag = create("<div ID = \"loader\" style = \"background:#101010;\"><div ID=\"loadtext\">Messenger+ is customizing your messenger, please wait...</div><div class=\"lds-ellipsis\"><div></div><div></div><div></div><div></div></div>");
         var body = document.getElementsByTagName("body")[0];
@@ -505,201 +547,224 @@ else{ //load this for other pages
 
   //to load at the start of the DOM after it has been dynamically built
   // alesrt("Messenger has updated their site. The devs for MessengerPlus are working on a fix to restore functionality.\nAs of now, only the dark mode works, the + button and the rest are still being fixed. If you usually use light mode, please disable the extension for now at chrome://extension.");
-  var start = setInterval(function(){
-      console.log("Loading...");
-      loadCSS('css/Default');
-      if(document.getElementsByClassName("_6-xl _6-xm").length > 0){
+  var start = setInterval(function() {
+    console.log("Loading...");
+    loadCSS('css/Default');
+    if (document.getElementsByClassName("_6-xl _6-xm").length > 0) {
 
-        //create the light switch and its variable-holder attribute
-        var pMenuButton = create("<div><div class=\"pMenuButton\" id=\"pMenuButton\" title = \"MessengerPlus Options\"></div></div>");
-        var title = document.getElementsByClassName("_6-xl _6-xm")[0]
-        title.parentElement.insertBefore(pMenuButton, title);
+      //create the light switch and its variable-holder attribute
+      var pMenuButton = create("<div><div class=\"pMenuButton\" id=\"pMenuButton\" title = \"MessengerPlus Options\"></div></div>");
+      var title = document.getElementsByClassName("_6-xl _6-xm")[0]
+      title.parentElement.insertBefore(pMenuButton, title);
+      var pMButt = document.getElementById("pMenuButton");
+      var att_light = document.createAttribute("data-light");
+      att_light.value = "";
+      var att_click = document.createAttribute("data-clicked");
+      att_click.value = ""
+      var att_border = document.createAttribute("data-border");
+      att_border.value = ""
+      var att_private = document.createAttribute("data-private");
+      att_private.value = ""
+      var att_compact = document.createAttribute("data-compact");
+      att_compact.value = ""
+      pMButt.setAttributeNode(att_light);
+      pMButt.setAttributeNode(att_click);
+      pMButt.setAttributeNode(att_border);
+      pMButt.setAttributeNode(att_private);
+      pMButt.setAttributeNode(att_compact);
+      pMButt.setAttribute('data-clicked', 'off');
+
+      //get the original vector color values from the buttons
+      recordButtonColors();
+
+      // get the dark/light theme saved from chrome data
+      chrome.storage.sync.get({
+        light_switch: 'on'
+      }, function(data) {
+        pMButt.setAttribute('data-light', data.light_switch);
+        if (data.light_switch == 'off') {
+          loadCSS("css/DarkSkin");
+          unloadCSS("css/Default");
+          setButtonColors("#888");
+        }
+      });
+
+      //borders are default off because I like it that way
+      loadCSS("css/NoBorders");
+
+      // get the border on/off saved from chrome data
+      chrome.storage.sync.get({
+        border_switch: 'off'
+      }, function(data) {
         var pMButt = document.getElementById("pMenuButton");
-        var att_light = document.createAttribute("data-light");
-        att_light.value = "";
-        var att_click = document.createAttribute("data-clicked");
-        att_click.value = ""
-        var att_border = document.createAttribute("data-border");
-        att_border.value = ""
-        var att_private = document.createAttribute("data-private");
-        att_private.value = ""
-        var att_compact = document.createAttribute("data-compact");
-        att_compact.value = ""
-        pMButt.setAttributeNode(att_light);
-        pMButt.setAttributeNode(att_click);
-        pMButt.setAttributeNode(att_border);
-        pMButt.setAttributeNode(att_private);
-        pMButt.setAttributeNode(att_compact);
-        pMButt.setAttribute('data-clicked', 'off');
+        pMButt.setAttribute('data-border', data.border_switch);
+        if (data.border_switch == 'on') {
+          unloadCSS("css/NoBorders");
+          if (pMButt.getAttribute('data-light') == 'off')
+            loadCSS("css/DarkBorders");
+        }
+      });
 
-        //get the original vector color values from the buttons
-        recordButtonColors();
-
-        // get the dark/light theme saved from chrome data
-        chrome.storage.sync.get({light_switch: 'on'}, function(data) {
-          pMButt.setAttribute('data-light', data.light_switch);
-          if(data.light_switch == 'off'){
-            loadCSS("css/DarkSkin");
-            unloadCSS("css/Default");
-            setButtonColors("#888");
-          }
-        });
-
-        //borders are default off because I like it that way
-        loadCSS("css/NoBorders");
-
-        // get the border on/off saved from chrome data
-        chrome.storage.sync.get({border_switch: 'off'}, function(data) {
-          var pMButt = document.getElementById("pMenuButton");
-          pMButt.setAttribute('data-border', data.border_switch);
-          if(data.border_switch == 'on'){
-            unloadCSS("css/NoBorders");
-            if(pMButt.getAttribute('data-light') == 'off')
-              loadCSS("css/DarkBorders");
-          }
-        });
-
-        //get the private mode on/off saved from chrome data
-        chrome.storage.sync.get({private_switch: 'off'}, function(data) {
-          pMButt.setAttribute('data-private', data.private_switch);
-          if(data.private_switch == 'on'){
+      //get the private mode on/off saved from chrome data
+      chrome.storage.sync.get({
+        private_switch: 'off'
+      }, function(data) {
+        pMButt.setAttribute('data-private', data.private_switch);
+        if (data.private_switch == 'on') {
+          if (pMButt.getAttribute('data-light') == 'off') {
+            loadCSS('css/PrivateDark');
+          } else {
             loadCSS("css/Private");
           }
-        });
+        }
+      });
 
-        //get the compact mode on/off saved from chrome data
-        chrome.storage.sync.get({compact_switch: 'off'}, function(data) {
-          pMButt.setAttribute('data-compact', data.compact_switch);
-          if(data.compact_switch == 'on'){
-            loadCSS("css/Compact");
-          }
-        });
+      //get the compact mode on/off saved from chrome data
+      chrome.storage.sync.get({
+        compact_switch: 'off'
+      }, function(data) {
+        pMButt.setAttribute('data-compact', data.compact_switch);
+        if (data.compact_switch == 'on') {
+          loadCSS("css/Compact");
+        }
+      });
 
-        //adds click listeners for the plus menu button
-        pMButt.addEventListener("click", function(){
-          if(pMButt.getAttribute('data-clicked') == 'off'){
-            pMButt.setAttribute('data-clicked', 'on');
+      //adds click listeners for the plus menu button
+      pMButt.addEventListener("click", function() {
+        if (pMButt.getAttribute('data-clicked') == 'off') {
+          pMButt.setAttribute('data-clicked', 'on');
 
-            if(document.getElementById("pMenu") == null){
-              var url = chrome.extension.getURL("PlusMenu.html");
-              fetch(url)
-                .then(function(response) {
-                  return response.text();
-                }).then(function(myText) {
-                  var pMenu = create(myText);
-                  var pMButt = document.getElementById("pMenuButton");
-                  pMButt.parentElement.insertBefore(pMenu, pMButt);
+          if (document.getElementById("pMenu") == null) {
+            var url = chrome.extension.getURL("PlusMenu.html");
+            fetch(url)
+              .then(function(response) {
+                return response.text();
+              }).then(function(myText) {
+                var pMenu = create(myText);
+                var pMButt = document.getElementById("pMenuButton");
+                pMButt.parentElement.insertBefore(pMenu, pMButt);
 
-                  //Set the lights button clickListener
-                  var lights = document.getElementById("LightB");
-                  lights.addEventListener("click", function(){
-                    changeTheme();
-                  });
-                  if(pMButt.getAttribute('data-light') == 'off')
-                    lights.innerHTML = "Light Mode";
-
-                  //Set the borders button clickListener
-                  var borders = document.getElementById("BorderB");
-                  borders.addEventListener("click", function(){
-                    changeBorder();
-                  });
-                  if(pMButt.getAttribute('data-border') == 'on')
-                    borders.innerHTML = "Disable Borders";
-
-                  //Set the private button clickListener
-                  var privates = document.getElementById("PrivateB");
-                  privates.addEventListener("click", function(){
-                    changePrivate();
-                  });
-                  if(pMButt.getAttribute('data-private') == 'on')
-                    privates.innerHTML = "Disable Private Mode";
-
-                  //Set the compact button clickListener
-                  var compacts = document.getElementById("CompactB");
-                  compacts.addEventListener("click", function(){
-                    changeCompact();
-                  });
-                  if(pMButt.getAttribute('data-compact') == 'on')
-                    compacts.innerHTML = "Disable Compact Mode";
-
+                //Set the lights button clickListener
+                var lights = document.getElementById("LightB");
+                lights.addEventListener("click", function() {
+                  changeTheme();
                 });
-              }
-              else {
-                document.getElementById("pMenu").style.visibility = "visible";
-              }
+                if (pMButt.getAttribute('data-light') == 'off')
+                  lights.innerHTML = "Light Mode";
 
-          }
-        });
+                //Set the borders button clickListener
+                var borders = document.getElementById("BorderB");
+                borders.addEventListener("click", function() {
+                  changeBorder();
+                });
+                if (pMButt.getAttribute('data-border') == 'on')
+                  borders.innerHTML = "Disable Borders";
 
-        //other clicks closes the menu
-        document.addEventListener("click", function(){
-          if(pMButt.getAttribute('data-clicked') == 'on'){
-            pMButt.setAttribute('data-clicked', 'off');
-            if(document.getElementById("pMenu") != null)
-              document.getElementById("pMenu").style.visibility = "hidden";
-          }
-        }, true);
+                //Set the private button clickListener
+                var privates = document.getElementById("PrivateB");
+                privates.addEventListener("click", function() {
+                  changePrivate();
+                });
+                if (pMButt.getAttribute('data-private') == 'on')
+                  privates.innerHTML = "Disable Private Mode";
 
-        oncReset();
-        console.log("Loaded");
+                //Set the compact button clickListener
+                var compacts = document.getElementById("CompactB");
+                compacts.addEventListener("click", function() {
+                  changeCompact();
+                });
+                if (pMButt.getAttribute('data-compact') == 'on')
+                  compacts.innerHTML = "Disable Compact Mode";
 
-        //chatcolortest
-        // loadCSS("ChatColor");
-        // changeChatColor("#384712");
-
-        //the mutation observer for changing active convos
-        window.link = window.location.href;
-        window.ob = new MutationObserver(function() {
-          setTimeout(function(){embedVideos();}, 500);
-          classChanged();
-          if(document.getElementById("pMenuButton").getAttribute('data-light') == 'off'){
-            recordButtonColors();
-            setButtonColors("#aaa");
-            setTimeout(function(){setThumbsups("aaa");}, 500);
-          }
-        });
-        var act = document.getElementsByClassName("_1ht2")[0];
-        window.ob.observe(act, {
-          attributes: true,
-          attributeFilter: ["class"]
-        });
-
-        //getting the list of pinned convos from chrome storage
-        chrome.storage.sync.get({pinlist: ''}, function(data) {
-          var pinnedList = data.pinlist.trim().split(" ");
-          // console.log(pinnedList); //Debug Purposes
-          pinAll(pinnedList);
-        });
-
-        //the mutation observer for new messages
-        window.ob2 = new MutationObserver(function() {
-          setTimeout(function(){embedVideos();}, 1000);
-          if(document.getElementById("pMenuButton").getAttribute('data-light') == 'off'){
-            recordButtonColors();
-            setThumbsups("#aaa");
-          }
-        });
-
-        //implementing the observe for ob2
-        var videm = setInterval(function(){
-            if(document.getElementsByClassName("_2k8v")[0] != null){
-              window.ob2.observe(document.getElementsByClassName("_2k8v")[0].nextSibling ,{
-                childList: true,
-                subtree: true
               });
-              clearInterval(videm);
-            }
-        }, 100);
+          } else {
+            document.getElementById("pMenu").style.visibility = "visible";
+          }
 
-        // start the youtube replacements
-        window.vList = document.getElementsByClassName("_5i_d");
-        setTimeout(function(){embedVideos();}, 500);
+        }
+      });
 
-        //setting some CSS and reset functions
-        document.getElementsByClassName("_5l-3 _1ht1")[0].parentElement.style.cssText = "display: flex !important; flex-direction: column !important;";
-        document.getElementsByClassName("uiScrollableAreaWrap scrollable")[0].onscroll = function(){oncReset();};
+      //other clicks closes the menu
+      document.addEventListener("click", function() {
+        if (pMButt.getAttribute('data-clicked') == 'on') {
+          pMButt.setAttribute('data-clicked', 'off');
+          if (document.getElementById("pMenu") != null)
+            document.getElementById("pMenu").style.visibility = "hidden";
+        }
+      }, true);
 
-        clearInterval(start);
-      }
+      oncReset();
+      console.log("Loaded");
+
+      //chatcolortest
+      // loadCSS("ChatColor");
+      // changeChatColor("#384712");
+
+      //the mutation observer for changing active convos
+      window.link = window.location.href;
+      window.ob = new MutationObserver(function() {
+        setTimeout(function() {
+          embedVideos();
+        }, 500);
+        classChanged();
+        if (document.getElementById("pMenuButton").getAttribute('data-light') == 'off') {
+          recordButtonColors();
+          setButtonColors("#aaa");
+          setTimeout(function() {
+            setThumbsups("aaa");
+          }, 500);
+        }
+      });
+      var act = document.getElementsByClassName("_1ht2")[0];
+      window.ob.observe(act, {
+        attributes: true,
+        attributeFilter: ["class"]
+      });
+
+      //getting the list of pinned convos from chrome storage
+      chrome.storage.sync.get({
+        pinlist: ''
+      }, function(data) {
+        var pinnedList = data.pinlist.trim().split(" ");
+        // console.log(pinnedList); //Debug Purposes
+        pinAll(pinnedList);
+      });
+
+      //the mutation observer for new messages
+      window.ob2 = new MutationObserver(function() {
+        setTimeout(function() {
+          embedVideos();
+        }, 1000);
+        if (document.getElementById("pMenuButton").getAttribute('data-light') == 'off') {
+          recordButtonColors();
+          setThumbsups("#aaa");
+        }
+      });
+
+      //implementing the observe for ob2
+      var videm = setInterval(function() {
+        if (document.getElementsByClassName("_2k8v")[0] != null) {
+          window.ob2.observe(document.getElementsByClassName("_2k8v")[0].nextSibling, {
+            childList: true,
+            subtree: true
+          });
+          clearInterval(videm);
+        }
+      }, 100);
+
+      // start the youtube replacements
+      window.vList = document.getElementsByClassName("_5i_d");
+      setTimeout(function() {
+        embedVideos();
+      }, 500);
+
+      //setting some CSS and reset functions
+      document.getElementsByClassName("_5l-3 _1ht1")[0].parentElement.style.cssText = "display: flex !important; flex-direction: column !important;";
+      document.getElementsByClassName("uiScrollableAreaWrap scrollable")[0].onscroll = function() {
+        oncReset();
+      };
+
+      clearInterval(start);
+    }
   }, 1000); //before DOM is dynamically loaded, check every second
 }
