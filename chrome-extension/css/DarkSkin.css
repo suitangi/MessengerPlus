@@ -1,17 +1,22 @@
 @namespace url(http://www.w3.org/1999/xhtml);
+
 /* #141823 is Messenger's normal text colour, white is normal background colour */
 /* #1E1E1E and #2D2D30 are Visual Studio, don't ask */
-
 b, strong {
-    font-weight: 600 !important;
+  font-weight: 600 !important;
 }
 
 /* hot fixes */
-._8slc {
-    color: rgba(220, 220, 220, 1) !important;
+/* remove own message confirmation */
+._7492 {
+  color: rgba(255, 255, 255, .5) !important;
 }
 
-._7ht_{
+._8slc {
+  color: rgba(220, 220, 220, 1) !important;
+}
+
+._7ht_ {
   color: rgba(255, 255, 255, .40) !important;
 }
 
@@ -20,28 +25,31 @@ b, strong {
 }
 
 ._3mtr ._4qcs {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
 
-._6-xo, ._7q1q{
-    color: #888 !important;
-    font-weight: 500 !important;
+._6-xo, ._7q1q {
+  color: #888 !important;
+  font-weight: 500 !important;
 }
+
 ._80co {
-    border-radius: 60px !important;
+  border-radius: 60px !important;
 }
 
 ._1p1t, ._2mjm {
-    color: #a5a5a5!important;
-    -webkit-text-fill-color: #a5a5a5 !important;
+  color: #a5a5a5 !important;
+  -webkit-text-fill-color: #a5a5a5 !important;
 }
+
 ._3egs {
-    background: #282828 !important;
+  background: #282828 !important;
 }
 
 ._7301._hh7, ._7301._hh7._hh7._6ybn {
-    background-color: #3d3d3d;
+  background-color: #3d3d3d;
 }
+
 /*smaller font weight */
 ._li,
 ._1enh,
@@ -55,53 +63,54 @@ b, strong {
 ._50f7,
 ._2pir,
 ._1lj0 {
-    font-weight: 300 !important;
+  font-weight: 300 !important;
 }
 
 ::-webkit-scrollbar {
-    display: none!important;
+  display: none !important;
 }
 
-.uiScrollableAreaBody{
+.uiScrollableAreaBody {
   margin-right: 0px !important;
 }
+
 /*
 .uiScrollableArea.fade .uiScrollableAreaWrap {
     margin-right: -30px !important;
 }
 */
-
-
 h2,
 h3,
 h4,
 h5,
 h6 {
-    color: #eee!important;
+  color: #eee !important;
 }
+
 ._5743,
 ._4rph ._4rpj {
-    color: white !important;
+  color: white !important;
 }
+
 label {
-    color: #aaa!important;
+  color: #aaa !important;
 }
 
 /*MessengerPlus Functions*/
 .video-container {
-	position:relative;
-	padding-bottom:56.25%;
-	padding-top:30px;
-	height:0;
-	overflow:hidden;
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
 }
 
 .video-container iframe, .video-container object, .video-container embed {
-	position:absolute;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .pMenuButton {
@@ -116,23 +125,23 @@ label {
   cursor: pointer !important;
 }
 
-.pinsym{
+.pinsym {
   position: absolute !important;
-  top:19px !important;
+  top: 19px !important;
   right: 32px !important;
   font-size: 18px !important;
   opacity: 0.2 !important;
-  filter:saturate(0) brightness(40) !important;
+  filter: saturate(0) brightness(40) !important;
   animation-duration: 0s !important;
 }
 
-.pinsym{
+.pinsym {
   position: absolute;
-  top:19px;
+  top: 19px;
   right: 32px;
   font-size: 18px;
   opacity: 0.2;
-  filter:saturate(0) brightness(0);
+  filter: saturate(0) brightness(0);
   animation-duration: 0s !important;
 }
 
@@ -148,7 +157,7 @@ label {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.plusMenuOptions{
+.plusMenuOptions {
   background-color: #333;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -170,8 +179,7 @@ label {
   color: #fff;
 }
 
-
-.tshadow{
+.tshadow {
   width: 0;
   height: 0;
   position: absolute;
@@ -181,15 +189,17 @@ label {
   border-right: 9px solid transparent;
   border-bottom: 9px solid #333;
 }
-.triangle{
-    border-left: 8px solid transparent !important;
-    border-right: 8px solid transparent !important;
-    border-bottom: 8px solid #333;
-    position: absolute;
-    left: -8px;
-    top: 1px;
+
+.triangle {
+  border-left: 8px solid transparent !important;
+  border-right: 8px solid transparent !important;
+  border-bottom: 8px solid #333;
+  position: absolute;
+  left: -8px;
+  top: 1px;
 }
-.divider{
+
+.divider {
   border-bottom: 1px solid rgba(0, 0, 0, .05);
   margin: 6px 0;
   cursor: default !important;
@@ -197,8 +207,9 @@ label {
 
 /*typing animation box*/
 ._4gd0 {
-    background-color: #282828 !important;
+  background-color: #282828 !important;
 }
+
 /* convo search box, to field (new message, add people), other inputs? */
 ._2y8y,
 ._2y8_,
@@ -206,16 +217,19 @@ label {
 ._55r1,
 ._2pgc,
 ._3rh0 ._26ly {
-    background-color: #2d2d30 !important;
-    color: white !important;
+  background-color: #2d2d30 !important;
+  color: white !important;
 }
+
 /* I hate placeholder styling */
 input::-moz-placeholder {
-    color: #ccc !important;
+  color: #ccc !important;
 }
+
 input::-webkit-input-placeholder {
-    color: #888 !important;
+  color: #888 !important;
 }
+
 /*images border */
 ._3m31 {
   border-color: #1d2129 !important;
@@ -223,20 +237,23 @@ input::-webkit-input-placeholder {
 
 /* main wrapper */
 ._4sp8 {
-    background-color: #282828 !important;
-    color: #eee!important;
+  background-color: #282828 !important;
+  color: #eee !important;
 }
+
 /* detail wrapper */
 ._1q5- {
-    border-left-color: rgba(255, 255, 255, .1) !important;
+  border-left-color: rgba(255, 255, 255, .1) !important;
 }
+
 /* receipient/convo name in top bar */
 ._17w2 {
-    color: white !important;
+  color: white !important;
 }
+
 /* thread search */
 ._33p7 {
-    background-color: rgba(30, 30, 30, 0.9) !important;
+  background-color: rgba(30, 30, 30, 0.9) !important;
 }
 
 /* chat area stuff */
@@ -244,163 +261,198 @@ input::-webkit-input-placeholder {
 ._llq,
 ._36zg,
 ._1n-e._36zg {
-    color: #eee !important;
+  color: #eee !important;
 }
+
 /*block quotes*/
-._pye{
-    color: rgba(255, 255, 255, .3) !important;
+._pye {
+  color: rgba(255, 255, 255, .3) !important;
 }
-._pyf{
+
+._pyf {
   background-color: rgba(255, 255, 255, .3) !important;
 }
 
 /* message */
 ._29_7 ._hh7,
 ._29_7._-5k ._hh7 {
-    background-color: #333333!important;
+  background-color: #333333 !important;
 }
+
 .__6j._43kk {
-    border-bottom: 6px solid #333333!important;
-    border-left: 10px solid #3333!important;
-    border-right: 10px solid #333!important;
-    border-top: 6px solid #333333!important;
+  border-bottom: 6px solid #333333 !important;
+  border-left: 10px solid #3333 !important;
+  border-right: 10px solid #333 !important;
+  border-top: 6px solid #333333 !important;
 }
 
 /* reactions counts */
 ._koh {
-    border-color: #333333 !important;
+  border-color: #333333 !important;
 }
+
 ._koh li {
-    color: #aaa !important;
+  color: #aaa !important;
 }
 
 /* quoted messages */
-.ellipsis, .direction_ltr{
-    color: #a5a5a5 !important;
+.ellipsis, .direction_ltr {
+  color: #a5a5a5 !important;
 }
 
 ._4_j4 {
-    background-color: #282828!important;
+  background-color: #282828 !important;
 }
+
 ._29_7 ._hh7,
-._pyf{
-    color: #a5a5a5!important;
+._pyf {
+  color: #a5a5a5 !important;
 }
+
 ._hh7 a {
-    color: inherit !important;
+  color: inherit !important;
 }
+
 ._hh7._aol {
-    border-color: transparent !important;
+  border-color: transparent !important;
 }
+
 ._29_7 ._hh7:active,
 ._-5k ._hh7,
-._29_7 ._hh7 > span > a:hover {
-    background-color: #333!important;
+._29_7 ._hh7>span>a:hover {
+  background-color: #333 !important;
 }
+
 /* own message */
-._o46._nd_ ._hh7{
-    background-color: #474747;
-    color: #f4f4f4 !important;
+._o46._nd_ ._hh7 {
+  background-color: #474747;
+  color: #f4f4f4 !important;
 }
+
 /* block quotes */
 ._pye {
-    color: #ddd !important;
+  color: #ddd !important;
 }
+
 ._o46._nd_ ._hh7:active,
 ._o46._nd_._-5k ._hh7 {
-    background-color: #3d3d3d!important;
+  background-color: #3d3d3d !important;
 }
+
 /* emoji-only messages */
 ._hh7._2f5r,
 ._-5k ._hh7._2f5r {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
+
 /* reactions */
 ._aou {
-    background-color: #333 !important;
+  background-color: #333 !important;
 }
+
 ._4kf5 {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
+
 /* link info, platform attachment, game leaderboard */
 ._5i_d,
 ._5ssp,
 ._4ea2 {
-    border-color: rgba(255, 255, 255, .1) !important;
+  border-color: rgba(255, 255, 255, .1) !important;
 }
+
 .__6k,
 .__6l,
 ._5sr2 {
-    color: #ddd !important;
+  color: #ddd !important;
 }
-._4u4_ > h3,
+
+._4u4_>h3,
 ._4u4- {
-    color: #eee !important;
+  color: #eee !important;
 }
+
 /* group polling */
 ._3b4u {
-    color: #ddd !important;
+  color: #ddd !important;
 }
+
 ._3b4h {
-    background-color: #2d2d30 !important;
+  background-color: #2d2d30 !important;
 }
+
 ._58al {
-    background-color: rgba(0, 0, 0, 0) !important;
-    color: #ccc !important;
+  background-color: rgba(0, 0, 0, 0) !important;
+  color: #ccc !important;
 }
+
 ._5jn1 {
-    color: #eee !important;
+  color: #eee !important;
 }
+
 ._9fw {
-    background-color: rgba(0, 0, 0, .09) !important;
+  background-color: rgba(0, 0, 0, .09) !important;
 }
+
 /* polling message dialog */
 ._1mr_,
 ._1mq- {
-    color: #ddd !important;
+  color: #ddd !important;
 }
+
 /* carousel arrow */
 ._5x5z,
 ._5agg,
 ._5agi {
-    background-color: #2d2d30 !important;
-    border-color: #444 !important;
+  background-color: #2d2d30 !important;
+  border-color: #444 !important;
 }
+
 /* audio message */
 ._29_7 ._3czg ._2e-7 ._2e-1,
 ._29_7 ._3czg ._2e-7 ._2e-2 {
-    background-color: #444 !important;
+  background-color: #444 !important;
 }
+
 ._454y ._1mi- {
-    background-color: #2d2d30 !important;
+  background-color: #2d2d30 !important;
 }
+
 ._454y ._1mj0 {
-    background-color: #666 !important;
+  background-color: #666 !important;
 }
+
 ._454y ._1mj1 {
-    border-color: #666 !important;
+  border-color: #666 !important;
 }
+
 /* media (e.g. GIFs) source */
 ._2f5n {
-    background-color: #2d2d30 !important;
+  background-color: #2d2d30 !important;
 }
+
 ._2f5n ._29ey {
-    color: #ccc !important;
+  color: #ccc !important;
 }
+
 /* delete bubble button */
 ._hw2 ._53ij {
-    background-color: #040404 !important;
+  background-color: #040404 !important;
 }
+
 /* composer */
 ._4rv3, ._5irm._7mkm {
-    background-color: #282828 !important;
+  background-color: #282828 !important;
 }
+
 ._7kpk {
-    background-color: rgba(255, 255, 255, .08) !important;
+  background-color: rgba(255, 255, 255, .08) !important;
 }
+
 ._5rpb, ._5rpu {
-    color: #a5a5a5!important;
+  color: #a5a5a5 !important;
 }
+
 /* make static stickers slightly more readable */
 /*
 ._2poz[style*="sticker"] {
@@ -410,22 +462,24 @@ input::-webkit-input-placeholder {
 */
 /* messenger thumb up stickers */
 ._576q {
-    filter: brightness(75%)!important;
+  filter: brightness(75%) !important;
 }
+
 /* facebook-removed messages et al */
 ._4sp8 .uiBoxYellow {
-    background-color: #662!important;
+  background-color: #662 !important;
 }
+
 /* code bubbles */
 ._wu0 {
-    background-color: #181818 !important;
-    border-color: #282828 !important;
+  background-color: #181818 !important;
+  border-color: #282828 !important;
 }
 
 /* convo info, user list */
 ._4_j5,
 ._5l37 {
-    background-color: #282828 !important;
+  background-color: #282828 !important;
 }
 
 /* convo name, mute label, user in user list, section headings */
@@ -436,376 +490,438 @@ input::-webkit-input-placeholder {
 ._3szq,
 ._364g,
 ._1lj0 {
-    color: #ddd !important;
+  color: #ddd !important;
 }
 
 /* person name */
 ._3oh- a {
-    color: #ddd !important;
+  color: #ddd !important;
 }
 
 /* convo list */
 ._li ._1enh {
-    /* fix convo list hiders */
-    background-color: #282828!important;
+  /* fix convo list hiders */
+  background-color: #282828 !important;
 }
+
 ._1ht1:hover {
-    background-color: #262626 !important;
+  background-color: #262626 !important;
 }
+
 /* inactive convo */
 ._1ht1 {
-    background-color: #282828 !important;
+  background-color: #282828 !important;
 }
+
 /* unread convo */
 ._1ht1._1ht3 {
-    background-color: #383838!important;
-    transition: background-color .5s!important;
+  background-color: #383838 !important;
+  transition: background-color .5s !important;
 }
+
 /* active convo */
 ._1ht1._1ht2 {
-    background-color: #303030 !important;
+  background-color: #303030 !important;
 }
+
 /* convo name */
 ._1ht6,
 ._3q34 {
-    color: #eee !important;
+  color: #eee !important;
 }
 
 /* group chat icon dps */
 ._57pl,
 ._57pm {
-    border-color: transparent !important;
+  border-color: transparent !important;
 }
+
 /*groupchat icon rings */
 ._7q1i, ._7q0v, ._7q1m, ._7q1n, ._7q1l {
   border-color: rgba(255, 255, 255, 0) !important;
 }
+
 /* groupchat icon + more */
-._7q1p{
+._7q1p {
   background-color: rgba(255, 255, 255, .05) !important;
   border-color: rgba(255, 255, 255, 0) !important;
 }
 
 /* message request from */
 ._2kt ._5nxb {
-    color: #ddd !important;
+  color: #ddd !important;
 }
+
 /* timestamp */
 ._1ht7.timestamp {
-    color: #999!important;
+  color: #999 !important;
 }
+
 ._1ht3 ._1ht7 {
-    color: #efefef !important;
+  color: #efefef !important;
 }
+
 /* convo new message */
 ._1ht3 ._1htf {
-    color: #ddd !important;
+  color: #ddd !important;
 }
+
 /* search header */
 ._5t4c,
 ._225b {
-    background-color: #282828 !important;
+  background-color: #282828 !important;
 }
+
 ._3rh8 {
-    background-color: #282828
+  background-color: #282828
 }
+
 /* search keyboard selection */
 ._1k1p {
-    background-color: #282828 !important;
+  background-color: #282828 !important;
 }
+
 /* people list self online status */
 ._1u5d {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
+
 /* people list section tabs */
 ._2lp- {
-    border-color: #0066aa !important;
+  border-color: #0066aa !important;
 }
+
 ._48uj {
-    background-color: #0066aa !important;
+  background-color: #0066aa !important;
 }
 
 /* those menus, stickers, and emoji though */
 ._53ij,
 ._54nf,
 ._293j {
-    background-color: #333 !important;
+  background-color: #333 !important;
 }
+
 ._5r8a._5r8b,
 ._1uwz {
-    background-color: #222 !important;
+  background-color: #222 !important;
 }
+
 ._2i-c ._54nf ._54nh {
-    color: #ddd !important;
+  color: #ddd !important;
 }
+
 ._2i-c ._54ne ._54nh,
 ._2i-c ._54ne ._54nc,
 ._2i-c ._54ne {
-    background-color: #505050 !important;
+  background-color: #505050 !important;
 }
+
 /* more stickers */
 ._5r8e,
 ._5r86,
 ._37wu,
 ._37wv {
-    border-color: #222!important;
+  border-color: #222 !important;
 }
+
 ._eb3::before {
-    background-color: #222!important;
+  background-color: #222 !important;
 }
+
 ._3mts .uiScrollableArea.contentAfter::after,
 ._5r8l .uiScrollableArea.contentAfter::after {
-    background-image: linear-gradient(transparent, #333)!important;
+  background-image: linear-gradient(transparent, #333) !important;
 }
+
 /* sticker and games buttons */
 ._4rv6,
 ._4ce_,
 ._2t5t {
-    filter: invert(1)!important;
-    opacity: .6 !important;
+  filter: invert(1) !important;
+  opacity: .6 !important;
 }
+
 /* top left buttons */
 ._4kzu,
 ._30yy._2oc8 {
-    filter: saturate(0%) brightness(150%)!important;
+  filter: saturate(0%) brightness(150%) !important;
 }
+
 ._cks ._2t5q ._2t5r {
-    filter: saturate(0%) brightness(150%)!important;
+  filter: saturate(0%) brightness(150%) !important;
 }
 
 /* menu dropdown triangles */
 ._53ik ._53io,
 ._53il ._53io {
-    filter: brightness(20%)!important;
+  filter: brightness(20%) !important;
 }
+
 /* delivery indicators */
 ._3i_m ._9ah ._57e_ {
-    color: #1e1e1e !important;
+  color: #1e1e1e !important;
 }
+
 /* misc icons */
 ._fl3:not(._20nb),
 ._4-0h,
 ._57gs,
-label > input + span::before {
-    filter: brightness(80%)!important;
+label>input+span::before {
+  filter: brightness(80%) !important;
 }
+
 ._5iwm ._58ak::before,
 ._23ct,
 ._2xme,
-:not(._3no3) > ._uwa,
+:not(._3no3)>._uwa,
 ._5jdr ._5jds,
 ._5nxe .img {
-    filter: invert(1)!important;
+  filter: invert(1) !important;
 }
+
 /* camera */
 ._3quh {
-    color: #eee !important;
+  color: #eee !important;
 }
-
-
 
 /* pay */
 ._49no,
 ._2abm,
 ._2z8r,
 ._5exl {
-    background-color: #333333 !important;
-    border-color: #333333 !important;
+  background-color: #333333 !important;
+  border-color: #333333 !important;
 }
+
 ._4uvi {
-    border-color: #282828 !important;
+  border-color: #282828 !important;
 }
+
 ._50c_ {
-    background-color: #999999 !important;
+  background-color: #999999 !important;
 }
+
 ._50cx {
-    color: #999999 !important;
+  color: #999999 !important;
 }
+
 ._50cy {
-    color: #eee !important;
+  color: #eee !important;
 }
+
 ._1-sv,
 ._1-sz::before {
-    color: #aaa !important;
+  color: #aaa !important;
 }
+
 ._5fbv {
-    color: #eee !important;
+  color: #eee !important;
 }
+
 ._39r6,
 ._39r7 {
-    color: #aaa !important;
+  color: #aaa !important;
 }
+
 /* messenger dialogs, very important */
 ._4-hz,
 ._4eby,
 ._4jgp ._4jgu {
-    background-color: #222 !important;
+  background-color: #222 !important;
 }
+
 ._374c,
 ._4jgs,
 ._2c9i ._19jt,
-._51l0 .uiInputLabel .__rm + .uiInputLabelLabel,
+._51l0 .uiInputLabel .__rm+.uiInputLabelLabel,
 ._5raa,
 ._5rab {
-    color: #ddd !important;
+  color: #ddd !important;
 }
+
 /* chat emoji picker: selected emoji */
 ._-lj ._4rlt {
-    background-color: #333 !important;
-    border-color: #666 !important;
+  background-color: #333 !important;
+  border-color: #666 !important;
 }
+
 /* report issue dialog, even more so */
 /* dialog head */
 ._4-i0 {
-    background-color: #333 !important;
-    border-bottom-color: #2e2e2e!important;
+  background-color: #333 !important;
+  border-bottom-color: #2e2e2e !important;
 }
+
 /* dialog heading, checkbox label */
 ._4-i0 ._52c9,
 ._5r5c ._5rq_,
 ._uvt {
-    color: #ddd !important;
+  color: #ddd !important;
 }
+
 /* dialog body, footer */
 div._4-i2,
 div._5a8u,
 ._4t2a {
-    background-color: #222 !important;
-    color: #eee!important;
+  background-color: #222 !important;
+  color: #eee !important;
 }
+
 /* what about normal facebook dialogs? */
 ._t {
-    background-color: #222 !important;
-    color: #eee!important;
+  background-color: #222 !important;
+  color: #eee !important;
 }
+
 .fcb {
-    color: white !important;
+  color: white !important;
 }
+
 ._c24 {
-    color: #ccc !important;
+  color: #ccc !important;
 }
+
 .uiBoxGray {
-    background-color: #333 !important;
-    border-color: #2e2e2e!important;
+  background-color: #333 !important;
+  border-color: #2e2e2e !important;
 }
+
 #captcha .captcha_refresh {
-    color: lightgrey !important;
+  color: lightgrey !important;
 }
 
 /* login page */
 ._3v_p,
 ._3v_o {
-    background-color: #222 !important;
+  background-color: #222 !important;
 }
+
 ._3v_p ._5hy4,
 ._3v_o ._5hy4 {
-    color: #eee !important;
+  color: #eee !important;
 }
+
 ._3v_p ._43di,
 ._3v_o ._43di,
 ._3v_p ._3403,
 ._3v_o ._3403 {
-    color: #ddd !important;
+  color: #ddd !important;
 }
+
 ._3v_p ._210j ._43dj .uiInputLabelLabel,
 ._59h8,
 ._3v_p ._59h7 ._5hy9 {
-    color: #aaa !important;
+  color: #aaa !important;
 }
+
 ._3v_p ._3v_w ._2m_r,
 ._3v_p ._5s4n ._2m_r {
-    background-color: #0066aa !important;
+  background-color: #0066aa !important;
 }
 
 /* call page */
 ._17cj,
 ._17cj ._3jne {
-    background-color: #1e1e1e !important;
+  background-color: #1e1e1e !important;
 }
+
 ._17cj ._3jnu,
 ._17cj ._3jnv {
-    color: rgba(255, 255, 255, .4) !important;
+  color: rgba(255, 255, 255, .4) !important;
 }
+
 ._17cj ._4j_k {
-    color: #eee !important;
+  color: #eee !important;
 }
+
 ._2615 {
-    background-color: #343434!important;
-    color: #999999!important;
+  background-color: #343434 !important;
+  color: #999999 !important;
 }
+
 /* games menu edit */
 ._4lh7 {
-    margin: 0px!important;
-    padding: 13px 10px 10px 10px!important;
-    background-color: #282828!important;
-    color: rgba(255, 255, 255, .6)!important;
+  margin: 0px !important;
+  padding: 13px 10px 10px 10px !important;
+  background-color: #282828 !important;
+  color: rgba(255, 255, 255, .6) !important;
 }
+
 ._4lh2 {
-    background-color: #282828!important;
-    border-bottom: 0px!important;
+  background-color: #282828 !important;
+  border-bottom: 0px !important;
 }
+
 ._4lha ._4lhb {
-    color: rgba(255, 255, 255, .6)!important;
+  color: rgba(255, 255, 255, .6) !important;
 }
+
 ._3rh0 {
-    background-color: #282828!important;
+  background-color: #282828 !important;
 }
 
 /* plan */
 ._3wb1,
 ._3war,
 ._3wax {
-    border-color: #333333!important;
+  border-color: #333333 !important;
 }
+
 ._3nta {
-    background-color: #282828!important;
-    border: 0px
+  background-color: #282828 !important;
+  border: 0px
 }
+
 ._3nta :hover {
-    background-color: #282828!important;
-    border: 0px!important;
-    cursor: pointer!important;
+  background-color: #282828 !important;
+  border: 0px !important;
+  cursor: pointer !important;
 }
+
 ._2n3v {
-    background-color: #282828!important;
-    border: 0px!important;
-    padding: 0px!important;
+  background-color: #282828 !important;
+  border: 0px !important;
+  padding: 0px !important;
 }
+
 ._2n3v :hover {
-    background-color: #282828!important;
-    border: 0px!important;
-    padding: 0px!important;
+  background-color: #282828 !important;
+  border: 0px !important;
+  padding: 0px !important;
 }
 
 ._2mes._3smo ._3smp,
 ._5pw9,
 ._36ic {
-    color: rgba(255, 255, 255, 0) !important;
-    background-color: rgba(255, 255, 255, 0) !important;
+  color: rgba(255, 255, 255, 0) !important;
+  background-color: rgba(255, 255, 255, 0) !important;
 }
+
 ._5pwa,
 ._5pw6,
 ._4x79 {
-    color: rgba(255, 255, 255, .6) !important;
+  color: rgba(255, 255, 255, .6) !important;
 }
 
 ._4t2a {
-    border-radius: 0px!important;
+  border-radius: 0px !important;
 }
-
 
 /*get rid of unwanted borders and margins */
 ._2pgc,
 ._54ng {
-    border: 0px !important;
+  border: 0px !important;
 }
+
 ._5r8a._5qcj,
 ._5r8a._5qck {
-    width: 40px!important;
+  width: 40px !important;
 }
+
 ._3-s_ {
-    margin-left: 3px!important;
-    margin-top: 5px!important;
+  margin-left: 3px !important;
+  margin-top: 5px !important;
 }
 
 /* stuff that should be grey */
@@ -846,5 +962,5 @@ div._5a8u,
 ._4x7b,
 ._2mjl,
 ._6cs7 {
-    color: rgba(255, 255, 255, .6) !important;
+  color: rgba(255, 255, 255, .6) !important;
 }
