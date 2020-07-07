@@ -76,6 +76,7 @@ Please email suitangi778@gmail.com for suggestions, comments or concerns!
 
 ## Change-Log
 ```
+‣ 2.3.1 Small bug fix for Twitch Embed and DarkMode colors.
 ‣ 2.3.0 New private mode: updated animations and placeholders
 ‣ 2.2.7 Small UI patch for groupchat icons and some color changes.
 ‣ 2.2.6 Large update for the DarkMode of vector graphics from Facebook.
