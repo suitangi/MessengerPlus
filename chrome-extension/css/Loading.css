@@ -13,7 +13,7 @@ body{
   opacity: 1;
 }
 #loadtext{
-  background-color: rgba(255,255,255,0) !important;
+  background-color: rgba(255, 255, 255, 0) !important;
   color: rgba(255,255,255,0.7);
   position:relative;
   font-size: 24px;

@@ -1,8 +1,8 @@
 {
   "name": "MesssengerPlus",
-  "version": "2.3.1",
+  "version": "3.0.0",
   "short_name": "Messenger+",
-  "description": "An extension that provides additional functionality and visual modes for www.messenger.com.",
+  "description": "An extension that provides different color modes, pinning functionality, and video embeds for www.messenger.com.",
   "manifest_version": 2,
   "permissions": ["*://www.messenger.com/*", "storage"],
   "icons": {

@@ -327,11 +327,6 @@ function classChanged() {
   });
 }
 
-//Set the chat color to the color passed into the parameter
-function changeChatColor(col) {
-  document.documentElement.style.setProperty("--chat-color", col);
-}
-
 //toggles themes between dark and light
 function changeTheme() {
   var lights = document.getElementById("LightB");
@@ -695,10 +690,6 @@ if (window.location.href.includes("messenger.com/videocall/")) { //load this for
 
       oncReset();
       console.log("Loaded");
-
-      //chatcolortest
-      // loadCSS("ChatColor");
-      // changeChatColor("#384712");
 
       //the mutation observer for changing active convos
       window.link = window.location.href;
